@@ -329,49 +329,59 @@
     <div class="formulario">
         <h3>Registrar Acceso</h3>
 
-        <form>
+        <form action="altas.html" method="POST" class="mi-formulario">
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>ID Paciente</label>
-                <input type="number" required>
+                <input type="number" name="id_paciente" required>
             </div>
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Nombre</label>
-                <input type="text" required>
+                <input type="text" name="nombre" required>
             </div>
 
-            <div class="grupo-formulario">
-                <label>Fecha Ingreso</label>
-                <input type="date" required>
+            <div class="grupo-formulario campo-form">
+                <label>CURP</label>
+                <input type="text" name="curp" required>
             </div>
 
-            <div class="grupo-formulario">
-                <label>Motivo</label>
-                <input type="text" required>
+            <div class="grupo-formulario campo-form">
+                <label>Fecha Nacimiento</label>
+                <input type="text" name="fecha_nacimiento" required>
             </div>
 
-            <div class="grupo-formulario">
-                <label>Tipo de Atención</label>
-                <input type="text" required>
+            <div class="grupo-formulario campo-form">
+                <label>Sexo</label>
+                <input type="text" name="sexo" required>
             </div>
 
-            <div class="grupo-formulario">
-                <label>Diagnóstico</label>
-                <input type="text" required>
+            <div class="grupo-formulario campo-form">
+                <label>Tipo de Sangre</label>
+                <input type="text" name="tipo_sangre" required>
             </div>
 
-            <div class="grupo-formulario">
-                <label>Fecha Alta</label>
-                <input type="date">
+            <div class="grupo-formulario campo-form">
+                <label>Teléfono</label>
+                <input type="number" name="telefono" required>
             </div>
 
-            <div class="grupo-formulario">
-                <label>Observaciones</label>
-                <input type="text">
+            <div class="grupo-formulario campo-form">
+                <label>Correo Electrónico</label>
+                <input type="email" name="correo_electronico" required>
             </div>
 
-            <button type="submit" class="btn-submit">
+            <div class="grupo-formulario campo-form">
+                <label>Dirección</label>
+                <input type="text" name="direccion" required>
+            </div>
+
+            <div class="grupo-formulario campo-form">
+                <label>Edad</label>
+                <input type="number" name="edad" required>
+            </div>
+
+            <button type="submit" class="btn-submit btn-guardar">
                 Registrar Acceso
             </button>
 
@@ -385,12 +395,14 @@
                     <tr>
                         <th>ID Paciente</th>
                         <th>Nombre</th>
-                        <th>Fecha Ingreso</th>
-                        <th>Motivo</th>
-                        <th>Tipo de Atención</th>
-                        <th>Diagnóstico</th>
-                        <th>Fecha Alta</th>
-                        <th>Observaciones</th>
+                        <th>CURP</th>
+                        <th>Fecha Nacimiento</th>
+                        <th>Sexo</th>
+                        <th>Tipo de Sangre</th>
+                        <th>Teléfono</th>
+                        <th>Correo Electrónico</th>
+                        <th>Dirección</th>
+                        <th>Edad</th>
                     </tr>
                 </thead>
 
@@ -398,35 +410,119 @@
 
                     <tr>
                         <td>002</td>
-                        <td>Maria Ortiz</td>
-                        <td>12/02/2026</td>
-                        <td>Dolor torácico</td>
-                        <td>Urgencias</td>
-                        <td>Angina leve</td>
-                        <td>-</td>
-                        <td>En observación</td>
+                        <td>Maria Guadalupe Ortiz López</td>
+                        <td>OILM850622MDFTRR04</td>
+                        <td>22/06/1985</td>
+                        <td>Femenino</td>
+                        <td>A-</td>
+                        <td>5552023345</td>
+                        <td>maria.ortiz@gmail.com</td>
+                        <td>Av. Reforma #1208</td>
+                        <td>40</td>
                     </tr>
 
                     <tr>
                         <td>003</td>
-                        <td>Jorge Cruz</td>
-                        <td>14/02/2026</td>
-                        <td>Accidente automovilístico</td>
-                        <td>Urgencias</td>
-                        <td>Contusión</td>
-                        <td>15/02/2026</td>
-                        <td>Reposo 5 días</td>
+                        <td>Jorge Alberto Cruz Hernández</td>
+                        <td>CUHJ780911HDFRRR08</td>
+                        <td>11/09/1978</td>
+                        <td>Masculino</td>
+                        <td>B+</td>
+                        <td>5553034456</td>
+                        <td>jorge.cruz@gmail.com</td>
+                        <td>Calle Morelos #78</td>
+                        <td>47</td>
                     </tr>
 
                     <tr>
                         <td>004</td>
-                        <td>Sofia Martinez</td>
-                        <td>15/02/2026</td>
-                        <td>Crisis asmática</td>
-                        <td>Hospitalización</td>
-                        <td>Broncoespasmo</td>
-                        <td>-</td>
-                        <td>Uso de inhalador</td>
+                        <td>Sofia Martinez Vargas</td>
+                        <td>MAVS200710MDFRRG02</td>
+                        <td>10/07/2007</td>
+                        <td>Femenino</td>
+                        <td>AB+</td>
+                        <td>5554045567</td>
+                        <td>sofia.martinez@gmail.com</td>
+                        <td>Calle Puebla #560</td>
+                        <td>18</td>
+                    </tr>
+
+                    <tr>
+                        <td>005</td>
+                        <td>Daniela Torres Ruiz</td>
+                        <td>TORD950418MDFRNL03</td>
+                        <td>18/04/1995</td>
+                        <td>Femenino</td>
+                        <td>O-</td>
+                        <td>5555056678</td>
+                        <td>daniela.torres@gmail.com</td>
+                        <td>Av. Insurgentes Sur #3102</td>
+                        <td>30</td>
+                    </tr>
+
+                    <tr>
+                        <td>006</td>
+                        <td>Ricardo Méndez Salas</td>
+                        <td>MESR720203HDFNLC07</td>
+                        <td>03/02/1972</td>
+                        <td>Masculino</td>
+                        <td>A+</td>
+                        <td>5556067789</td>
+                        <td>ricardo.mendez@gmail.com</td>
+                        <td>Calle Allende #152</td>
+                        <td>54</td>
+                    </tr>
+
+                    <tr>
+                        <td>007</td>
+                        <td>Fernanda López Castillo</td>
+                        <td>LOCF881130MDFZST06</td>
+                        <td>30/11/1988</td>
+                        <td>Femenino</td>
+                        <td>B-</td>
+                        <td>5557078890</td>
+                        <td>fernanda.lopez@gmail.com</td>
+                        <td>Calle Oaxaca #400</td>
+                        <td>37</td>
+                    </tr>
+
+                    <tr>
+                        <td>008</td>
+                        <td>Carlos Hernandez Jimenez</td>
+                        <td>HEJC650512HDFRMR01</td>
+                        <td>12/05/1965</td>
+                        <td>Masculino</td>
+                        <td>AB-</td>
+                        <td>5558089901</td>
+                        <td>carlos.hernandez@gmail.com</td>
+                        <td>Av. Tlalpan #2277</td>
+                        <td>60</td>
+                    </tr>
+
+                    <tr>
+                        <td>009</td>
+                        <td>Valeria Gómez Navarro</td>
+                        <td>GONV930824MDFMRL09</td>
+                        <td>24/08/1993</td>
+                        <td>Femenino</td>
+                        <td>O+</td>
+                        <td>5559091122</td>
+                        <td>valeria.gomez@gmail.com</td>
+                        <td>Calle Durango #410</td>
+                        <td>32</td>
+                    </tr>
+
+                    <tr>
+                        <td>010</td>
+                        <td>Miguel Angel Pérez Soto</td>
+                        <td>PESM810119HDFRZR05</td>
+                        <td>19/01/1981</td>
+                        <td>Masculino</td>
+                        <td>A+</td>
+                        <td>5550102233</td>
+                        <td>miguel.perez@gmail.com</td>
+                        <td>Calle Boliva #65</td>
+                        <td>45</td>
                     </tr>
 
                 </tbody>
@@ -437,7 +533,7 @@
 
     </div>
 
-    <a href="?" class="boton-regresar">← Regresar al Menú Principal</a>
+    <a href="?" class="boton-regresar btn-back">← Regresar al Menú Principal</a>
 
 </div>
 
@@ -821,54 +917,54 @@
 
         <h3>Registrar Factura</h3>
 
-        <form>
+        <form action="facturas.html" method="POST" class="mi-formulario">
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>ID Factura</label>
-                <input type="text" required>
+                <input type="text" name="id_factura" required>
             </div>
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>ID Paciente</label>
-                <input type="number" required>
+                <input type="number" name="id_paciente" required>
             </div>
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Días Estancia</label>
-                <input type="number" required>
+                <input type="number" name="dias_estancia" required>
             </div>
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Costo Día</label>
-                <input type="text" required>
+                <input type="text" name="costo_dia" required>
             </div>
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Insumos Médicos</label>
-                <input type="text" required>
+                <input type="text" name="insumos_medicos" required>
             </div>
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Honorarios Servicios</label>
-                <input type="text" required>
+                <input type="text" name="honorarios_servicios" required>
             </div>
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Total a Pagar</label>
-                <input type="text" required>
+                <input type="text" name="total_pagar" required>
             </div>
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Método de Pago</label>
-                <input type="text" required>
+                <input type="text" name="metodo_pago" required>
             </div>
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Estatus de Pago</label>
-                <input type="text" required>
+                <input type="text" name="estatus_pago" required>
             </div>
 
-            <button type="submit" class="btn-submit">
+            <button type="submit" class="btn-submit btn-guardar">
                 Guardar Factura
             </button>
 
@@ -918,6 +1014,90 @@
                         <td style="color: green; font-weight: bold;">Liquidado</td>
                     </tr>
 
+                    <tr>
+                        <td>Fac-004</td>
+                        <td>004</td>
+                        <td>4</td>
+                        <td>$1,200</td>
+                        <td>$3,200</td>
+                        <td>$3,000</td>
+                        <td><strong>$11,000</strong></td>
+                        <td>Seguro Popular</td>
+                        <td style="color: blue; font-weight: bold;">En Revisión</td>
+                    </tr>
+
+                    <tr>
+                        <td>Fac-005</td>
+                        <td>005</td>
+                        <td>0</td>
+                        <td>$0</td>
+                        <td>$400</td>
+                        <td>$1,200</td>
+                        <td><strong>$1,600</strong></td>
+                        <td>Tarjeta de Crédito</td>
+                        <td style="color: green; font-weight: bold;">Liquidado</td>
+                    </tr>
+
+                    <tr>
+                        <td>Fac-006</td>
+                        <td>006</td>
+                        <td>0</td>
+                        <td>$0</td>
+                        <td>$200</td>
+                        <td>$800</td>
+                        <td><strong>$1,000</strong></td>
+                        <td>IMSS</td>
+                        <td style="color: green; font-weight: bold;">Liquidado</td>
+                    </tr>
+
+                    <tr>
+                        <td>Fac-007</td>
+                        <td>007</td>
+                        <td>2</td>
+                        <td>$1,200</td>
+                        <td>$1,500</td>
+                        <td>$2,500</td>
+                        <td><strong>$6,400</strong></td>
+                        <td>ISSSTE</td>
+                        <td style="color: blue; font-weight: bold;">En Revisión</td>
+                    </tr>
+
+                    <tr>
+                        <td>Fac-008</td>
+                        <td>008</td>
+                        <td>6</td>
+                        <td>$1,200</td>
+                        <td>$4,500</td>
+                        <td>$5,000</td>
+                        <td><strong>$16,700</strong></td>
+                        <td>IMSS</td>
+                        <td style="color: orange; font-weight: bold;">En proceso</td>
+                    </tr>
+
+                    <tr>
+                        <td>Fac-009</td>
+                        <td>009</td>
+                        <td>0</td>
+                        <td>$0</td>
+                        <td>$600</td>
+                        <td>$950</td>
+                        <td><strong>$1,550</strong></td>
+                        <td>IMSS</td>
+                        <td style="color: green; font-weight: bold;">Liquidado</td>
+                    </tr>
+
+                    <tr>
+                        <td>Fac-010</td>
+                        <td>010</td>
+                        <td>1</td>
+                        <td>$1,200</td>
+                        <td>$2,200</td>
+                        <td>$3,800</td>
+                        <td><strong>$7,200</strong></td>
+                        <td>Seguro Privado</td>
+                        <td style="color: green; font-weight: bold;">Liquidado</td>
+                    </tr>
+
                 </tbody>
 
             </table>
@@ -926,9 +1106,7 @@
 
     </div>
 
-    <a href="?" class="boton-regresar">
-        ← Regresar al Menú Principal
-    </a>
+    <a href="?" class="boton-regresar btn-back">← Regresar al Menú Principal</a>
 
 </div>
 
@@ -939,54 +1117,54 @@
     <div class="formulario">
         <h3>Registrar Doctor</h3>
 
-        <form>
+        <form action="doctores.html" method="POST" class="mi-formulario">
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>ID Doctor</label>
-                <input type="text" required>
+                <input type="text" name="id_doctor" required>
             </div>
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Nombre</label>
-                <input type="text" required>
+                <input type="text" name="nombre" required>
             </div>
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Especialidad</label>
-                <input type="text" required>
+                <input type="text" name="especialidad" required>
             </div>
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Subespecialidad</label>
-                <input type="text" required>
+                <input type="text" name="subespecialidad" required>
             </div>
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>CURP</label>
-                <input type="text" required>
+                <input type="text" name="curp" required>
             </div>
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Cédula Profesional</label>
-                <input type="text" required>
+                <input type="text" name="cedula_profesional" required>
             </div>
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Consultorio</label>
-                <input type="text" required>
+                <input type="text" name="consultorio" required>
             </div>
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Teléfono</label>
-                <input type="text" required>
+                <input type="text" name="telefono" required>
             </div>
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Estatus</label>
-                <input type="text" required>
+                <input type="text" name="estatus" required>
             </div>
 
-            <button type="submit" class="btn-submit">
+            <button type="submit" class="btn-submit btn-guardar">
                 Guardar Doctor
             </button>
 
@@ -1024,6 +1202,102 @@
                         <td style="color: green; font-weight: bold;">Activo</td>
                     </tr>
 
+                    <tr>
+                        <td>DOC-003</td>
+                        <td>Dra. Laura Pérez</td>
+                        <td>Traumatología</td>
+                        <td>Ortopedia</td>
+                        <td>PEL9012</td>
+                        <td>8899112-MX</td>
+                        <td>Urgencias</td>
+                        <td>555-123-4403</td>
+                        <td style="color: orange; font-weight: bold;">Guardia</td>
+                    </tr>
+
+                    <tr>
+                        <td>DOC-004</td>
+                        <td>Dra. Ana Torres</td>
+                        <td>Neumología</td>
+                        <td>Broncoscopia</td>
+                        <td>TOA0567</td>
+                        <td>5566778-MX</td>
+                        <td>302-A</td>
+                        <td>555-123-4404</td>
+                        <td style="color: green; font-weight: bold;">Activo</td>
+                    </tr>
+
+                    <tr>
+                        <td>DOC-005</td>
+                        <td>Dra. Elena Ruiz</td>
+                        <td>Ginecología</td>
+                        <td>Obstetricia</td>
+                        <td>RUE9588</td>
+                        <td>4433221-MX</td>
+                        <td>105-C</td>
+                        <td>555-123-4405</td>
+                        <td style="color: green; font-weight: bold;">Activo</td>
+                    </tr>
+
+                    <tr>
+                        <td>DOC-006</td>
+                        <td>Dr. Manuel Silva</td>
+                        <td>Medicina General</td>
+                        <td>Salud Pública</td>
+                        <td>SIM8844</td>
+                        <td>9900112-MX</td>
+                        <td>106-B</td>
+                        <td>555-123-4406</td>
+                        <td style="color: green; font-weight: bold;">Activo</td>
+                    </tr>
+
+                    <tr>
+                        <td>DOC-007</td>
+                        <td>Dra. Patricia León</td>
+                        <td>Neurología</td>
+                        <td>Epileptología</td>
+                        <td>LEP8421</td>
+                        <td>2211443-MX</td>
+                        <td>208-A</td>
+                        <td>555-123-4407</td>
+                        <td style="color: blue; font-weight: bold;">Vacaciones</td>
+                    </tr>
+
+                    <tr>
+                        <td>DOC-008</td>
+                        <td>Dr. José Vargas</td>
+                        <td>Reumatología</td>
+                        <td>Inmunología</td>
+                        <td>VAJ7733</td>
+                        <td>6655443-MX</td>
+                        <td>304-B</td>
+                        <td>555-123-4408</td>
+                        <td style="color: green; font-weight: bold;">Activo</td>
+                    </tr>
+
+                    <tr>
+                        <td>DOC-009</td>
+                        <td>Dra. Claudia Ramos</td>
+                        <td>Endocrinología</td>
+                        <td>Tiroides</td>
+                        <td>RAC9100</td>
+                        <td>7788990-MX</td>
+                        <td>102-A</td>
+                        <td>555-123-4409</td>
+                        <td style="color: green; font-weight: bold;">Activo</td>
+                    </tr>
+
+                    <tr>
+                        <td>DOC-010</td>
+                        <td>Dr. Andrés Molina</td>
+                        <td>Cirugía General</td>
+                        <td>Laparoscopia</td>
+                        <td>MOA8111</td>
+                        <td>3344556-MX</td>
+                        <td>Quirófano</td>
+                        <td>555-123-4410</td>
+                        <td style="color: orange; font-weight: bold;">Guardia</td>
+                    </tr>
+
                 </tbody>
 
             </table>
@@ -1032,9 +1306,7 @@
 
     </div>
 
-    <a href="?" class="boton-regresar">
-        ← Regresar al Menú Principal
-    </a>
+    <a href="?" class="boton-regresar btn-back">← Regresar al Menú Principal</a>
 
 </div>
 
@@ -1045,49 +1317,44 @@
     <div class="formulario">
         <h3>Registrar Medicamento</h3>
 
-        <form>
+        <form action="inventario.html" method="POST" class="mi-formulario">
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>ID Med</label>
-                <input type="text" required>
+                <input type="text" name="id_med" required>
             </div>
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Medicamento</label>
-                <input type="text" required>
+                <input type="text" name="medicamento" required>
             </div>
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Presentación</label>
-                <input type="text" required>
+                <input type="text" name="presentacion" required>
             </div>
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Stock Inicial</label>
-                <input type="number" required>
+                <input type="number" name="stock_inicial" required>
             </div>
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Cantidad Usada</label>
-                <input type="number" required>
+                <input type="number" name="cantidad_usada" required>
             </div>
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Precio Unitario</label>
-                <input type="text" required>
+                <input type="text" name="precio_unitario" required>
             </div>
 
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Caducidad</label>
-                <input type="month" required>
+                <input type="month" name="caducidad" required>
             </div>
 
-            <div class="grupo-formulario">
-                <label>Precio Público</label>
-                <input type="text" required>
-            </div>
-
-            <button type="submit" class="btn-submit">
+            <button type="submit" class="btn-submit btn-guardar">
                 Guardar Medicamento
             </button>
 
@@ -1107,7 +1374,6 @@
                     <th>Cantidad Usada</th>
                     <th>Precio Unitario</th>
                     <th>Caducidad</th>
-                    <th>Precio Público</th>
                 </tr>
             </thead>
 
@@ -1121,7 +1387,6 @@
                     <td>30</td>
                     <td>$180</td>
                     <td>05/2028</td>
-                    <td style="color:gray; font-style:italic;">No disponible</td>
                 </tr>
 
                 <tr>
@@ -1132,7 +1397,6 @@
                     <td>20</td>
                     <td>$420</td>
                     <td>09/2026</td>
-                    <td style="color:gray; font-style:italic;">No disponible</td>
                 </tr>
 
                 <tr>
@@ -1143,7 +1407,6 @@
                     <td>5</td>
                     <td>$310</td>
                     <td>01/2027</td>
-                    <td style="color:gray; font-style:italic;">No disponible</td>
                 </tr>
 
                 <tr>
@@ -1154,7 +1417,6 @@
                     <td>50</td>
                     <td>$45</td>
                     <td>03/2028</td>
-                    <td style="color:gray; font-style:italic;">No disponible</td>
                 </tr>
 
                 <tr>
@@ -1165,7 +1427,6 @@
                     <td>15</td>
                     <td>$215</td>
                     <td>11/2026</td>
-                    <td style="color:gray; font-style:italic;">No disponible</td>
                 </tr>
 
                 <tr>
@@ -1176,7 +1437,6 @@
                     <td>50</td>
                     <td>$95</td>
                     <td>08/2027</td>
-                    <td style="color:gray; font-style:italic;">No disponible</td>
                 </tr>
 
                 <tr>
@@ -1187,7 +1447,6 @@
                     <td>100</td>
                     <td>$65</td>
                     <td>02/2029</td>
-                    <td style="font-weight: bold; color: green;">$60</td>
                 </tr>
 
                 <tr>
@@ -1198,7 +1457,6 @@
                     <td>10</td>
                     <td>$140</td>
                     <td>06/2027</td>
-                    <td style="color:gray; font-style:italic;">No disponible</td>
                 </tr>
 
                 <tr>
@@ -1209,7 +1467,6 @@
                     <td>100</td>
                     <td>$110</td>
                     <td>10/2028</td>
-                    <td style="color:gray; font-style:italic;">No disponible</td>
                 </tr>
 
             </tbody>
@@ -1218,12 +1475,9 @@
 
     </div>
 
-    <a href="?" class="boton-regresar">
-        ← Regresar al Menú Principal
-    </a>
+    <a href="?" class="boton-regresar btn-back">← Regresar al Menú Principal</a>
 
 </div>
-
 <div class="cuadro-blanco" id="inicio">
     <h2>Información del Negocio</h2>
     <p>"Hospital calificado"</p>
