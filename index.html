@@ -1494,15 +1494,15 @@
 </footer>
 
     <script>
-        const BASE_API_URL = 'https://9000-firebase-betancourt-juan-0503-1772132905883.cluster-hkcruqmgzbd2aqcdnktmz6k7ba.cloudworkstations.dev/api';
+        const BASE_API_URL = 'https://9000-firebase-betancourt-juan-0503-1772132905883.cluster-hkcruqmgzbd2aqcdnktmz6k7ba.cloudworkstations.dev';
 
         document.addEventListener('DOMContentLoaded', () => {
             const formDoctor = document.querySelector('form'); 
             
             if (formDoctor) {
                 formDoctor.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-            
+                    e.preventDefault(); 
+                    
                     try {
                         const response = await fetch(`${BASE_API_URL}/doctores`, {
                             method: 'POST',
@@ -1511,7 +1511,7 @@
                             },
                             body: JSON.stringify({
                                 nombre: "Doctor de Prueba",
-                                especialidad: "General"
+                                specialty: "General"
                             })
                         });
 
@@ -1529,6 +1529,9 @@
             }
         });
     </script>
+    
+</body>
+</html>
 
 </body>
 </html>
