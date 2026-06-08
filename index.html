@@ -1493,5 +1493,42 @@
     <p><strong>Especialidad:</strong> Programación</p>
 </footer>
 
+    <script>
+        const BASE_API_URL = 'https://9000-firebase-betancourt-juan-0503-1772132905883.cluster-hkcruqmgzbd2aqcdnktmz6k7ba.cloudworkstations.dev/api';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const formDoctor = document.querySelector('form'); 
+            
+            if (formDoctor) {
+                formDoctor.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+            
+                    try {
+                        const response = await fetch(`${BASE_API_URL}/doctores`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                nombre: "Doctor de Prueba",
+                                especialidad: "General"
+                            })
+                        });
+
+                        const data = await response.json();
+                        if (response.ok) {
+                            alert('¡Conexión exitosa! Datos guardados en MongoDB.');
+                        } else {
+                            alert('Error del servidor: ' + data.message);
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        alert('No se pudo conectar con el servidor de Firebase Studio.');
+                    }
+                });
+            }
+        });
+    </script>
+
 </body>
 </html>
