@@ -98,6 +98,124 @@
 </nav>
 
 <main>
+
+    <div class="cuadro-blanco" id="seccion-registro">
+        <h2>Registro de Pacientes</h2>
+        <form id="form-paciente" class="formulario">
+            <div class="grupo-formulario"><label>ID Paciente:</label><input type="text" id="paciente_id" required></div>
+            <div class="grupo-formulario"><label>Nombre Completo:</label><input type="text" id="paciente_nombre" required></div>
+            <div class="grupo-formulario"><label>Edad:</label><input type="number" id="paciente_edad" required></div>
+            <div class="grupo-formulario"><label>Género:</label><input type="text" id="paciente_genero" required></div>
+            <div class="grupo-formulario"><label>Teléfono:</label><input type="text" id="paciente_telefono" required></div>
+            <div class="grupo-formulario"><label>Dirección:</label><input type="text" id="paciente_direccion" required></div>
+            <div class="grupo-formulario"><label>Fecha Ingreso:</label><input type="date" id="paciente_fecha" required></div>
+            <div class="grupo-formulario"><label>Motivo Ingreso:</label><input type="text" id="paciente_motivo" required></div>
+            <button type="submit" class="btn-submit">Guardar Paciente</button>
+        </form>
+        <a href="#" class="boton-regresar">Inicio</a>
+    </div>
+
+    <div class="cuadro-blanco" id="seccion-informacion">
+        <h2>Información Complementaria</h2>
+        <form id="form-informacion" class="formulario">
+            <div class="grupo-formulario"><label>ID Paciente:</label><input type="text" id="info_id_paciente" required></div>
+            <div class="grupo-formulario"><label>Nombre Completo:</label><input type="text" id="info_nombre" required></div>
+            <div class="grupo-formulario"><label>Seguro Social (NSS):</label><input type="text" id="info_seguro_social" required></div>
+            <div class="grupo-formulario"><label>Tipo de Seguro:</label><input type="text" id="info_tipo_seguro" required></div>
+            <div class="grupo-formulario"><label>Hospital Asignado:</label><input type="text" id="info_hospital" required></div>
+            <div class="grupo-formulario"><label>Contacto Emergencia:</label><input type="text" id="info_contacto_emergencia" required></div>
+            <div class="grupo-formulario"><label>Parentesco:</label><input type="text" id="info_parentesco" required></div>
+            <div class="grupo-formulario"><label>Teléfono Emergencia:</label><input type="text" id="info_telefono_emergencia" required></div>
+            <button type="submit" class="btn-submit">Guardar Información</button>
+        </form>
+        <a href="#" class="boton-regresar">Inicio</a>
+    </div>
+
+    <div class="cuadro-blanco" id="seccion-accesos">
+        <h2>Control de Accesos</h2>
+        <form id="form-accesos" class="formulario">
+            <div class="grupo-formulario"><label>Usuario:</label><input type="text" id="acceso_usuario" required></div>
+            <div class="grupo-formulario"><label>Rol / Acceso:</label><input type="text" id="acceso_rol" required></div>
+            <button type="submit" class="btn-submit">Registrar Acceso</button>
+        </form>
+        <a href="#" class="boton-regresar">Inicio</a>
+    </div>
+
+    <div class="cuadro-blanco" id="seccion-historial">
+        <h2>Historial Clínico</h2>
+        <form id="form-historial" class="formulario">
+            <div class="grupo-formulario"><label>ID Paciente:</label><input type="text" id="historial_id_paciente" required></div>
+            <div class="grupo-formulario"><label>Nombre:</label><input type="text" id="historial_nombre" required></div>
+            <div class="grupo-formulario"><label>Alergias:</label><input type="text" id="historial_alergias"></div>
+            <div class="grupo-formulario"><label>Enfermedades Crónicas:</label><input type="text" id="historial_enfermedades"></div>
+            <div class="grupo-formulario"><label>Medicación Actual:</label><input type="text" id="historial_medicacion"></div>
+            <div class="grupo-formulario"><label>Médico Tratante:</label><input type="text" id="historial_medico" required></div>
+            <div class="grupo-formulario"><label>Área:</label><input type="text" id="historial_area" required></div>
+            <div class="grupo-formulario"><label>Estado Actual:</label><input type="text" id="historial_estado" required></div>
+            <button type="submit" class="btn-submit">Guardar Historial</button>
+        </form>
+        <a href="#" class="boton-regresar">Inicio</a>
+    </div>
+
+    <div class="cuadro-blanco" id="seccion-facturas">
+        <h2>Facturación</h2>
+        <form id="form-factura" class="formulario">
+            <div class="grupo-formulario"><label>ID Factura:</label><input type="text" id="factura_id" required></div>
+            <div class="grupo-formulario"><label>ID Paciente:</label><input type="text" id="factura_id_paciente" required></div>
+            <div class="grupo-formulario"><label>Días Estancia:</label><input type="number" id="factura_dias_estancia" required></div>
+            <div class="grupo-formulario"><label>Costo por Día:</label><input type="number" id="factura_costo_dia" required></div>
+            <div class="grupo-formulario"><label>Insumos Médicos:</label><input type="number" id="factura_insumos" required></div>
+            <div class="grupo-formulario"><label>Honorarios Servicios:</label><input type="number" id="factura_honorarios" required></div>
+            <div class="grupo-formulario"><label>Total a Pagar:</label><input type="number" id="factura_total" required></div>
+            <div class="grupo-formulario"><label>Método Pago:</label><input type="text" id="factura_metodo" required></div>
+            <div class="grupo-formulario"><label>Estatus Pago:</label><input type="text" id="factura_estatus" required></div>
+            <button type="submit" class="btn-submit">Registrar Factura</button>
+        </form>
+        <a href="#" class="boton-regresar">Inicio</a>
+    </div>
+
+    <div class="cuadro-blanco" id="seccion-doctores">
+        <h2>Registro de Doctores</h2>
+        <form id="form-doctor" class="formulario">
+            <div class="grupo-formulario"><label>ID Doctor:</label><input type="text" id="doctor_id" required></div>
+            <div class="grupo-formulario"><label>Nombre Completo:</label><input type="text" id="doctor_nombre" required></div>
+            <div class="grupo-formulario"><label>Especialidad:</label><input type="text" id="doctor_especialidad" required></div>
+            <div class="grupo-formulario"><label>Subespecialidad:</label><input type="text" id="doctor_subespecialidad"></div>
+            <div class="grupo-formulario"><label>CURP:</label><input type="text" id="doctor_curp" required></div>
+            <div class="grupo-formulario"><label>Cédula Profesional:</label><input type="text" id="doctor_cedula" required></div>
+            <div class="grupo-formulario"><label>Consultorio:</label><input type="text" id="doctor_consultorio" required></div>
+            <div class="grupo-formulario"><label>Teléfono:</label><input type="text" id="doctor_telefono" required></div>
+            <div class="grupo-formulario"><label>Estatus:</label><input type="text" id="doctor_estatus" required></div>
+            <button type="submit" class="btn-submit">Registrar Médico</button>
+        </form>
+        <a href="#" class="boton-regresar">Inicio</a>
+    </div>
+
+    <div class="cuadro-blanco" id="seccion-inventario">
+        <h2>Inventario de Medicamentos</h2>
+        <form id="form-inventario" class="formulario">
+            <div class="grupo-formulario"><label>ID Medicamento:</label><input type="text" id="inv_id_med" required></div>
+            <div class="grupo-formulario"><label>Medicamento:</label><input type="text" id="inv_medicamento" required></div>
+            <div class="grupo-formulario"><label>Presentación:</label><input type="text" id="inv_presentacion" required></div>
+            <div class="grupo-formulario"><label>Stock Inicial:</label><input type="number" id="inv_stock_inicial" required></div>
+            <div class="grupo-formulario"><label>Cantidad Usada:</label><input type="number" id="inv_cantidad_usada" required></div>
+            <div class="grupo-formulario"><label>Precio Unitario:</label><input type="number" id="inv_precio_unitario" required></div>
+            <div class="grupo-formulario"><label>Caducidad:</label><input type="date" id="inv_caducidad" required></div>
+            <button type="submit" class="btn-submit">Actualizar Inventario</button>
+        </form>
+        <a href="#" class="boton-regresar">Inicio</a>
+    </div>
+
+    <div id="inicio" style="text-align: center; color: white; margin-top: 50px;">
+        <h2>Bienvenido al Sistema Médico Medicare</h2>
+        <p>Seleccione una opción en el menú de navegación superior para comenzar.</p>
+    </div>
+</main>
+
+<footer>
+    &copy; 2026 MEDICARE - Todos los derechos reservados.
+</footer>
+    
 <div class="cuadro-blanco" id="seccion-registro">
 
     <h2>Registros</h2>
@@ -1463,20 +1581,19 @@
     const BASE_API_URL = 'http://127.0.0.1:5000'; 
 
     document.addEventListener('DOMContentLoaded', () => {
-        const formularios = document.querySelectorAll('form');
-
-        if (formularios.length >= 1) {
-            formularios[0].addEventListener('submit', async (e) => {
+        const formPacientes = document.getElementById('form-paciente');
+        if (formPacientes) {
+            formPacientes.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const datosPaciente = {
-                    id_paciente: document.querySelector('[id*="id"]') ? document.querySelector('[id*="id"]').value : '',
-                    nombre: document.querySelector('[id*="nombre"]') ? document.querySelector('[id*="nombre"]').value : '',
-                    edad: document.querySelector('[id*="edad"]') ? document.querySelector('[id*="edad"]').value : '',
-                    genero: document.querySelector('[id*="genero"]') ? document.querySelector('[id*="genero"]').value : '',
-                    telefono: document.querySelector('[id*="telefono"]') ? document.querySelector('[id*="telefono"]').value : '',
-                    direccion: document.querySelector('[id*="direccion"]') ? document.querySelector('[id*="direccion"]').value : '',
-                    fecha_ingreso: document.querySelector('[id*="fecha"]') ? document.querySelector('[id*="fecha"]').value : '',
-                    motivo_ingreso: document.querySelector('[id*="motivo"]') ? document.querySelector('[id*="motivo"]').value : ''
+                    id_paciente: document.getElementById('paciente_id').value,
+                    nombre: document.getElementById('paciente_nombre').value,
+                    edad: document.getElementById('paciente_edad').value,
+                    genero: document.getElementById('paciente_genero').value,
+                    telefono: document.getElementById('paciente_telefono').value,
+                    direccion: document.getElementById('paciente_direccion').value,
+                    fecha_ingreso: document.getElementById('paciente_fecha').value,
+                    motivo_ingreso: document.getElementById('paciente_motivo').value
                 };
                 try {
                     const response = await fetch(`${BASE_API_URL}/pacientes`, {
@@ -1486,24 +1603,25 @@
                     });
                     if (response.ok) {
                         alert('¡Conexión exitosa! Paciente registrado en MongoDB.');
-                        formularios[0].reset();
+                        formPacientes.reset();
                     } else { alert('Error en el servidor al registrar paciente.'); }
                 } catch (error) { alert('No se pudo conectar con el servidor backend.'); }
             });
         }
 
-        if (formularios.length >= 2) {
-            formularios[1].addEventListener('submit', async (e) => {
+        const formInformacion = document.getElementById('form-informacion');
+        if (formInformacion) {
+            formInformacion.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const datosInformacion = {
-                    id_paciente: document.querySelector('[id*="id_paciente"]') ? document.querySelector('[id*="id_paciente"]').value : '',
-                    nombre: document.querySelector('[id*="nombre"]') ? document.querySelector('[id*="nombre"]').value : '',
-                    seguro_social: document.querySelector('[id*="seguro_social"]') ? document.querySelector('[id*="seguro_social"]').value : '',
-                    tipo_seguro: document.querySelector('[id*="tipo_seguro"]') ? document.querySelector('[id*="tipo_seguro"]').value : '',
-                    hospital_asignado: document.querySelector('[id*="hospital"]') ? document.querySelector('[id*="hospital"]').value : '',
-                    contacto_emergencia: document.querySelector('[id*="contacto"]') ? document.querySelector('[id*="contacto"]').value : '',
-                    parentesco: document.querySelector('[id*="parentesco"]') ? document.querySelector('[id*="parentesco"]').value : '',
-                    telefono_emergencia: document.querySelector('[id*="telefono"]') ? document.querySelector('[id*="telefono"]').value : ''
+                    id_paciente: document.getElementById('info_id_paciente').value,
+                    nombre: document.getElementById('info_nombre').value,
+                    seguro_social: document.getElementById('info_seguro_social').value,
+                    tipo_seguro: document.getElementById('info_tipo_seguro').value,
+                    hospital_asignado: document.getElementById('info_hospital').value,
+                    contacto_emergencia: document.getElementById('info_contacto_emergencia').value,
+                    parentesco: document.getElementById('info_parentesco').value,
+                    telefono_emergencia: document.getElementById('info_telefono_emergencia').value
                 };
                 try {
                     const response = await fetch(`${BASE_API_URL}/informacion-complementaria`, {
@@ -1513,18 +1631,19 @@
                     });
                     if (response.ok) {
                         alert('¡Conexión exitosa! Información complementaria guardada.');
-                        formularios[1].reset();
+                        formInformacion.reset();
                     } else { alert('Error al guardar información complementaria.'); }
                 } catch (error) { alert('No se pudo conectar con el servidor.'); }
             });
         }
 
-        if (formularios.length >= 3) {
-            formularios[2].addEventListener('submit', async (e) => {
+        const formAccesos = document.getElementById('form-accesos');
+        if (formAccesos) {
+            formAccesos.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const datosAccesos = {
-                    usuario: document.querySelector('[id*="usuario"]') ? document.querySelector('[id*="usuario"]').value : 'Admin',
-                    rol_acceso: document.querySelector('[id*="rol"]') ? document.querySelector('[id*="rol"]').value : 'Control',
+                    usuario: document.getElementById('acceso_usuario').value,
+                    rol_acceso: document.getElementById('acceso_rol').value,
                     fecha_intervencion: new Date().toISOString()
                 };
                 try {
@@ -1535,24 +1654,25 @@
                     });
                     if (response.ok) {
                         alert('¡Conexión exitosa! Control de acceso registrado.');
-                        formularios[2].reset();
+                        formAccesos.reset();
                     } else { alert('Error al registrar acceso.'); }
                 } catch (error) { alert('No se pudo conectar con el servidor.'); }
             });
         }
 
-        if (formularios.length >= 4) {
-            formularios[3].addEventListener('submit', async (e) => {
+        const formHistorial = document.getElementById('form-historial');
+        if (formHistorial) {
+            formHistorial.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const datosHistorial = {
-                    id_paciente: document.querySelector('[id*="id"]') ? document.querySelector('[id*="id"]').value : '',
-                    nombre: document.querySelector('[id*="nombre"]') ? document.querySelector('[id*="nombre"]').value : '',
-                    alergias: document.querySelector('[id*="alergias"]') ? document.querySelector('[id*="alergias"]').value : 'Ninguna',
-                    enfermedades_cronicas: document.querySelector('[id*="enfermedades"]') ? document.querySelector('[id*="enfermedades"]').value : 'Ninguna',
-                    medicacion_actual: document.querySelector('[id*="medicacion"]') ? document.querySelector('[id*="medicacion"]').value : 'Ninguna',
-                    medico_tratante: document.querySelector('[id*="medico"]') ? document.querySelector('[id*="medico"]').value : '',
-                    area: document.querySelector('[id*="area"]') ? document.querySelector('[id*="area"]').value : '',
-                    estado_actual: document.querySelector('[id*="estado"]') ? document.querySelector('[id*="estado"]').value : ''
+                    id_paciente: document.getElementById('historial_id_paciente').value,
+                    nombre: document.getElementById('historial_nombre').value,
+                    alergias: document.getElementById('historial_alergias').value || "Ninguna",
+                    enfermedades_cronicas: document.getElementById('historial_enfermedades').value || "Ninguna",
+                    medicacion_actual: document.getElementById('historial_medicacion').value || "Ninguna",
+                    medico_tratante: document.getElementById('historial_medico').value,
+                    area: document.getElementById('historial_area').value,
+                    estado_actual: document.getElementById('historial_estado').value
                 };
                 try {
                     const response = await fetch(`${BASE_API_URL}/historiales`, {
@@ -1562,25 +1682,26 @@
                     });
                     if (response.ok) {
                         alert('¡Conexión exitosa! Historial Clínico guardado.');
-                        formularios[3].reset();
+                        formHistorial.reset();
                     } else { alert('Error al registrar historial.'); }
                 } catch (error) { alert('No se pudo conectar con el servidor.'); }
             });
         }
 
-        if (formularios.length >= 5) {
-            formularios[4].addEventListener('submit', async (e) => {
+        const formFactura = document.getElementById('form-factura');
+        if (formFactura) {
+            formFactura.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const datosFactura = {
-                    id_factura: document.querySelector('[id*="factura_id"]') ? document.querySelector('[id*="factura_id"]').value : '',
-                    id_paciente: document.querySelector('[id*="paciente"]') ? document.querySelector('[id*="paciente"]').value : '',
-                    dias_estancia: document.querySelector('[id*="estancia"]') ? document.querySelector('[id*="estancia"]').value : '0',
-                    costo_dia: document.querySelector('[id*="costo"]') ? document.querySelector('[id*="costo"]').value : '0',
-                    insumos_medicos: document.querySelector('[id*="insumos"]') ? document.querySelector('[id*="insumos"]').value : '0',
-                    honorarios_servicios: document.querySelector('[id*="honorarios"]') ? document.querySelector('[id*="honorarios"]').value : '0',
-                    total_pagar: document.querySelector('[id*="total"]') ? document.querySelector('[id*="total"]').value : '0',
-                    metodo_pago: document.querySelector('[id*="metodo"]') ? document.querySelector('[id*="metodo"]').value : '',
-                    estatus_pago: document.querySelector('[id*="estatus"]') ? document.querySelector('[id*="estatus"]').value : ''
+                    id_factura: document.getElementById('factura_id').value,
+                    id_paciente: document.getElementById('factura_id_paciente').value,
+                    dias_estancia: document.getElementById('factura_dias_estancia').value,
+                    costo_dia: document.getElementById('factura_costo_dia').value,
+                    insumos_medicos: document.getElementById('factura_insumos').value,
+                    honorarios_servicios: document.getElementById('factura_honorarios').value,
+                    total_pagar: document.getElementById('factura_total').value,
+                    metodo_pago: document.getElementById('factura_metodo').value,
+                    estatus_pago: document.getElementById('factura_estatus').value
                 };
                 try {
                     const response = await fetch(`${BASE_API_URL}/facturas`, {
@@ -1590,25 +1711,26 @@
                     });
                     if (response.ok) {
                         alert('¡Conexión exitosa! Factura registrada.');
-                        formularios[4].reset();
+                        formFactura.reset();
                     } else { alert('Error al registrar factura.'); }
                 } catch (error) { alert('No se pudo conectar con el servidor.'); }
             });
         }
 
-        if (formularios.length >= 6) {
-            formularios[5].addEventListener('submit', async (e) => {
+        const formDoctor = document.getElementById('form-doctor');
+        if (formDoctor) {
+            formDoctor.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const datosDoctor = {
-                    id_doctor: document.querySelector('[id*="doctor_id"]') ? document.querySelector('[id*="doctor_id"]').value : '',
-                    nombre: document.querySelector('[id*="nombre"]') ? document.querySelector('[id*="nombre"]').value : '',
-                    especialidad: document.querySelector('[id*="especialidad"]') ? document.querySelector('[id*="especialidad"]').value : '',
-                    subespecialidad: document.querySelector('[id*="subespecialidad"]') ? document.querySelector('[id*="subespecialidad"]').value : '',
-                    curp: document.querySelector('[id*="curp"]') ? document.querySelector('[id*="curp"]').value : '',
-                    cedula_profesional: document.querySelector('[id*="cedula"]') ? document.querySelector('[id*="cedula"]').value : '',
-                    consultorio: document.querySelector('[id*="consultorio"]') ? document.querySelector('[id*="consultorio"]').value : '',
-                    telefono: document.querySelector('[id*="telefono"]') ? document.querySelector('[id*="telefono"]').value : '',
-                    estatus: document.querySelector('[id*="estatus"]') ? document.querySelector('[id*="estatus"]').value : ''
+                    id_doctor: document.getElementById('doctor_id').value,
+                    nombre: document.getElementById('doctor_nombre').value,
+                    especialidad: document.getElementById('doctor_especialidad').value,
+                    subespecialidad: document.getElementById('doctor_subespecialidad').value,
+                    curp: document.getElementById('doctor_curp').value,
+                    cedula_profesional: document.getElementById('doctor_cedula').value,
+                    consultorio: document.getElementById('doctor_consultorio').value,
+                    telefono: document.getElementById('doctor_telefono').value,
+                    estatus: document.getElementById('doctor_estatus').value
                 };
                 try {
                     const response = await fetch(`${BASE_API_URL}/doctores`, {
@@ -1618,23 +1740,24 @@
                     });
                     if (response.ok) {
                         alert('¡Conexión exitosa! Médico registrado con éxito.');
-                        formularios[5].reset();
+                        formDoctor.reset();
                     } else { alert('Error al registrar al médico.'); }
                 } catch (error) { alert('No se pudo conectar con el servidor.'); }
             });
         }
 
-        if (formularios.length >= 7) {
-            formularios[6].addEventListener('submit', async (e) => {
+        const formInventario = document.getElementById('form-inventario');
+        if (formInventario) {
+            formInventario.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const datosInventario = {
-                    id_med: document.querySelector('[id*="id_med"]') ? document.querySelector('[id*="id_med"]').value : '',
-                    medicamento: document.querySelector('[id*="medicamento"]') ? document.querySelector('[id*="medicamento"]').value : '',
-                    presentacion: document.querySelector('[id*="presentacion"]') ? document.querySelector('[id*="presentacion"]').value : '',
-                    stock_inicial: document.querySelector('[id*="stock"]') ? document.querySelector('[id*="stock"]').value : '0',
-                    cantidad_usada: document.querySelector('[id*="cantidad"]') ? document.querySelector('[id*="cantidad"]').value : '0',
-                    precio_unitario: document.querySelector('[id*="precio"]') ? document.querySelector('[id*="precio"]').value : '0',
-                    caducidad: document.querySelector('[id*="caducidad"]') ? document.querySelector('[id*="caducidad"]').value : ''
+                    id_med: document.getElementById('inv_id_med').value,
+                    medicamento: document.getElementById('inv_medicamento').value,
+                    presentacion: document.getElementById('inv_presentacion').value,
+                    stock_inicial: document.getElementById('inv_stock_inicial').value,
+                    cantidad_usada: document.getElementById('inv_cantidad_usada').value,
+                    precio_unitario: document.getElementById('inv_precio_unitario').value,
+                    caducidad: document.getElementById('inv_caducidad').value
                 };
                 try {
                     const response = await fetch(`${BASE_API_URL}/inventario`, {
@@ -1644,7 +1767,7 @@
                     });
                     if (response.ok) {
                         alert('¡Conexión exitosa! Medicamento guardado.');
-                        formularios[6].reset();
+                        formInventario.reset();
                     } else { alert('Error al actualizar inventario.'); }
                 } catch (error) { alert('No se pudo conectar con el servidor.'); }
             });
