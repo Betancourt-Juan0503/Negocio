@@ -1596,7 +1596,7 @@
                     motivo_ingreso: document.getElementById('paciente_motivo').value
                 };
                 try {
-                    const response = await fetch(`${BASE_API_URL}/pacientes`, {
+                    const response = await fetch(`${BASE_API_URL}/api/pacientes`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(datosPaciente)
@@ -1624,7 +1624,7 @@
                     telefono_emergencia: document.getElementById('info_telefono_emergencia').value
                 };
                 try {
-                    const response = await fetch(`${BASE_API_URL}/informacion-complementaria`, {
+                    const response = await fetch(`${BASE_API_URL}/api/informacion-complementaria`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(datosInformacion)
@@ -1647,7 +1647,7 @@
                     fecha_intervencion: new Date().toISOString()
                 };
                 try {
-                    const response = await fetch(`${BASE_API_URL}/control-accesos`, {
+                    const response = await fetch(`${BASE_API_URL}/api/control-accesos`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(datosAccesos)
@@ -1675,7 +1675,7 @@
                     estado_actual: document.getElementById('historial_estado').value
                 };
                 try {
-                    const response = await fetch(`${BASE_API_URL}/historiales`, {
+                    const response = await fetch(`${BASE_API_URL}/api/historiales`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(datosHistorial)
@@ -1704,7 +1704,7 @@
                     estatus_pago: document.getElementById('factura_estatus').value
                 };
                 try {
-                    const response = await fetch(`${BASE_API_URL}/facturas`, {
+                    const response = await fetch(`${BASE_API_URL}/api/facturas`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(datosFactura)
@@ -1733,7 +1733,7 @@
                     estatus: document.getElementById('doctor_estatus').value
                 };
                 try {
-                    const response = await fetch(`${BASE_API_URL}/doctores`, {
+                    const response = await fetch(`${BASE_API_URL}/api/doctores`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(datosDoctor)
@@ -1760,11 +1760,11 @@
                     caducidad: document.getElementById('inv_caducidad').value
                 };
                 try {
-const response = await fetch(`${BASE_API_URL}/api/inventario`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(datosInventario)
-});
+                    const response = await fetch(`${BASE_API_URL}/api/inventario`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(datosInventario)
+                    });
                     if (response.ok) {
                         alert('¡Conexión exitosa! Medicamento guardado.');
                         formInventario.reset();
