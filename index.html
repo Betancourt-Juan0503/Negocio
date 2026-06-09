@@ -1760,11 +1760,11 @@
                     caducidad: document.getElementById('inv_caducidad').value
                 };
                 try {
-                    const response = await fetch(`${BASE_API_URL}/inventario`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(datosInventario)
-                    });
+const response = await fetch(`${BASE_API_URL}/api/inventario`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(datosInventario)
+});
                     if (response.ok) {
                         alert('¡Conexión exitosa! Medicamento guardado.');
                         formInventario.reset();
