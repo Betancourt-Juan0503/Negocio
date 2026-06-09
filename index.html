@@ -1482,18 +1482,21 @@
 
     <div class="contenedor-tabla">
         <table>
-            <thead>
-                <tr>
-                    <th>ID Med</th>
-                    <th>Medicamento</th>
-                    <th>Presentación</th>
-                    <th>Stock Inicial</th>
-                    <th>Cantidad Usada</th>
-                    <th>Precio Unitario</th>
-                    <th>Caducidad</th>
-                </tr>
-            </thead>
-            <tbody>
+        <thead>
+            <tr>
+                <th>ID Med</th>
+                <th>Medicamento</th>
+                <th>Presentación</th>
+                <th>Stock Inicial</th>
+                <th>Cantidad Usada</th>
+                <th>Precio Unitario</th>
+                <th>Caducidad</th>
+                <th>Acciones</th> 
+            </tr>
+        </thead>
+        <tbody id="tabla-inventario-body">
+            </tbody>
+    </table>
                 <tr>
                     <td>MED-002</td>
                     <td>Metformina</td>
@@ -1789,17 +1792,25 @@
         }
 
         async function cargarInventario() {
-            try {
-                const response = await fetch(`${BASE_API_URL}/api/inventario`);
-                if (response.ok) {
-                    const medicamentos = await response.json();
-                    tablaBody.innerHTML = '';
-                    medicamentos.forEach(med => agregarFilaTabla(med));
-                }
-            } catch (error) {
-                console.error(error);
+    try {
+        const response = await fetch(`${BASE_API_URL}/api/inventario`);
+        if (response.ok) {
+            const respuesta = await response.json();
+            tablaBody.innerHTML = ''; 
+            const medicamentos = Array.isArray(respuesta) ? respuesta : respuesta.data;
+
+            if (medicamentos && medicamentos.length > 0) {
+                medicamentos.forEach(med => agregarFilaTabla(med));
+            } else {
+                tablaBody.innerHTML = '<tr><td colspan="8" style="text-align:center;">No hay medicamentos registrados.</td></tr>';
             }
+        } else {
+            console.error('Error al traer datos del servidor:', response.status);
         }
+    } catch (error) {
+        console.error('Error de conexión con la API:', error);
+    }
+}
 
         cargarInventario();
 
