@@ -1459,23 +1459,24 @@
     <p><strong>Especialidad:</strong> Programación</p>
 </footer>
 
-  <script>
-const BASE_API_URL = 'http://127.0.0.1:5000';
-      
+ <script>
+    const BASE_API_URL = 'http://127.0.0.1:5000'; 
+
     document.addEventListener('DOMContentLoaded', () => {
-        const formRegistro = document.getElementById('form-paciente');
-        if (formRegistro) {
-            formRegistro.addEventListener('submit', async (e) => {
+        const formularios = document.querySelectorAll('form');
+
+        if (formularios.length >= 1) {
+            formularios[0].addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const datosPaciente = {
-                    id_paciente: document.getElementById('paciente_id').value,
-                    nombre: document.getElementById('paciente_nombre').value,
-                    edad: document.getElementById('paciente_edad').value,
-                    genero: document.getElementById('paciente_genero').value,
-                    telefono: document.getElementById('paciente_telefono').value,
-                    direccion: document.getElementById('paciente_direccion').value,
-                    fecha_ingreso: document.getElementById('paciente_fecha').value,
-                    motivo_ingreso: document.getElementById('paciente_motivo').value
+                    id_paciente: document.querySelector('[id*="id"]') ? document.querySelector('[id*="id"]').value : '',
+                    nombre: document.querySelector('[id*="nombre"]') ? document.querySelector('[id*="nombre"]').value : '',
+                    edad: document.querySelector('[id*="edad"]') ? document.querySelector('[id*="edad"]').value : '',
+                    genero: document.querySelector('[id*="genero"]') ? document.querySelector('[id*="genero"]').value : '',
+                    telefono: document.querySelector('[id*="telefono"]') ? document.querySelector('[id*="telefono"]').value : '',
+                    direccion: document.querySelector('[id*="direccion"]') ? document.querySelector('[id*="direccion"]').value : '',
+                    fecha_ingreso: document.querySelector('[id*="fecha"]') ? document.querySelector('[id*="fecha"]').value : '',
+                    motivo_ingreso: document.querySelector('[id*="motivo"]') ? document.querySelector('[id*="motivo"]').value : ''
                 };
                 try {
                     const response = await fetch(`${BASE_API_URL}/pacientes`, {
@@ -1483,32 +1484,26 @@ const BASE_API_URL = 'http://127.0.0.1:5000';
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(datosPaciente)
                     });
-                    const data = await response.json();
                     if (response.ok) {
                         alert('¡Conexión exitosa! Paciente registrado en MongoDB.');
-                        formRegistro.reset();
-                    } else {
-                        alert('Error: ' + (data.message || 'No se pudo registrar al paciente.'));
-                    }
-                } catch (error) {
-                    alert('No se pudo conectar con el servidor.');
-                }
+                        formularios[0].reset();
+                    } else { alert('Error en el servidor al registrar paciente.'); }
+                } catch (error) { alert('No se pudo conectar con el servidor backend.'); }
             });
         }
 
-        const formInformacion = document.getElementById('form-informacion');
-        if (formInformacion) {
-            formInformacion.addEventListener('submit', async (e) => {
+        if (formularios.length >= 2) {
+            formularios[1].addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const datosInformacion = {
-                    id_paciente: document.getElementById('info_id_paciente').value,
-                    nombre: document.getElementById('info_nombre').value,
-                    seguro_social: document.getElementById('info_seguro_social').value,
-                    tipo_seguro: document.getElementById('info_tipo_seguro').value,
-                    hospital_asignado: document.getElementById('info_hospital').value,
-                    contacto_emergencia: document.getElementById('info_contacto_emergencia').value,
-                    parentesco: document.getElementById('info_parentesco').value,
-                    telefono_emergencia: document.getElementById('info_telefono_emergencia').value
+                    id_paciente: document.querySelector('[id*="id_paciente"]') ? document.querySelector('[id*="id_paciente"]').value : '',
+                    nombre: document.querySelector('[id*="nombre"]') ? document.querySelector('[id*="nombre"]').value : '',
+                    seguro_social: document.querySelector('[id*="seguro_social"]') ? document.querySelector('[id*="seguro_social"]').value : '',
+                    tipo_seguro: document.querySelector('[id*="tipo_seguro"]') ? document.querySelector('[id*="tipo_seguro"]').value : '',
+                    hospital_asignado: document.querySelector('[id*="hospital"]') ? document.querySelector('[id*="hospital"]').value : '',
+                    contacto_emergencia: document.querySelector('[id*="contacto"]') ? document.querySelector('[id*="contacto"]').value : '',
+                    parentesco: document.querySelector('[id*="parentesco"]') ? document.querySelector('[id*="parentesco"]').value : '',
+                    telefono_emergencia: document.querySelector('[id*="telefono"]') ? document.querySelector('[id*="telefono"]').value : ''
                 };
                 try {
                     const response = await fetch(`${BASE_API_URL}/informacion-complementaria`, {
@@ -1516,28 +1511,20 @@ const BASE_API_URL = 'http://127.0.0.1:5000';
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(datosInformacion)
                     });
-                    const data = await response.json();
                     if (response.ok) {
                         alert('¡Conexión exitosa! Información complementaria guardada.');
-                        formInformacion.reset();
-                    } else {
-                        alert('Error del servidor: ' + (data.message || 'No se pudo guardar la información.'));
-                    }
-                } catch (error) {
-                    alert('No se pudo conectar con el servidor backend.');
-                }
+                        formularios[1].reset();
+                    } else { alert('Error al guardar información complementaria.'); }
+                } catch (error) { alert('No se pudo conectar con el servidor.'); }
             });
         }
 
-        const formAccesos = document.getElementById('form-accesos') || document.getElementById('form-ingresos') || document.getElementById('form-admin');
-        if (formAccesos) {
-            formAccesos.addEventListener('submit', async (e) => {
+        if (formularios.length >= 3) {
+            formularios[2].addEventListener('submit', async (e) => {
                 e.preventDefault();
-                const campoUsuario = document.querySelector('[id*="usuario"]') || document.querySelector('[id*="user"]');
-                const campoRol = document.querySelector('[id*="rol"]') || document.querySelector('[id*="acceso"]');
                 const datosAccesos = {
-                    usuario: campoUsuario ? campoUsuario.value : '',
-                    rol_acceso: campoRol ? campoRol.value : '',
+                    usuario: document.querySelector('[id*="usuario"]') ? document.querySelector('[id*="usuario"]').value : 'Admin',
+                    rol_acceso: document.querySelector('[id*="rol"]') ? document.querySelector('[id*="rol"]').value : 'Control',
                     fecha_intervencion: new Date().toISOString()
                 };
                 try {
@@ -1546,32 +1533,26 @@ const BASE_API_URL = 'http://127.0.0.1:5000';
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(datosAccesos)
                     });
-                    const data = await response.json();
                     if (response.ok) {
                         alert('¡Conexión exitosa! Control de acceso registrado.');
-                        formAccesos.reset();
-                    } else {
-                        alert('Error: ' + (data.message || 'No se pudo registrar el acceso.'));
-                    }
-                } catch (error) {
-                    alert('No se pudo conectar con el servidor para registrar el acceso.');
-                }
+                        formularios[2].reset();
+                    } else { alert('Error al registrar acceso.'); }
+                } catch (error) { alert('No se pudo conectar con el servidor.'); }
             });
         }
 
-        const formHistorial = document.getElementById('form-historial');
-        if (formHistorial) {
-            formHistorial.addEventListener('submit', async (e) => {
+        if (formularios.length >= 4) {
+            formularios[3].addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const datosHistorial = {
-                    id_paciente: document.getElementById('historial_id_paciente').value,
-                    nombre: document.getElementById('historial_nombre').value,
-                    alergias: document.getElementById('historial_alergias').value || "Ninguna",
-                    enfermedades_cronicas: document.getElementById('historial_enfermedades').value || "Ninguna",
-                    medicacion_actual: document.getElementById('historial_medicacion').value || "Ninguna",
-                    medico_tratante: document.getElementById('historial_medico').value,
-                    area: document.getElementById('historial_area').value,
-                    estado_actual: document.getElementById('historial_estado').value
+                    id_paciente: document.querySelector('[id*="id"]') ? document.querySelector('[id*="id"]').value : '',
+                    nombre: document.querySelector('[id*="nombre"]') ? document.querySelector('[id*="nombre"]').value : '',
+                    alergias: document.querySelector('[id*="alergias"]') ? document.querySelector('[id*="alergias"]').value : 'Ninguna',
+                    enfermedades_cronicas: document.querySelector('[id*="enfermedades"]') ? document.querySelector('[id*="enfermedades"]').value : 'Ninguna',
+                    medicacion_actual: document.querySelector('[id*="medicacion"]') ? document.querySelector('[id*="medicacion"]').value : 'Ninguna',
+                    medico_tratante: document.querySelector('[id*="medico"]') ? document.querySelector('[id*="medico"]').value : '',
+                    area: document.querySelector('[id*="area"]') ? document.querySelector('[id*="area"]').value : '',
+                    estado_actual: document.querySelector('[id*="estado"]') ? document.querySelector('[id*="estado"]').value : ''
                 };
                 try {
                     const response = await fetch(`${BASE_API_URL}/historiales`, {
@@ -1579,33 +1560,27 @@ const BASE_API_URL = 'http://127.0.0.1:5000';
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(datosHistorial)
                     });
-                    const data = await response.json();
                     if (response.ok) {
-                        alert('¡Conexión exitosa! Historial Clínico guardado en MongoDB.');
-                        formHistorial.reset();
-                    } else {
-                        alert('Error del servidor: ' + (data.message || 'No se pudo registrar el historial.'));
-                    }
-                } catch (error) {
-                    alert('No se pudo conectar con el servidor backend.');
-                }
+                        alert('¡Conexión exitosa! Historial Clínico guardado.');
+                        formularios[3].reset();
+                    } else { alert('Error al registrar historial.'); }
+                } catch (error) { alert('No se pudo conectar con el servidor.'); }
             });
         }
 
-        const formFactura = document.getElementById('form-factura');
-        if (formFactura) {
-            formFactura.addEventListener('submit', async (e) => {
+        if (formularios.length >= 5) {
+            formularios[4].addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const datosFactura = {
-                    id_factura: document.getElementById('factura_id').value,
-                    id_paciente: document.getElementById('factura_id_paciente').value,
-                    dias_estancia: document.getElementById('factura_dias_estancia').value,
-                    costo_dia: document.getElementById('factura_costo_dia').value,
-                    insumos_medicos: document.getElementById('factura_insumos').value,
-                    honorarios_servicios: document.getElementById('factura_honorarios').value,
-                    total_pagar: document.getElementById('factura_total').value,
-                    metodo_pago: document.getElementById('factura_metodo').value,
-                    estatus_pago: document.getElementById('factura_estatus').value
+                    id_factura: document.querySelector('[id*="factura_id"]') ? document.querySelector('[id*="factura_id"]').value : '',
+                    id_paciente: document.querySelector('[id*="paciente"]') ? document.querySelector('[id*="paciente"]').value : '',
+                    dias_estancia: document.querySelector('[id*="estancia"]') ? document.querySelector('[id*="estancia"]').value : '0',
+                    costo_dia: document.querySelector('[id*="costo"]') ? document.querySelector('[id*="costo"]').value : '0',
+                    insumos_medicos: document.querySelector('[id*="insumos"]') ? document.querySelector('[id*="insumos"]').value : '0',
+                    honorarios_servicios: document.querySelector('[id*="honorarios"]') ? document.querySelector('[id*="honorarios"]').value : '0',
+                    total_pagar: document.querySelector('[id*="total"]') ? document.querySelector('[id*="total"]').value : '0',
+                    metodo_pago: document.querySelector('[id*="metodo"]') ? document.querySelector('[id*="metodo"]').value : '',
+                    estatus_pago: document.querySelector('[id*="estatus"]') ? document.querySelector('[id*="estatus"]').value : ''
                 };
                 try {
                     const response = await fetch(`${BASE_API_URL}/facturas`, {
@@ -1613,33 +1588,27 @@ const BASE_API_URL = 'http://127.0.0.1:5000';
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(datosFactura)
                     });
-                    const data = await response.json();
                     if (response.ok) {
-                        alert('¡Conexión exitosa! Factura registrada correctamente.');
-                        formFactura.reset();
-                    } else {
-                        alert('Error: ' + (data.message || 'No se pudo registrar la factura.'));
-                    }
-                } catch (error) {
-                    alert('No se pudo conectar con el servidor para registrar la factura.');
-                }
+                        alert('¡Conexión exitosa! Factura registrada.');
+                        formularios[4].reset();
+                    } else { alert('Error al registrar factura.'); }
+                } catch (error) { alert('No se pudo conectar con el servidor.'); }
             });
         }
 
-        const formDoctor = document.getElementById('form-doctor');
-        if (formDoctor) {
-            formDoctor.addEventListener('submit', async (e) => {
+        if (formularios.length >= 6) {
+            formularios[5].addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const datosDoctor = {
-                    id_doctor: document.getElementById('doctor_id').value,
-                    nombre: document.getElementById('doctor_nombre').value,
-                    especialidad: document.getElementById('doctor_especialidad').value,
-                    subespecialidad: document.getElementById('doctor_subespecialidad').value,
-                    curp: document.getElementById('doctor_curp').value,
-                    cedula_profesional: document.getElementById('doctor_cedula').value,
-                    consultorio: document.getElementById('doctor_consultorio').value,
-                    telefono: document.getElementById('doctor_telefono').value,
-                    estatus: document.getElementById('doctor_estatus').value
+                    id_doctor: document.querySelector('[id*="doctor_id"]') ? document.querySelector('[id*="doctor_id"]').value : '',
+                    nombre: document.querySelector('[id*="nombre"]') ? document.querySelector('[id*="nombre"]').value : '',
+                    especialidad: document.querySelector('[id*="especialidad"]') ? document.querySelector('[id*="especialidad"]').value : '',
+                    subespecialidad: document.querySelector('[id*="subespecialidad"]') ? document.querySelector('[id*="subespecialidad"]').value : '',
+                    curp: document.querySelector('[id*="curp"]') ? document.querySelector('[id*="curp"]').value : '',
+                    cedula_profesional: document.querySelector('[id*="cedula"]') ? document.querySelector('[id*="cedula"]').value : '',
+                    consultorio: document.querySelector('[id*="consultorio"]') ? document.querySelector('[id*="consultorio"]').value : '',
+                    telefono: document.querySelector('[id*="telefono"]') ? document.querySelector('[id*="telefono"]').value : '',
+                    estatus: document.querySelector('[id*="estatus"]') ? document.querySelector('[id*="estatus"]').value : ''
                 };
                 try {
                     const response = await fetch(`${BASE_API_URL}/doctores`, {
@@ -1647,31 +1616,25 @@ const BASE_API_URL = 'http://127.0.0.1:5000';
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(datosDoctor)
                     });
-                    const data = await response.json();
                     if (response.ok) {
                         alert('¡Conexión exitosa! Médico registrado con éxito.');
-                        formDoctor.reset();
-                    } else {
-                        alert('Error: ' + (data.message || 'No se pudo registrar al médico.'));
-                    }
-                } catch (error) {
-                    alert('No se pudo conectar con el servidor para registrar al médico.');
-                }
+                        formularios[5].reset();
+                    } else { alert('Error al registrar al médico.'); }
+                } catch (error) { alert('No se pudo conectar con el servidor.'); }
             });
         }
 
-        const formInventario = document.getElementById('form-inventario');
-        if (formInventario) {
-            formInventario.addEventListener('submit', async (e) => {
+        if (formularios.length >= 7) {
+            formularios[6].addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const datosInventario = {
-                    id_med: document.getElementById('inv_id_med').value,
-                    medicamento: document.getElementById('inv_medicamento').value,
-                    presentacion: document.getElementById('inv_presentacion').value,
-                    stock_inicial: document.getElementById('inv_stock_inicial').value,
-                    cantidad_usada: document.getElementById('inv_cantidad_usada').value,
-                    precio_unitario: document.getElementById('inv_precio_unitario').value,
-                    caducidad: document.getElementById('inv_caducidad').value
+                    id_med: document.querySelector('[id*="id_med"]') ? document.querySelector('[id*="id_med"]').value : '',
+                    medicamento: document.querySelector('[id*="medicamento"]') ? document.querySelector('[id*="medicamento"]').value : '',
+                    presentacion: document.querySelector('[id*="presentacion"]') ? document.querySelector('[id*="presentacion"]').value : '',
+                    stock_inicial: document.querySelector('[id*="stock"]') ? document.querySelector('[id*="stock"]').value : '0',
+                    cantidad_usada: document.querySelector('[id*="cantidad"]') ? document.querySelector('[id*="cantidad"]').value : '0',
+                    precio_unitario: document.querySelector('[id*="precio"]') ? document.querySelector('[id*="precio"]').value : '0',
+                    caducidad: document.querySelector('[id*="caducidad"]') ? document.querySelector('[id*="caducidad"]').value : ''
                 };
                 try {
                     const response = await fetch(`${BASE_API_URL}/inventario`, {
@@ -1679,16 +1642,11 @@ const BASE_API_URL = 'http://127.0.0.1:5000';
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(datosInventario)
                     });
-                    const data = await response.json();
                     if (response.ok) {
-                        alert('¡Conexión exitosa! Medicamento guardado en el inventario.');
-                        formInventario.reset();
-                    } else {
-                        alert('Error: ' + (data.message || 'No se pudo actualizar el inventario.'));
-                    }
-                } catch (error) {
-                    alert('No se pudo conectar con el servidor para actualizar el inventario.');
-                }
+                        alert('¡Conexión exitosa! Medicamento guardado.');
+                        formularios[6].reset();
+                    } else { alert('Error al actualizar inventario.'); }
+                } catch (error) { alert('No se pudo conectar con el servidor.'); }
             });
         }
     });
