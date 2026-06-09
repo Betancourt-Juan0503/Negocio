@@ -98,7 +98,6 @@
 </nav>
 
 <main>
-
 <div class="cuadro-blanco" id="seccion-registro">
 
     <h2>Registros</h2>
@@ -107,61 +106,61 @@
 
         <h3>Alta de Pacientes</h3>
 
-        <form>
+        <form id="form-paciente">
 
             <div class="grupo-formulario">
                 <label>ID Paciente</label>
-                <input type="number" required>
+                <input type="number" id="id_paciente" required>
             </div>
 
             <div class="grupo-formulario">
                 <label>Nombre</label>
-                <input type="text" required>
+                <input type="text" id="nombre" required>
             </div>
 
             <div class="grupo-formulario">
                 <label>CURP</label>
-                <input type="text" required>
+                <input type="text" id="curp" required>
             </div>
 
             <div class="grupo-formulario">
                 <label>RFC</label>
-                <input type="text" required>
+                <input type="text" id="rfc" required>
             </div>
 
             <div class="grupo-formulario">
                 <label>Fecha de Nacimiento</label>
-                <input type="date" required>
+                <input type="date" id="fecha_nacimiento" required>
             </div>
 
             <div class="grupo-formulario">
                 <label>Sexo</label>
-                <input type="text" required>
+                <input type="text" id="sexo" required>
             </div>
 
             <div class="grupo-formulario">
                 <label>Tipo de Sangre</label>
-                <input type="text" required>
+                <input type="text" id="tipo_sangre" required>
             </div>
 
             <div class="grupo-formulario">
                 <label>Teléfono</label>
-                <input type="number" required>
+                <input type="number" id="telefono" required>
             </div>
 
             <div class="grupo-formulario">
                 <label>Correo Electrónico</label>
-                <input type="email" required>
+                <input type="email" id="correo" required>
             </div>
 
             <div class="grupo-formulario">
                 <label>Dirección</label>
-                <input type="text" required>
+                <input type="text" id="direccion" required>
             </div>
 
             <div class="grupo-formulario">
                 <label>Edad</label>
-                <input type="number" required>
+                <input type="number" id="edad" required>
             </div>
 
             <button type="submit" class="btn-submit">
@@ -329,56 +328,56 @@
     <div class="formulario">
         <h3>Registrar Acceso</h3>
 
-        <form action="altas.html" method="POST" class="mi-formulario">
+        <form id="form-acceso" class="mi-formulario">
 
             <div class="grupo-formulario campo-form">
                 <label>ID Paciente</label>
-                <input type="number" name="id_paciente" required>
+                <input type="number" id="acceso_id_paciente" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Nombre</label>
-                <input type="text" name="nombre" required>
+                <input type="text" id="acceso_nombre" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>CURP</label>
-                <input type="text" name="curp" required>
+                <input type="text" id="acceso_curp" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Fecha Nacimiento</label>
-                <input type="text" name="fecha_nacimiento" required>
+                <input type="text" id="acceso_fecha_nacimiento" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Sexo</label>
-                <input type="text" name="sexo" required>
+                <input type="text" id="acceso_sexo" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Tipo de Sangre</label>
-                <input type="text" name="tipo_sangre" required>
+                <input type="text" id="acceso_tipo_sangre" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Teléfono</label>
-                <input type="number" name="telefono" required>
+                <input type="number" id="acceso_telefono" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Correo Electrónico</label>
-                <input type="email" name="correo_electronico" required>
+                <input type="email" id="acceso_correo" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Dirección</label>
-                <input type="text" name="direccion" required>
+                <input type="text" id="acceso_direccion" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Edad</label>
-                <input type="number" name="edad" required>
+                <input type="number" id="acceso_edad" required>
             </div>
 
             <button type="submit" class="btn-submit btn-guardar">
@@ -544,46 +543,46 @@
     <div class="formulario">
         <h3>Agregar Historial Clínico</h3>
 
-        <form>
+        <form id="form-historial">
 
             <div class="grupo-formulario">
                 <label>ID Paciente</label>
-                <input type="number" required>
+                <input type="number" id="historial_id_paciente" required>
             </div>
 
             <div class="grupo-formulario">
                 <label>Nombre</label>
-                <input type="text" required>
+                <input type="text" id="historial_nombre" required>
             </div>
 
             <div class="grupo-formulario">
                 <label>Alergias</label>
-                <input type="text">
+                <input type="text" id="historial_alergias">
             </div>
 
             <div class="grupo-formulario">
                 <label>Enfermedades Crónicas</label>
-                <input type="text">
+                <input type="text" id="historial_enfermedades">
             </div>
 
             <div class="grupo-formulario">
                 <label>Medicación Actual</label>
-                <input type="text">
+                <input type="text" id="historial_medicacion">
             </div>
 
             <div class="grupo-formulario">
                 <label>Médico Tratante</label>
-                <input type="text">
+                <input type="text" id="historial_medico">
             </div>
 
             <div class="grupo-formulario">
                 <label>Área</label>
-                <input type="text">
+                <input type="text" id="historial_area">
             </div>
 
             <div class="grupo-formulario">
                 <label>Estado Actual</label>
-                <input type="text">
+                <input type="text" id="historial_estado">
             </div>
 
             <button type="submit" class="btn-submit">
@@ -729,46 +728,46 @@
 
         <h3>Agregar Información Médica</h3>
 
-        <form>
+        <form id="form-informacion">
 
             <div class="grupo-formulario">
                 <label>ID Paciente</label>
-                <input type="number" required>
+                <input type="number" id="info_id_paciente" required>
             </div>
 
             <div class="grupo-formulario">
                 <label>Nombre</label>
-                <input type="text" required>
+                <input type="text" id="info_nombre" required>
             </div>
 
             <div class="grupo-formulario">
                 <label>No. Seguro Social</label>
-                <input type="number" required>
+                <input type="number" id="info_seguro_social" required>
             </div>
 
             <div class="grupo-formulario">
                 <label>Tipo de Seguro</label>
-                <input type="text" required>
+                <input type="text" id="info_tipo_seguro" required>
             </div>
 
             <div class="grupo-formulario">
                 <label>Hospital Asignado</label>
-                <input type="text" required>
+                <input type="text" id="info_hospital" required>
             </div>
 
             <div class="grupo-formulario">
                 <label>Contacto Emergencia</label>
-                <input type="text" required>
+                <input type="text" id="info_contacto_emergencia" required>
             </div>
 
             <div class="grupo-formulario">
                 <label>Parentesco</label>
-                <input type="text" required>
+                <input type="text" id="info_parentesco" required>
             </div>
 
             <div class="grupo-formulario">
                 <label>Teléfono Emergencia</label>
-                <input type="number" required>
+                <input type="number" id="info_telefono_emergencia" required>
             </div>
 
             <button type="submit" class="btn-submit">
@@ -917,51 +916,51 @@
 
         <h3>Registrar Factura</h3>
 
-        <form action="facturas.html" method="POST" class="mi-formulario">
+        <form id="form-factura" class="mi-formulario">
 
             <div class="grupo-formulario campo-form">
                 <label>ID Factura</label>
-                <input type="text" name="id_factura" required>
+                <input type="text" id="factura_id" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>ID Paciente</label>
-                <input type="number" name="id_paciente" required>
+                <input type="number" id="factura_id_paciente" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Días Estancia</label>
-                <input type="number" name="dias_estancia" required>
+                <input type="number" id="factura_dias_estancia" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Costo Día</label>
-                <input type="text" name="costo_dia" required>
+                <input type="text" id="factura_costo_dia" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Insumos Médicos</label>
-                <input type="text" name="insumos_medicos" required>
+                <input type="text" id="factura_insumos" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Honorarios Servicios</label>
-                <input type="text" name="honorarios_servicios" required>
+                <input type="text" id="factura_honorarios" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Total a Pagar</label>
-                <input type="text" name="total_pagar" required>
+                <input type="text" id="factura_total" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Método de Pago</label>
-                <input type="text" name="metodo_pago" required>
+                <input type="text" id="factura_metodo" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Estatus de Pago</label>
-                <input type="text" name="estatus_pago" required>
+                <input type="text" id="factura_estatus" required>
             </div>
 
             <button type="submit" class="btn-submit btn-guardar">
@@ -1117,51 +1116,51 @@
     <div class="formulario">
         <h3>Registrar Doctor</h3>
 
-        <form action="doctores.html" method="POST" class="mi-formulario">
+        <form id="form-doctor" class="mi-formulario">
 
             <div class="grupo-formulario campo-form">
                 <label>ID Doctor</label>
-                <input type="text" name="id_doctor" required>
+                <input type="text" id="doctor_id" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Nombre</label>
-                <input type="text" name="nombre" required>
+                <input type="text" id="doctor_nombre" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Especialidad</label>
-                <input type="text" name="especialidad" required>
+                <input type="text" id="doctor_especialidad" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Subespecialidad</label>
-                <input type="text" name="subespecialidad" required>
+                <input type="text" id="doctor_subespecialidad" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>CURP</label>
-                <input type="text" name="curp" required>
+                <input type="text" id="doctor_curp" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Cédula Profesional</label>
-                <input type="text" name="cedula_profesional" required>
+                <input type="text" id="doctor_cedula" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Consultorio</label>
-                <input type="text" name="consultorio" required>
+                <input type="text" id="doctor_consultorio" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Teléfono</label>
-                <input type="text" name="telefono" required>
+                <input type="text" id="doctor_telefono" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Estatus</label>
-                <input type="text" name="estatus" required>
+                <input type="text" id="doctor_estatus" required>
             </div>
 
             <button type="submit" class="btn-submit btn-guardar">
@@ -1169,145 +1168,128 @@
             </button>
 
         </form>
+    </div>
 
-        <div class="contenedor-tabla">
-
-            <table>
-
-                <thead>
-                    <tr>
-                        <th>ID Doctor</th>
-                        <th>Nombre</th>
-                        <th>Especialidad</th>
-                        <th>Subespecialidad</th>
-                        <th>CURP</th>
-                        <th>Cédula Profesional</th>
-                        <th>Consultorio</th>
-                        <th>Teléfono</th>
-                        <th>Estatus</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-
-                    <tr>
-                        <td>DOC-002</td>
-                        <td>Dr. Ricardo Gómez</td>
-                        <td>Cardiología</td>
-                        <td>Ecocardiografía</td>
-                        <td>GOR8234</td>
-                        <td>1234567-MX</td>
-                        <td>205-B</td>
-                        <td>555-123-4402</td>
-                        <td style="color: green; font-weight: bold;">Activo</td>
-                    </tr>
-
-                    <tr>
-                        <td>DOC-003</td>
-                        <td>Dra. Laura Pérez</td>
-                        <td>Traumatología</td>
-                        <td>Ortopedia</td>
-                        <td>PEL9012</td>
-                        <td>8899112-MX</td>
-                        <td>Urgencias</td>
-                        <td>555-123-4403</td>
-                        <td style="color: orange; font-weight: bold;">Guardia</td>
-                    </tr>
-
-                    <tr>
-                        <td>DOC-004</td>
-                        <td>Dra. Ana Torres</td>
-                        <td>Neumología</td>
-                        <td>Broncoscopia</td>
-                        <td>TOA0567</td>
-                        <td>5566778-MX</td>
-                        <td>302-A</td>
-                        <td>555-123-4404</td>
-                        <td style="color: green; font-weight: bold;">Activo</td>
-                    </tr>
-
-                    <tr>
-                        <td>DOC-005</td>
-                        <td>Dra. Elena Ruiz</td>
-                        <td>Ginecología</td>
-                        <td>Obstetricia</td>
-                        <td>RUE9588</td>
-                        <td>4433221-MX</td>
-                        <td>105-C</td>
-                        <td>555-123-4405</td>
-                        <td style="color: green; font-weight: bold;">Activo</td>
-                    </tr>
-
-                    <tr>
-                        <td>DOC-006</td>
-                        <td>Dr. Manuel Silva</td>
-                        <td>Medicina General</td>
-                        <td>Salud Pública</td>
-                        <td>SIM8844</td>
-                        <td>9900112-MX</td>
-                        <td>106-B</td>
-                        <td>555-123-4406</td>
-                        <td style="color: green; font-weight: bold;">Activo</td>
-                    </tr>
-
-                    <tr>
-                        <td>DOC-007</td>
-                        <td>Dra. Patricia León</td>
-                        <td>Neurología</td>
-                        <td>Epileptología</td>
-                        <td>LEP8421</td>
-                        <td>2211443-MX</td>
-                        <td>208-A</td>
-                        <td>555-123-4407</td>
-                        <td style="color: blue; font-weight: bold;">Vacaciones</td>
-                    </tr>
-
-                    <tr>
-                        <td>DOC-008</td>
-                        <td>Dr. José Vargas</td>
-                        <td>Reumatología</td>
-                        <td>Inmunología</td>
-                        <td>VAJ7733</td>
-                        <td>6655443-MX</td>
-                        <td>304-B</td>
-                        <td>555-123-4408</td>
-                        <td style="color: green; font-weight: bold;">Activo</td>
-                    </tr>
-
-                    <tr>
-                        <td>DOC-009</td>
-                        <td>Dra. Claudia Ramos</td>
-                        <td>Endocrinología</td>
-                        <td>Tiroides</td>
-                        <td>RAC9100</td>
-                        <td>7788990-MX</td>
-                        <td>102-A</td>
-                        <td>555-123-4409</td>
-                        <td style="color: green; font-weight: bold;">Activo</td>
-                    </tr>
-
-                    <tr>
-                        <td>DOC-010</td>
-                        <td>Dr. Andrés Molina</td>
-                        <td>Cirugía General</td>
-                        <td>Laparoscopia</td>
-                        <td>MOA8111</td>
-                        <td>3344556-MX</td>
-                        <td>Quirófano</td>
-                        <td>555-123-4410</td>
-                        <td style="color: orange; font-weight: bold;">Guardia</td>
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </div>
-
+    <div class="contenedor-tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Doctor</th>
+                    <th>Nombre</th>
+                    <th>Especialidad</th>
+                    <th>Subespecialidad</th>
+                    <th>CURP</th>
+                    <th>Cédula Profesional</th>
+                    <th>Consultorio</th>
+                    <th>Teléfono</th>
+                    <th>Estatus</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>DOC-002</td>
+                    <td>Dr. Ricardo Gómez</td>
+                    <td>Cardiología</td>
+                    <td>Ecocardiografía</td>
+                    <td>GOR8234</td>
+                    <td>1234567-MX</td>
+                    <td>205-B</td>
+                    <td>555-123-4402</td>
+                    <td style="color: green; font-weight: bold;">Activo</td>
+                </tr>
+                <tr>
+                    <td>DOC-003</td>
+                    <td>Dra. Laura Pérez</td>
+                    <td>Traumatología</td>
+                    <td>Ortopedia</td>
+                    <td>PEL9012</td>
+                    <td>8899112-MX</td>
+                    <td>Urgencias</td>
+                    <td>555-123-4403</td>
+                    <td style="color: orange; font-weight: bold;">Guardia</td>
+                </tr>
+                <tr>
+                    <td>DOC-004</td>
+                    <td>Dra. Ana Torres</td>
+                    <td>Neumología</td>
+                    <td>Broncoscopia</td>
+                    <td>TOA0567</td>
+                    <td>5566778-MX</td>
+                    <td>302-A</td>
+                    <td>555-123-4404</td>
+                    <td style="color: green; font-weight: bold;">Activo</td>
+                </tr>
+                <tr>
+                    <td>DOC-005</td>
+                    <td>Dra. Elena Ruiz</td>
+                    <td>Ginecología</td>
+                    <td>Obstetricia</td>
+                    <td>RUE9588</td>
+                    <td>4433221-MX</td>
+                    <td>105-C</td>
+                    <td>555-123-4405</td>
+                    <td style="color: green; font-weight: bold;">Activo</td>
+                </tr>
+                <tr>
+                    <td>DOC-006</td>
+                    <td>Dr. Manuel Silva</td>
+                    <td>Medicina General</td>
+                    <td>Salud Pública</td>
+                    <td>SIM8844</td>
+                    <td>9900112-MX</td>
+                    <td>106-B</td>
+                    <td>555-123-4406</td>
+                    <td style="color: green; font-weight: bold;">Activo</td>
+                </tr>
+                <tr>
+                    <td>DOC-007</td>
+                    <td>Dra. Patricia León</td>
+                    <td>Neurología</td>
+                    <td>Epileptología</td>
+                    <td>LEP8421</td>
+                    <td>2211443-MX</td>
+                    <td>208-A</td>
+                    <td>555-123-4407</td>
+                    <td style="color: blue; font-weight: bold;">Vacaciones</td>
+                </tr>
+                <tr>
+                    <td>DOC-008</td>
+                    <td>Dr. José Vargas</td>
+                    <td>Reumatología</td>
+                    <td>Inmunología</td>
+                    <td>VAJ7733</td>
+                    <td>6655443-MX</td>
+                    <td>304-B</td>
+                    <td>555-123-4408</td>
+                    <td style="color: green; font-weight: bold;">Activo</td>
+                </tr>
+                <tr>
+                    <td>DOC-009</td>
+                    <td>Dra. Claudia Ramos</td>
+                    <td>Endocrinología</td>
+                    <td>Tiroides</td>
+                    <td>RAC9100</td>
+                    <td>7788990-MX</td>
+                    <td>102-A</td>
+                    <td>555-123-4409</td>
+                    <td style="color: green; font-weight: bold;">Activo</td>
+                </tr>
+                <tr>
+                    <td>DOC-010</td>
+                    <td>Dr. Andrés Molina</td>
+                    <td>Cirugía General</td>
+                    <td>Laparoscopia</td>
+                    <td>MOA8111</td>
+                    <td>3344556-MX</td>
+                    <td>Quirófano</td>
+                    <td>555-123-4410</td>
+                    <td style="color: orange; font-weight: bold;">Guardia</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <a href="?" class="boton-regresar btn-back">← Regresar al Menú Principal</a>
-
 </div>
 
 <div class="cuadro-blanco" id="seccion-inventario">
@@ -1317,41 +1299,41 @@
     <div class="formulario">
         <h3>Registrar Medicamento</h3>
 
-        <form action="inventario.html" method="POST" class="mi-formulario">
+        <form id="form-inventario" class="mi-formulario">
 
             <div class="grupo-formulario campo-form">
                 <label>ID Med</label>
-                <input type="text" name="id_med" required>
+                <input type="text" id="inv_id_med" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Medicamento</label>
-                <input type="text" name="medicamento" required>
+                <input type="text" id="inv_medicamento" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Presentación</label>
-                <input type="text" name="presentacion" required>
+                <input type="text" id="inv_presentacion" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Stock Inicial</label>
-                <input type="number" name="stock_inicial" required>
+                <input type="number" id="inv_stock_inicial" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Cantidad Usada</label>
-                <input type="number" name="cantidad_usada" required>
+                <input type="number" id="inv_cantidad_usada" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Precio Unitario</label>
-                <input type="text" name="precio_unitario" required>
+                <input type="text" id="inv_precio_unitario" required>
             </div>
 
             <div class="grupo-formulario campo-form">
                 <label>Caducidad</label>
-                <input type="month" name="caducidad" required>
+                <input type="month" id="inv_caducidad" required>
             </div>
 
             <button type="submit" class="btn-submit btn-guardar">
@@ -1362,9 +1344,7 @@
     </div>
 
     <div class="contenedor-tabla">
-
         <table>
-
             <thead>
                 <tr>
                     <th>ID Med</th>
@@ -1376,9 +1356,7 @@
                     <th>Caducidad</th>
                 </tr>
             </thead>
-
             <tbody>
-
                 <tr>
                     <td>MED-002</td>
                     <td>Metformina</td>
@@ -1388,7 +1366,6 @@
                     <td>$180</td>
                     <td>05/2028</td>
                 </tr>
-
                 <tr>
                     <td>MED-003</td>
                     <td>Enoxaparina</td>
@@ -1398,7 +1375,6 @@
                     <td>$420</td>
                     <td>09/2026</td>
                 </tr>
-
                 <tr>
                     <td>MED-004</td>
                     <td>Salbutamol</td>
@@ -1408,7 +1384,6 @@
                     <td>$310</td>
                     <td>01/2027</td>
                 </tr>
-
                 <tr>
                     <td>MED-005</td>
                     <td>Ketorolaco</td>
@@ -1418,7 +1393,6 @@
                     <td>$45</td>
                     <td>03/2028</td>
                 </tr>
-
                 <tr>
                     <td>MED-006</td>
                     <td>Ceftriaxona</td>
@@ -1428,7 +1402,6 @@
                     <td>$215</td>
                     <td>11/2026</td>
                 </tr>
-
                 <tr>
                     <td>MED-007</td>
                     <td>Omeprazol</td>
@@ -1438,7 +1411,6 @@
                     <td>$95</td>
                     <td>08/2027</td>
                 </tr>
-
                 <tr>
                     <td>MED-008</td>
                     <td>Paracetamol</td>
@@ -1448,7 +1420,6 @@
                     <td>$65</td>
                     <td>02/2029</td>
                 </tr>
-
                 <tr>
                     <td>MED-009</td>
                     <td>Losartán</td>
@@ -1458,7 +1429,6 @@
                     <td>$140</td>
                     <td>06/2027</td>
                 </tr>
-
                 <tr>
                     <td>MED-010</td>
                     <td>Solución Salina</td>
@@ -1468,15 +1438,11 @@
                     <td>$110</td>
                     <td>10/2028</td>
                 </tr>
-
             </tbody>
-
         </table>
-
     </div>
 
     <a href="?" class="boton-regresar btn-back">← Regresar al Menú Principal</a>
-
 </div>
 <div class="cuadro-blanco" id="inicio">
     <h2>Información del Negocio</h2>
@@ -1493,45 +1459,54 @@
     <p><strong>Especialidad:</strong> Programación</p>
 </footer>
 
-    <script>
-        const BASE_API_URL = 'http://192.168.5.108:5000';
+   <script>
+        const BASE_API_URL = 'http://127.0.0.1:5000';
 
         document.addEventListener('DOMContentLoaded', () => {
-            const formDoctor = document.querySelector('form'); 
+            const formPaciente = document.getElementById('form-paciente'); 
             
-            if (formDoctor) {
-                formDoctor.addEventListener('submit', async (e) => {
+            if (formPaciente) {
+                formPaciente.addEventListener('submit', async (e) => {
                     e.preventDefault(); 
                     
+                    const datosPaciente = {
+                        id_paciente: document.getElementById('id_paciente').value,
+                        nombre: document.getElementById('nombre').value,
+                        curp: document.getElementById('curp').value,
+                        rfc: document.getElementById('rfc').value,
+                        fecha_nacimiento: document.getElementById('fecha_nacimiento').value,
+                        sexo: document.getElementById('sexo').value,
+                        tipo_sangre: document.getElementById('tipo_sangre').value,
+                        telefono: document.getElementById('telefono').value,
+                        correo: document.getElementById('correo').value,
+                        direccion: document.getElementById('direccion').value,
+                        edad: document.getElementById('edad').value
+                    };
+                    
                     try {
-                        const response = await fetch(`${BASE_API_URL}/doctores`, {
+                        const response = await fetch(`${BASE_API_URL}/pacientes`, {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json'
                             },
-                            body: JSON.stringify({
-                                nombre: "Doctor de Prueba",
-                                specialty: "General"
-                            })
+                            body: JSON.stringify(datosPaciente)
                         });
 
                         const data = await response.json();
                         if (response.ok) {
-                            alert('¡Conexión exitosa! Datos guardados en MongoDB.');
+                            alert('¡Conexión exitosa! Paciente guardado en MongoDB.');
+                            formPaciente.reset();
                         } else {
                             alert('Error del servidor: ' + data.message);
                         }
                     } catch (error) {
                         console.error('Error:', error);
-                        alert('No se pudo conectar con el servidor de Firebase Studio.');
+                        alert('No se pudo conectar con el servidor.');
                     }
                 });
             }
         });
     </script>
-    
-</body>
-</html>
 
 </body>
 </html>
