@@ -1459,54 +1459,240 @@
     <p><strong>Especialidad:</strong> Programación</p>
 </footer>
 
-   <script>
-        const BASE_API_URL = 'http://127.0.0.1:5000';
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const formPaciente = document.getElementById('form-paciente'); 
-            
-            if (formPaciente) {
-                formPaciente.addEventListener('submit', async (e) => {
-                    e.preventDefault(); 
-                    
-                    const datosPaciente = {
-                        id_paciente: document.getElementById('id_paciente').value,
-                        nombre: document.getElementById('nombre').value,
-                        curp: document.getElementById('curp').value,
-                        rfc: document.getElementById('rfc').value,
-                        fecha_nacimiento: document.getElementById('fecha_nacimiento').value,
-                        sexo: document.getElementById('sexo').value,
-                        tipo_sangre: document.getElementById('tipo_sangre').value,
-                        telefono: document.getElementById('telefono').value,
-                        correo: document.getElementById('correo').value,
-                        direccion: document.getElementById('direccion').value,
-                        edad: document.getElementById('edad').value
-                    };
-                    
-                    try {
-                        const response = await fetch(`${BASE_API_URL}/pacientes`, {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(datosPaciente)
-                        });
-
-                        const data = await response.json();
-                        if (response.ok) {
-                            alert('¡Conexión exitosa! Paciente guardado en MongoDB.');
-                            formPaciente.reset();
-                        } else {
-                            alert('Error del servidor: ' + data.message);
-                        }
-                    } catch (error) {
-                        console.error('Error:', error);
-                        alert('No se pudo conectar con el servidor.');
+  <script>
+const BASE_API_URL = 'http://127.0.0.1:5000';
+      
+    document.addEventListener('DOMContentLoaded', () => {
+        const formRegistro = document.getElementById('form-paciente');
+        if (formRegistro) {
+            formRegistro.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const datosPaciente = {
+                    id_paciente: document.getElementById('paciente_id').value,
+                    nombre: document.getElementById('paciente_nombre').value,
+                    edad: document.getElementById('paciente_edad').value,
+                    genero: document.getElementById('paciente_genero').value,
+                    telefono: document.getElementById('paciente_telefono').value,
+                    direccion: document.getElementById('paciente_direccion').value,
+                    fecha_ingreso: document.getElementById('paciente_fecha').value,
+                    motivo_ingreso: document.getElementById('paciente_motivo').value
+                };
+                try {
+                    const response = await fetch(`${BASE_API_URL}/pacientes`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(datosPaciente)
+                    });
+                    const data = await response.json();
+                    if (response.ok) {
+                        alert('¡Conexión exitosa! Paciente registrado en MongoDB.');
+                        formRegistro.reset();
+                    } else {
+                        alert('Error: ' + (data.message || 'No se pudo registrar al paciente.'));
                     }
-                });
-            }
-        });
-    </script>
+                } catch (error) {
+                    alert('No se pudo conectar con el servidor.');
+                }
+            });
+        }
 
+        const formInformacion = document.getElementById('form-informacion');
+        if (formInformacion) {
+            formInformacion.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const datosInformacion = {
+                    id_paciente: document.getElementById('info_id_paciente').value,
+                    nombre: document.getElementById('info_nombre').value,
+                    seguro_social: document.getElementById('info_seguro_social').value,
+                    tipo_seguro: document.getElementById('info_tipo_seguro').value,
+                    hospital_asignado: document.getElementById('info_hospital').value,
+                    contacto_emergencia: document.getElementById('info_contacto_emergencia').value,
+                    parentesco: document.getElementById('info_parentesco').value,
+                    telefono_emergencia: document.getElementById('info_telefono_emergencia').value
+                };
+                try {
+                    const response = await fetch(`${BASE_API_URL}/informacion-complementaria`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(datosInformacion)
+                    });
+                    const data = await response.json();
+                    if (response.ok) {
+                        alert('¡Conexión exitosa! Información complementaria guardada.');
+                        formInformacion.reset();
+                    } else {
+                        alert('Error del servidor: ' + (data.message || 'No se pudo guardar la información.'));
+                    }
+                } catch (error) {
+                    alert('No se pudo conectar con el servidor backend.');
+                }
+            });
+        }
+
+        const formAccesos = document.getElementById('form-accesos') || document.getElementById('form-ingresos') || document.getElementById('form-admin');
+        if (formAccesos) {
+            formAccesos.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const campoUsuario = document.querySelector('[id*="usuario"]') || document.querySelector('[id*="user"]');
+                const campoRol = document.querySelector('[id*="rol"]') || document.querySelector('[id*="acceso"]');
+                const datosAccesos = {
+                    usuario: campoUsuario ? campoUsuario.value : '',
+                    rol_acceso: campoRol ? campoRol.value : '',
+                    fecha_intervencion: new Date().toISOString()
+                };
+                try {
+                    const response = await fetch(`${BASE_API_URL}/control-accesos`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(datosAccesos)
+                    });
+                    const data = await response.json();
+                    if (response.ok) {
+                        alert('¡Conexión exitosa! Control de acceso registrado.');
+                        formAccesos.reset();
+                    } else {
+                        alert('Error: ' + (data.message || 'No se pudo registrar el acceso.'));
+                    }
+                } catch (error) {
+                    alert('No se pudo conectar con el servidor para registrar el acceso.');
+                }
+            });
+        }
+
+        const formHistorial = document.getElementById('form-historial');
+        if (formHistorial) {
+            formHistorial.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const datosHistorial = {
+                    id_paciente: document.getElementById('historial_id_paciente').value,
+                    nombre: document.getElementById('historial_nombre').value,
+                    alergias: document.getElementById('historial_alergias').value || "Ninguna",
+                    enfermedades_cronicas: document.getElementById('historial_enfermedades').value || "Ninguna",
+                    medicacion_actual: document.getElementById('historial_medicacion').value || "Ninguna",
+                    medico_tratante: document.getElementById('historial_medico').value,
+                    area: document.getElementById('historial_area').value,
+                    estado_actual: document.getElementById('historial_estado').value
+                };
+                try {
+                    const response = await fetch(`${BASE_API_URL}/historiales`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(datosHistorial)
+                    });
+                    const data = await response.json();
+                    if (response.ok) {
+                        alert('¡Conexión exitosa! Historial Clínico guardado en MongoDB.');
+                        formHistorial.reset();
+                    } else {
+                        alert('Error del servidor: ' + (data.message || 'No se pudo registrar el historial.'));
+                    }
+                } catch (error) {
+                    alert('No se pudo conectar con el servidor backend.');
+                }
+            });
+        }
+
+        const formFactura = document.getElementById('form-factura');
+        if (formFactura) {
+            formFactura.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const datosFactura = {
+                    id_factura: document.getElementById('factura_id').value,
+                    id_paciente: document.getElementById('factura_id_paciente').value,
+                    dias_estancia: document.getElementById('factura_dias_estancia').value,
+                    costo_dia: document.getElementById('factura_costo_dia').value,
+                    insumos_medicos: document.getElementById('factura_insumos').value,
+                    honorarios_servicios: document.getElementById('factura_honorarios').value,
+                    total_pagar: document.getElementById('factura_total').value,
+                    metodo_pago: document.getElementById('factura_metodo').value,
+                    estatus_pago: document.getElementById('factura_estatus').value
+                };
+                try {
+                    const response = await fetch(`${BASE_API_URL}/facturas`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(datosFactura)
+                    });
+                    const data = await response.json();
+                    if (response.ok) {
+                        alert('¡Conexión exitosa! Factura registrada correctamente.');
+                        formFactura.reset();
+                    } else {
+                        alert('Error: ' + (data.message || 'No se pudo registrar la factura.'));
+                    }
+                } catch (error) {
+                    alert('No se pudo conectar con el servidor para registrar la factura.');
+                }
+            });
+        }
+
+        const formDoctor = document.getElementById('form-doctor');
+        if (formDoctor) {
+            formDoctor.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const datosDoctor = {
+                    id_doctor: document.getElementById('doctor_id').value,
+                    nombre: document.getElementById('doctor_nombre').value,
+                    especialidad: document.getElementById('doctor_especialidad').value,
+                    subespecialidad: document.getElementById('doctor_subespecialidad').value,
+                    curp: document.getElementById('doctor_curp').value,
+                    cedula_profesional: document.getElementById('doctor_cedula').value,
+                    consultorio: document.getElementById('doctor_consultorio').value,
+                    telefono: document.getElementById('doctor_telefono').value,
+                    estatus: document.getElementById('doctor_estatus').value
+                };
+                try {
+                    const response = await fetch(`${BASE_API_URL}/doctores`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(datosDoctor)
+                    });
+                    const data = await response.json();
+                    if (response.ok) {
+                        alert('¡Conexión exitosa! Médico registrado con éxito.');
+                        formDoctor.reset();
+                    } else {
+                        alert('Error: ' + (data.message || 'No se pudo registrar al médico.'));
+                    }
+                } catch (error) {
+                    alert('No se pudo conectar con el servidor para registrar al médico.');
+                }
+            });
+        }
+
+        const formInventario = document.getElementById('form-inventario');
+        if (formInventario) {
+            formInventario.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const datosInventario = {
+                    id_med: document.getElementById('inv_id_med').value,
+                    medicamento: document.getElementById('inv_medicamento').value,
+                    presentacion: document.getElementById('inv_presentacion').value,
+                    stock_inicial: document.getElementById('inv_stock_inicial').value,
+                    cantidad_usada: document.getElementById('inv_cantidad_usada').value,
+                    precio_unitario: document.getElementById('inv_precio_unitario').value,
+                    caducidad: document.getElementById('inv_caducidad').value
+                };
+                try {
+                    const response = await fetch(`${BASE_API_URL}/inventario`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(datosInventario)
+                    });
+                    const data = await response.json();
+                    if (response.ok) {
+                        alert('¡Conexión exitosa! Medicamento guardado en el inventario.');
+                        formInventario.reset();
+                    } else {
+                        alert('Error: ' + (data.message || 'No se pudo actualizar el inventario.'));
+                    }
+                } catch (error) {
+                    alert('No se pudo conectar con el servidor para actualizar el inventario.');
+                }
+            });
+        }
+    });
+</script>
+    
 </body>
 </html>
