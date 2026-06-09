@@ -203,8 +203,27 @@
             <div class="grupo-formulario"><label>Caducidad:</label><input type="date" id="inv_caducidad" required></div>
             <button type="submit" class="btn-submit">Actualizar Inventario</button>
         </form>
-        <a href="#" class="boton-regresar">Inicio</a>
+       <div class="contenedor-tabla" style="margin-top: 20px; overflow-x: auto;">
+        <table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">
+            <thead>
+                <tr style="background-color: #f2f2f2;">
+                    <th>ID Med</th>
+                    <th>Medicamento</th>
+                    <th>Presentación</th>
+                    <th>Stock Inicial</th>
+                    <th>Usado</th>
+                    <th>Precio</th>
+                    <th>Caducidad</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-inventario-body">
+            </tbody>
+        </table>
     </div>
+
+    <a href="#" class="boton-regresar">Inicio</a>
+</div>
 
     <div id="inicio" style="text-align: center; color: white; margin-top: 50px;">
         <h2>Bienvenido al Sistema Médico Medicare</h2>
@@ -1747,6 +1766,43 @@
         }
 
         const formInventario = document.getElementById('form-inventario');
+        const tablaBody = document.getElementById('tabla-inventario-body');
+
+        function agregarFilaTabla(doc) {
+            const fila = document.createElement('tr');
+            fila.setAttribute('id', `fila-${doc._id}`);
+            fila.innerHTML = `
+                <td>${doc.id_med}</td>
+                <td>${doc.medicamento}</td>
+                <td>${doc.presentacion}</td>
+                <td>${doc.stock_inicial}</td>
+                <td>${doc.cantidad_usada}</td>
+                <td>$${doc.precio_unitario}</td>
+                <td>${doc.caducidad}</td>
+                <td>
+                    <button onclick="eliminarRegistro('${doc._id}')" style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px;">
+                        Eliminar
+                    </button>
+                </td>
+            `;
+            tablaBody.appendChild(fila);
+        }
+
+        async function cargarInventario() {
+            try {
+                const response = await fetch(`${BASE_API_URL}/api/inventario`);
+                if (response.ok) {
+                    const medicamentos = await response.json();
+                    tablaBody.innerHTML = '';
+                    medicamentos.forEach(med => agregarFilaTabla(med));
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        cargarInventario();
+
         if (formInventario) {
             formInventario.addEventListener('submit', async (e) => {
                 e.preventDefault();
@@ -1766,11 +1822,32 @@
                         body: JSON.stringify(datosInventario)
                     });
                     if (response.ok) {
+                        const respuestaServidor = await response.json();
                         alert('¡Conexión exitosa! Medicamento guardado.');
+                        agregarFilaTabla(respuestaServidor.data); 
                         formInventario.reset();
                     } else { alert('Error al actualizar inventario.'); }
                 } catch (error) { alert('No se pudo conectar con el servidor.'); }
             });
+        }
+
+        window.eliminarRegistro = async function(id) {
+            if (confirm('¿Estás seguro de que deseas eliminar este medicamento de la base de datos?')) {
+                try {
+                    const response = await fetch(`${BASE_API_URL}/api/inventario/${id}`, {
+                        method: 'DELETE'
+                    });
+                    if (response.ok) {
+                        alert('Registro eliminado correctamente.');
+                        const filaAEliminar = document.getElementById(`fila-${id}`);
+                        if (filaAEliminar) filaAEliminar.remove();
+                    } else {
+                        alert('Error al intentar eliminar el registro en el servidor.');
+                    }
+                } catch (error) {
+                    alert('No se pudo conectar con el servidor para eliminar.');
+                }
+            }
         }
     });
 </script>
