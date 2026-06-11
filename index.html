@@ -132,15 +132,21 @@
     </div>
 
     <div class="cuadro-blanco" id="seccion-accesos">
-        <h2>Control de Accesos</h2>
-        <form id="form-accesos" class="formulario">
-            <div class="grupo-formulario"><label>Usuario:</label><input type="text" id="acceso_usuario" required></div>
-            <div class="grupo-formulario"><label>Rol / Acceso:</label><input type="text" id="acceso_rol" required></div>
-            <button type="submit" class="btn-submit">Registrar Acceso</button>
+        <h2>Control de Ingresos</h2>
+        <form id="form-acceso" class="formulario">
+            <div class="grupo-formulario"><label>ID Paciente:</label><input type="text" id="acceso_id_paciente" required></div>
+            <div class="grupo-formulario"><label>Nombre Completo:</label><input type="text" id="acceso_nombre" required></div>
+            <div class="grupo-formulario"><label>Fecha de Ingreso:</label><input type="date" id="acceso_fecha_ingreso" required></div>
+            <div class="grupo-formulario"><label>Tipo de Atención:</label><input type="text" id="acceso_tipo_atencion" required></div>
+            <div class="grupo-formulario"><label>Motivo de Ingreso:</label><input type="text" id="acceso_motivo" required></div>
+            <div class="grupo-formulario"><label>Diagnóstico Preliminar:</label><input type="text" id="acceso_diagnostico" required></div>
+            <div class="grupo-formulario"><label>Fecha Estimada de Alta:</label><input type="date" id="acceso_fecha_alta"></div>
+            <div class="grupo-formulario"><label>Observaciones:</label><input type="text" id="acceso_observaciones"></div>
+            <button type="submit" class="btn-submit">Registrar Ingreso</button>
         </form>
         <a href="#" class="boton-regresar">Inicio</a>
     </div>
-
+    
     <div class="cuadro-blanco" id="seccion-historial">
         <h2>Historial Clínico</h2>
         <form id="form-historial" class="formulario">
