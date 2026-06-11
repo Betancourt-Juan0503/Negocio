@@ -1861,6 +1861,33 @@
             }
         }
     });
+
+     const tablaDoctores = document.getElementById('tabla-doctores-contenedor'); 
+        if (tablaDoctores) {
+            tablaDoctores.addEventListener('click', async (e) => {
+                if (e.target.classList.contains('btn-eliminar-doctor')) {
+                    const idDoctor = e.target.getAttribute('data-id');
+                    
+                    if (confirm(`¿Estás seguro de que deseas eliminar al doctor con ID: ${idDoctor}?`)) {
+                        try {
+                        
+                            const response = await fetch(`${BASE_API_URL}/api/doctores/${idDoctor}`, {
+                                method: 'DELETE'
+                            });
+                            
+                            if (response.ok) {
+                                alert('¡Conexión exitosa! Doctor eliminado de MongoDB.');
+                                location.reload();
+                            } else {
+                                alert('Error en el servidor al intentar eliminar al doctor.');
+                            }
+                        } catch (error) {
+                            alert('No se pudo conectar con el servidor para eliminar al doctor.');
+                        }
+                    }
+                }
+            });
+        }
 </script>
     
 </body>
