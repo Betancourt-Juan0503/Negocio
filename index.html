@@ -1664,9 +1664,11 @@
                 const response = await fetch(`${BASE_API_URL}/api/doctores`);
                 if (response.ok) {
                     const respuesta = await response.json();
+                    console.log("=== JAVASCRIPT RECIBIÓ ESTO ===", respuesta);
+                    
                     if (tablaDoctoresBody) tablaDoctoresBody.innerHTML = '';
                     
-                    const doctores = Array.isArray(respuesta) ? respuesta : [];
+                    const doctores = Array.isArray(respuesta) ? respuesta : (respuesta.data || []);
 
                     if (doctores.length > 0) {
                         doctores.forEach(doc => agregarFilaDoctor(doc));
