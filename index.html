@@ -132,15 +132,21 @@
     </div>
 
     <div class="cuadro-blanco" id="seccion-accesos">
-        <h2>Control de Accesos</h2>
-        <form id="form-accesos" class="formulario">
-            <div class="grupo-formulario"><label>Usuario:</label><input type="text" id="acceso_usuario" required></div>
-            <div class="grupo-formulario"><label>Rol / Acceso:</label><input type="text" id="acceso_rol" required></div>
-            <button type="submit" class="btn-submit">Registrar Acceso</button>
+        <h2>Control de Ingresos</h2>
+        <form id="form-acceso" class="formulario">
+            <div class="grupo-formulario"><label>ID Paciente:</label><input type="text" id="acceso_id_paciente" required></div>
+            <div class="grupo-formulario"><label>Nombre Completo:</label><input type="text" id="acceso_nombre" required></div>
+            <div class="grupo-formulario"><label>Fecha de Ingreso:</label><input type="date" id="acceso_fecha_ingreso" required></div>
+            <div class="grupo-formulario"><label>Tipo de Atención:</label><input type="text" id="acceso_tipo_atencion" required></div>
+            <div class="grupo-formulario"><label>Motivo de Ingreso:</label><input type="text" id="acceso_motivo" required></div>
+            <div class="grupo-formulario"><label>Diagnóstico Preliminar:</label><input type="text" id="acceso_diagnostico" required></div>
+            <div class="grupo-formulario"><label>Fecha Estimada de Alta:</label><input type="date" id="acceso_fecha_alta"></div>
+            <div class="grupo-formulario"><label>Observaciones:</label><input type="text" id="acceso_observaciones"></div>
+            <button type="submit" class="btn-submit">Registrar Ingreso</button>
         </form>
         <a href="#" class="boton-regresar">Inicio</a>
     </div>
-
+    
     <div class="cuadro-blanco" id="seccion-historial">
         <h2>Historial Clínico</h2>
         <form id="form-historial" class="formulario">
@@ -236,80 +242,59 @@
 </footer>
     
 <div class="cuadro-blanco" id="seccion-registro">
-
     <h2>Registros</h2>
-
     <div class="formulario">
-
         <h3>Alta de Pacientes</h3>
-
         <form id="form-paciente">
-
             <div class="grupo-formulario">
                 <label>ID Paciente</label>
                 <input type="number" id="id_paciente" required>
             </div>
-
             <div class="grupo-formulario">
                 <label>Nombre</label>
                 <input type="text" id="nombre" required>
             </div>
-
             <div class="grupo-formulario">
                 <label>CURP</label>
                 <input type="text" id="curp" required>
             </div>
-
             <div class="grupo-formulario">
                 <label>RFC</label>
                 <input type="text" id="rfc" required>
             </div>
-
             <div class="grupo-formulario">
                 <label>Fecha de Nacimiento</label>
                 <input type="date" id="fecha_nacimiento" required>
             </div>
-
             <div class="grupo-formulario">
                 <label>Sexo</label>
                 <input type="text" id="sexo" required>
             </div>
-
             <div class="grupo-formulario">
                 <label>Tipo de Sangre</label>
                 <input type="text" id="tipo_sangre" required>
             </div>
-
             <div class="grupo-formulario">
                 <label>Teléfono</label>
                 <input type="number" id="telefono" required>
             </div>
-
             <div class="grupo-formulario">
                 <label>Correo Electrónico</label>
                 <input type="email" id="correo" required>
             </div>
-
             <div class="grupo-formulario">
                 <label>Dirección</label>
                 <input type="text" id="direccion" required>
             </div>
-
             <div class="grupo-formulario">
                 <label>Edad</label>
                 <input type="number" id="edad" required>
             </div>
-
-            <button type="submit" class="btn-submit">
-                Dar de alta al Paciente
-            </button>
-
+            <button type="submit" class="btn-submit">Dar de alta al Paciente</button>
         </form>
 
         <div class="contenedor-tabla">
-
             <table>
-
                 <thead>
                     <tr>
                         <th>ID Paciente</th>
@@ -324,9 +309,7 @@
                         <th>Edad</th>
                     </tr>
                 </thead>
-
                 <tbody>
-
                     <tr>
                         <td>002</td>
                         <td>Maria Guadalupe Ortiz López</td>
@@ -339,7 +322,6 @@
                         <td>Av. Reforma #1208</td>
                         <td>40</td>
                     </tr>
-
                     <tr>
                         <td>003</td>
                         <td>Jorge Alberto Cruz Hernández</td>
@@ -352,7 +334,6 @@
                         <td>Calle Morelos #78</td>
                         <td>47</td>
                     </tr>
-
                     <tr>
                         <td>004</td>
                         <td>Sofia Martinez Vargas</td>
@@ -365,7 +346,6 @@
                         <td>Calle Puebla #560</td>
                         <td>18</td>
                     </tr>
-
                     <tr>
                         <td>005</td>
                         <td>Daniela Torres Ruiz</td>
@@ -378,7 +358,6 @@
                         <td>Av. Insurgentes Sur #3102</td>
                         <td>30</td>
                     </tr>
-
                     <tr>
                         <td>006</td>
                         <td>Ricardo Méndez Salas</td>
@@ -391,7 +370,6 @@
                         <td>Calle Allende #152</td>
                         <td>54</td>
                     </tr>
-
                     <tr>
                         <td>007</td>
                         <td>Fernanda López Castillo</td>
@@ -404,7 +382,6 @@
                         <td>Calle Oaxaca #400</td>
                         <td>37</td>
                     </tr>
-
                     <tr>
                         <td>008</td>
                         <td>Carlos Hernandez Jimenez</td>
@@ -417,7 +394,6 @@
                         <td>Av. Tlalpan #2277</td>
                         <td>60</td>
                     </tr>
-
                     <tr>
                         <td>009</td>
                         <td>Valeria Gómez Navarro</td>
@@ -430,7 +406,6 @@
                         <td>Calle Durango #410</td>
                         <td>32</td>
                     </tr>
-
                     <tr>
                         <td>010</td>
                         <td>Miguel Angel Pérez Soto</td>
@@ -443,295 +418,118 @@
                         <td>Calle Bolivia #65</td>
                         <td>45</td>
                     </tr>
-
                 </tbody>
-
             </table>
-
         </div>
-
     </div>
-
-    <a href="?" class="boton-regresar">
-        ← Regresar al Menú Principal
-    </a>
-
+    <a href="?" class="boton-regresar">← Regresar al Menú Principal</a>
 </div>
 
 <div class="cuadro-blanco" id="seccion-accesos">
-
-    <h2>Control de Accesos</h2>
-
+    <h2>Control de Ingresos</h2>
     <div class="formulario">
-        <h3>Registrar Acceso</h3>
-
+        <h3>Registrar Ingreso de Paciente</h3>
         <form id="form-acceso" class="mi-formulario">
-
             <div class="grupo-formulario campo-form">
                 <label>ID Paciente</label>
-                <input type="number" id="acceso_id_paciente" required>
+                <input type="text" id="acceso_id_paciente" required>
             </div>
-
             <div class="grupo-formulario campo-form">
-                <label>Nombre</label>
+                <label>Nombre Completo</label>
                 <input type="text" id="acceso_nombre" required>
             </div>
-
             <div class="grupo-formulario campo-form">
-                <label>CURP</label>
-                <input type="text" id="acceso_curp" required>
+                <label>Fecha de Ingreso</label>
+                <input type="date" id="acceso_fecha_ingreso" required>
             </div>
-
             <div class="grupo-formulario campo-form">
-                <label>Fecha Nacimiento</label>
-                <input type="text" id="acceso_fecha_nacimiento" required>
+                <label>Tipo de Atención</label>
+                <input type="text" id="acceso_tipo_atencion" required>
             </div>
-
             <div class="grupo-formulario campo-form">
-                <label>Sexo</label>
-                <input type="text" id="acceso_sexo" required>
+                <label>Motivo de Ingreso</label>
+                <input type="text" id="acceso_motivo" required>
             </div>
-
             <div class="grupo-formulario campo-form">
-                <label>Tipo de Sangre</label>
-                <input type="text" id="acceso_tipo_sangre" required>
+                <label>Diagnóstico Preliminar</label>
+                <input type="text" id="acceso_diagnostico" required>
             </div>
-
             <div class="grupo-formulario campo-form">
-                <label>Teléfono</label>
-                <input type="number" id="acceso_telefono" required>
+                <label>Fecha Estimada de Alta</label>
+                <input type="date" id="acceso_fecha_alta">
             </div>
-
             <div class="grupo-formulario campo-form">
-                <label>Correo Electrónico</label>
-                <input type="email" id="acceso_correo" required>
+                <label>Observaciones</label>
+                <input type="text" id="acceso_observaciones">
             </div>
-
-            <div class="grupo-formulario campo-form">
-                <label>Dirección</label>
-                <input type="text" id="acceso_direccion" required>
-            </div>
-
-            <div class="grupo-formulario campo-form">
-                <label>Edad</label>
-                <input type="number" id="acceso_edad" required>
-            </div>
-
-            <button type="submit" class="btn-submit btn-guardar">
-                Registrar Acceso
-            </button>
-
+            <button type="submit" class="btn-submit btn-guardar">Registrar Ingreso</button>
         </form>
 
         <div class="contenedor-tabla">
-
             <table>
-
                 <thead>
                     <tr>
                         <th>ID Paciente</th>
                         <th>Nombre</th>
-                        <th>CURP</th>
-                        <th>Fecha Nacimiento</th>
-                        <th>Sexo</th>
-                        <th>Tipo de Sangre</th>
-                        <th>Teléfono</th>
-                        <th>Correo Electrónico</th>
-                        <th>Dirección</th>
-                        <th>Edad</th>
+                        <th>Fecha Ingreso</th>
+                        <th>Tipo Atención</th>
+                        <th>Motivo</th>
+                        <th>Diagnóstico</th>
+                        <th>Fecha Alta</th>
+                        <th>Observaciones</th>
                     </tr>
                 </thead>
-
-                <tbody>
-
-                    <tr>
-                        <td>002</td>
-                        <td>Maria Guadalupe Ortiz López</td>
-                        <td>OILM850622MDFTRR04</td>
-                        <td>22/06/1985</td>
-                        <td>Femenino</td>
-                        <td>A-</td>
-                        <td>5552023345</td>
-                        <td>maria.ortiz@gmail.com</td>
-                        <td>Av. Reforma #1208</td>
-                        <td>40</td>
-                    </tr>
-
-                    <tr>
-                        <td>003</td>
-                        <td>Jorge Alberto Cruz Hernández</td>
-                        <td>CUHJ780911HDFRRR08</td>
-                        <td>11/09/1978</td>
-                        <td>Masculino</td>
-                        <td>B+</td>
-                        <td>5553034456</td>
-                        <td>jorge.cruz@gmail.com</td>
-                        <td>Calle Morelos #78</td>
-                        <td>47</td>
-                    </tr>
-
-                    <tr>
-                        <td>004</td>
-                        <td>Sofia Martinez Vargas</td>
-                        <td>MAVS200710MDFRRG02</td>
-                        <td>10/07/2007</td>
-                        <td>Femenino</td>
-                        <td>AB+</td>
-                        <td>5554045567</td>
-                        <td>sofia.martinez@gmail.com</td>
-                        <td>Calle Puebla #560</td>
-                        <td>18</td>
-                    </tr>
-
-                    <tr>
-                        <td>005</td>
-                        <td>Daniela Torres Ruiz</td>
-                        <td>TORD950418MDFRNL03</td>
-                        <td>18/04/1995</td>
-                        <td>Femenino</td>
-                        <td>O-</td>
-                        <td>5555056678</td>
-                        <td>daniela.torres@gmail.com</td>
-                        <td>Av. Insurgentes Sur #3102</td>
-                        <td>30</td>
-                    </tr>
-
-                    <tr>
-                        <td>006</td>
-                        <td>Ricardo Méndez Salas</td>
-                        <td>MESR720203HDFNLC07</td>
-                        <td>03/02/1972</td>
-                        <td>Masculino</td>
-                        <td>A+</td>
-                        <td>5556067789</td>
-                        <td>ricardo.mendez@gmail.com</td>
-                        <td>Calle Allende #152</td>
-                        <td>54</td>
-                    </tr>
-
-                    <tr>
-                        <td>007</td>
-                        <td>Fernanda López Castillo</td>
-                        <td>LOCF881130MDFZST06</td>
-                        <td>30/11/1988</td>
-                        <td>Femenino</td>
-                        <td>B-</td>
-                        <td>5557078890</td>
-                        <td>fernanda.lopez@gmail.com</td>
-                        <td>Calle Oaxaca #400</td>
-                        <td>37</td>
-                    </tr>
-
-                    <tr>
-                        <td>008</td>
-                        <td>Carlos Hernandez Jimenez</td>
-                        <td>HEJC650512HDFRMR01</td>
-                        <td>12/05/1965</td>
-                        <td>Masculino</td>
-                        <td>AB-</td>
-                        <td>5558089901</td>
-                        <td>carlos.hernandez@gmail.com</td>
-                        <td>Av. Tlalpan #2277</td>
-                        <td>60</td>
-                    </tr>
-
-                    <tr>
-                        <td>009</td>
-                        <td>Valeria Gómez Navarro</td>
-                        <td>GONV930824MDFMRL09</td>
-                        <td>24/08/1993</td>
-                        <td>Femenino</td>
-                        <td>O+</td>
-                        <td>5559091122</td>
-                        <td>valeria.gomez@gmail.com</td>
-                        <td>Calle Durango #410</td>
-                        <td>32</td>
-                    </tr>
-
-                    <tr>
-                        <td>010</td>
-                        <td>Miguel Angel Pérez Soto</td>
-                        <td>PESM810119HDFRZR05</td>
-                        <td>19/01/1981</td>
-                        <td>Masculino</td>
-                        <td>A+</td>
-                        <td>5550102233</td>
-                        <td>miguel.perez@gmail.com</td>
-                        <td>Calle Boliva #65</td>
-                        <td>45</td>
-                    </tr>
-
-                </tbody>
-
+                <tbody id="tabla-accesos-body">
+                    </tbody>
             </table>
-
         </div>
-
     </div>
-
     <a href="?" class="boton-regresar btn-back">← Regresar al Menú Principal</a>
-
 </div>
 
 <div class="cuadro-blanco" id="seccion-historial">
-
     <h2>Historial Clínico</h2>
-
     <div class="formulario">
         <h3>Agregar Historial Clínico</h3>
-
         <form id="form-historial">
-
             <div class="grupo-formulario">
                 <label>ID Paciente</label>
                 <input type="number" id="historial_id_paciente" required>
             </div>
-
             <div class="grupo-formulario">
                 <label>Nombre</label>
                 <input type="text" id="historial_nombre" required>
             </div>
-
             <div class="grupo-formulario">
                 <label>Alergias</label>
                 <input type="text" id="historial_alergias">
             </div>
-
             <div class="grupo-formulario">
                 <label>Enfermedades Crónicas</label>
                 <input type="text" id="historial_enfermedades">
             </div>
-
             <div class="grupo-formulario">
                 <label>Medicación Actual</label>
                 <input type="text" id="historial_medicacion">
             </div>
-
             <div class="grupo-formulario">
                 <label>Médico Tratante</label>
                 <input type="text" id="historial_medico">
             </div>
-
             <div class="grupo-formulario">
                 <label>Área</label>
                 <input type="text" id="historial_area">
             </div>
-
             <div class="grupo-formulario">
                 <label>Estado Actual</label>
                 <input type="text" id="historial_estado">
             </div>
-
-            <button type="submit" class="btn-submit">
-                Guardar Historial
-            </button>
-
+            <button type="submit" class="btn-submit">Guardar Historial</button>
         </form>
     </div>
 
     <div class="contenedor-tabla">
         <table>
-
             <thead>
                 <tr>
                     <th>ID Paciente</th>
@@ -744,9 +542,7 @@
                     <th>Estado Actual</th>
                 </tr>
             </thead>
-
             <tbody>
-
                 <tr>
                     <td>002</td>
                     <td>Maria Ortiz</td>
@@ -757,7 +553,6 @@
                     <td>Cardiología</td>
                     <td>Observación</td>
                 </tr>
-
                 <tr>
                     <td>003</td>
                     <td>Jorge Cruz</td>
@@ -768,7 +563,6 @@
                     <td>Urgencias</td>
                     <td>Alta Médica</td>
                 </tr>
-
                 <tr>
                     <td>004</td>
                     <td>Sofia Martinez</td>
@@ -779,7 +573,6 @@
                     <td>Neumología</td>
                     <td>Estable</td>
                 </tr>
-
                 <tr>
                     <td>005</td>
                     <td>Daniela Torres</td>
@@ -790,7 +583,6 @@
                     <td>Ginecología</td>
                     <td>Estable</td>
                 </tr>
-
                 <tr>
                     <td>006</td>
                     <td>Ricardo Mendez</td>
@@ -801,7 +593,6 @@
                     <td>Medicina Interna</td>
                     <td>Estable</td>
                 </tr>
-
                 <tr>
                     <td>007</td>
                     <td>Fernanda Lopez</td>
@@ -812,7 +603,6 @@
                     <td>Neurología</td>
                     <td>En Observación</td>
                 </tr>
-
                 <tr>
                     <td>008</td>
                     <td>Carlos Hernández</td>
@@ -823,7 +613,6 @@
                     <td>Cardiología</td>
                     <td>Delicado</td>
                 </tr>
-
                 <tr>
                     <td>009</td>
                     <td>Valeria Gómez</td>
@@ -834,7 +623,6 @@
                     <td>Hematología</td>
                     <td>Estable</td>
                 </tr>
-
                 <tr>
                     <td>010</td>
                     <td>Miguel Pérez</td>
@@ -845,78 +633,54 @@
                     <td>Gastroenterología</td>
                     <td>Estable</td>
                 </tr>
-
             </tbody>
-
         </table>
     </div>
-
-    <a href="?" class="boton-regresar">
-        ← Regresar al Menú Principal
-    </a>
-
+    <a href="?" class="boton-regresar">← Regresar al Menú Principal</a>
 </div>
 
 <div class="cuadro-blanco" id="seccion-informacion">
-
     <h2>Información Médica Complementaria</h2>
-
     <div class="formulario">
-
         <h3>Agregar Información Médica</h3>
-
         <form id="form-informacion">
-
             <div class="grupo-formulario">
                 <label>ID Paciente</label>
                 <input type="number" id="info_id_paciente" required>
             </div>
-
             <div class="grupo-formulario">
                 <label>Nombre</label>
                 <input type="text" id="info_nombre" required>
             </div>
-
             <div class="grupo-formulario">
                 <label>No. Seguro Social</label>
                 <input type="number" id="info_seguro_social" required>
             </div>
-
             <div class="grupo-formulario">
                 <label>Tipo de Seguro</label>
                 <input type="text" id="info_tipo_seguro" required>
             </div>
-
             <div class="grupo-formulario">
                 <label>Hospital Asignado</label>
                 <input type="text" id="info_hospital" required>
             </div>
-
             <div class="grupo-formulario">
                 <label>Contacto Emergencia</label>
                 <input type="text" id="info_contacto_emergencia" required>
             </div>
-
             <div class="grupo-formulario">
                 <label>Parentesco</label>
                 <input type="text" id="info_parentesco" required>
             </div>
-
             <div class="grupo-formulario">
                 <label>Teléfono Emergencia</label>
                 <input type="number" id="info_telefono_emergencia" required>
             </div>
-
-            <button type="submit" class="btn-submit">
-                Guardar Información
-            </button>
-
+            <button type="submit" class="btn-submit">Guardar Información</button>
         </form>
 
         <div class="contenedor-tabla">
-
             <table>
-
                 <thead>
                     <tr>
                         <th>ID Paciente</th>
@@ -929,9 +693,7 @@
                         <th>Teléfono Emergencia</th>
                     </tr>
                 </thead>
-
                 <tbody>
-
                     <tr>
                         <td>002</td>
                         <td>Maria Ortiz</td>
@@ -942,7 +704,6 @@
                         <td>Hermano</td>
                         <td>5559002233</td>
                     </tr>
-
                     <tr>
                         <td>003</td>
                         <td>Jorge Cruz</td>
@@ -953,7 +714,6 @@
                         <td>Esposa</td>
                         <td>5559003344</td>
                     </tr>
-
                     <tr>
                         <td>004</td>
                         <td>Sofia Martinez</td>
@@ -964,7 +724,6 @@
                         <td>Madre</td>
                         <td>5559004455</td>
                     </tr>
-
                     <tr>
                         <td>005</td>
                         <td>Daniela Torres</td>
@@ -975,7 +734,6 @@
                         <td>Padre</td>
                         <td>5559005566</td>
                     </tr>
-
                     <tr>
                         <td>006</td>
                         <td>Ricardo Méndez</td>
@@ -986,7 +744,6 @@
                         <td>Esposa</td>
                         <td>5559006677</td>
                     </tr>
-
                     <tr>
                         <td>007</td>
                         <td>Fernanda López</td>
@@ -997,7 +754,6 @@
                         <td>Esposo</td>
                         <td>5559007788</td>
                     </tr>
-
                     <tr>
                         <td>008</td>
                         <td>Carlos Hernández</td>
@@ -1008,7 +764,6 @@
                         <td>Hija</td>
                         <td>5559008899</td>
                     </tr>
-
                     <tr>
                         <td>009</td>
                         <td>Valeria Gómez</td>
@@ -1019,7 +774,6 @@
                         <td>Hermana</td>
                         <td>5559010011</td>
                     </tr>
-
                     <tr>
                         <td>010</td>
                         <td>Miguel Pérez</td>
@@ -1030,86 +784,59 @@
                         <td>Esposa</td>
                         <td>5559011122</td>
                     </tr>
-
                 </tbody>
-
             </table>
-
         </div>
-
     </div>
-
-    <a href="?" class="boton-regresar">
-        ← Regresar al Menú Principal
-    </a>
-
+    <a href="?" class="boton-regresar">← Regresar al Menú Principal</a>
 </div>
 
 <div class="cuadro-blanco" id="seccion-facturas">
-
     <h2>Control de Facturas e Importes</h2>
-
     <div class="formulario">
-
         <h3>Registrar Factura</h3>
-
         <form id="form-factura" class="mi-formulario">
-
             <div class="grupo-formulario campo-form">
                 <label>ID Factura</label>
                 <input type="text" id="factura_id" required>
             </div>
-
             <div class="grupo-formulario campo-form">
                 <label>ID Paciente</label>
                 <input type="number" id="factura_id_paciente" required>
             </div>
-
             <div class="grupo-formulario campo-form">
                 <label>Días Estancia</label>
                 <input type="number" id="factura_dias_estancia" required>
             </div>
-
             <div class="grupo-formulario campo-form">
                 <label>Costo Día</label>
                 <input type="text" id="factura_costo_dia" required>
             </div>
-
             <div class="grupo-formulario campo-form">
                 <label>Insumos Médicos</label>
                 <input type="text" id="factura_insumos" required>
             </div>
-
             <div class="grupo-formulario campo-form">
                 <label>Honorarios Servicios</label>
                 <input type="text" id="factura_honorarios" required>
             </div>
-
             <div class="grupo-formulario campo-form">
                 <label>Total a Pagar</label>
                 <input type="text" id="factura_total" required>
             </div>
-
             <div class="grupo-formulario campo-form">
                 <label>Método de Pago</label>
                 <input type="text" id="factura_metodo" required>
             </div>
-
             <div class="grupo-formulario campo-form">
                 <label>Estatus de Pago</label>
                 <input type="text" id="factura_estatus" required>
             </div>
-
-            <button type="submit" class="btn-submit btn-guardar">
-                Guardar Factura
-            </button>
-
+            <button type="submit" class="btn-submit btn-guardar">Guardar Factura</button>
         </form>
 
         <div class="contenedor-tabla">
-
             <table>
-
                 <thead>
                     <tr>
                         <th>ID Factura</th>
@@ -1123,9 +850,7 @@
                         <th>Estatus de Pago</th>
                     </tr>
                 </thead>
-
                 <tbody>
-
                     <tr>
                         <td>Fac-002</td>
                         <td>002</td>
@@ -1137,7 +862,6 @@
                         <td>Seguro ISSSTE</td>
                         <td style="color: orange; font-weight: bold;">En proceso</td>
                     </tr>
-
                     <tr>
                         <td>Fac-003</td>
                         <td>003</td>
@@ -1149,7 +873,6 @@
                         <td>Efectivo</td>
                         <td style="color: green; font-weight: bold;">Liquidado</td>
                     </tr>
-
                     <tr>
                         <td>Fac-004</td>
                         <td>004</td>
@@ -1161,7 +884,6 @@
                         <td>Seguro Popular</td>
                         <td style="color: blue; font-weight: bold;">En Revisión</td>
                     </tr>
-
                     <tr>
                         <td>Fac-005</td>
                         <td>005</td>
@@ -1173,7 +895,6 @@
                         <td>Tarjeta de Crédito</td>
                         <td style="color: green; font-weight: bold;">Liquidado</td>
                     </tr>
-
                     <tr>
                         <td>Fac-006</td>
                         <td>006</td>
@@ -1185,7 +906,6 @@
                         <td>IMSS</td>
                         <td style="color: green; font-weight: bold;">Liquidado</td>
                     </tr>
-
                     <tr>
                         <td>Fac-007</td>
                         <td>007</td>
@@ -1197,7 +917,6 @@
                         <td>ISSSTE</td>
                         <td style="color: blue; font-weight: bold;">En Revisión</td>
                     </tr>
-
                     <tr>
                         <td>Fac-008</td>
                         <td>008</td>
@@ -1209,7 +928,6 @@
                         <td>IMSS</td>
                         <td style="color: orange; font-weight: bold;">En proceso</td>
                     </tr>
-
                     <tr>
                         <td>Fac-009</td>
                         <td>009</td>
@@ -1221,7 +939,6 @@
                         <td>IMSS</td>
                         <td style="color: green; font-weight: bold;">Liquidado</td>
                     </tr>
-
                     <tr>
                         <td>Fac-010</td>
                         <td>010</td>
@@ -1233,77 +950,55 @@
                         <td>Seguro Privado</td>
                         <td style="color: green; font-weight: bold;">Liquidado</td>
                     </tr>
-
                 </tbody>
-
             </table>
-
         </div>
-
     </div>
-
     <a href="?" class="boton-regresar btn-back">← Regresar al Menú Principal</a>
-
 </div>
 
 <div class="cuadro-blanco" id="seccion-doctores">
-
     <h2>Plantilla de Médicos Especialistas</h2>
-
     <div class="formulario">
         <h3>Registrar Doctor</h3>
-
         <form id="form-doctor" class="mi-formulario">
-
             <div class="grupo-formulario campo-form">
                 <label>ID Doctor</label>
                 <input type="text" id="doctor_id" required>
             </div>
-
             <div class="grupo-formulario campo-form">
                 <label>Nombre</label>
                 <input type="text" id="doctor_nombre" required>
             </div>
-
             <div class="grupo-formulario campo-form">
                 <label>Especialidad</label>
                 <input type="text" id="doctor_especialidad" required>
             </div>
-
             <div class="grupo-formulario campo-form">
                 <label>Subespecialidad</label>
                 <input type="text" id="doctor_subespecialidad" required>
             </div>
-
             <div class="grupo-formulario campo-form">
                 <label>CURP</label>
                 <input type="text" id="doctor_curp" required>
             </div>
-
             <div class="grupo-formulario campo-form">
                 <label>Cédula Profesional</label>
                 <input type="text" id="doctor_cedula" required>
             </div>
-
             <div class="grupo-formulario campo-form">
                 <label>Consultorio</label>
                 <input type="text" id="doctor_consultorio" required>
             </div>
-
             <div class="grupo-formulario campo-form">
                 <label>Teléfono</label>
                 <input type="text" id="doctor_telefono" required>
             </div>
-
             <div class="grupo-formulario campo-form">
                 <label>Estatus</label>
                 <input type="text" id="doctor_estatus" required>
             </div>
-
-            <button type="submit" class="btn-submit btn-guardar">
-                Guardar Doctor
-            </button>
-
+            <button type="submit" class="btn-submit btn-guardar">Guardar Doctor</button>
         </form>
     </div>
 
@@ -1322,266 +1017,47 @@
                     <th>Estatus</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>DOC-002</td>
-                    <td>Dr. Ricardo Gómez</td>
-                    <td>Cardiología</td>
-                    <td>Ecocardiografía</td>
-                    <td>GOR8234</td>
-                    <td>1234567-MX</td>
-                    <td>205-B</td>
-                    <td>555-123-4402</td>
-                    <td style="color: green; font-weight: bold;">Activo</td>
-                </tr>
-                <tr>
-                    <td>DOC-003</td>
-                    <td>Dra. Laura Pérez</td>
-                    <td>Traumatología</td>
-                    <td>Ortopedia</td>
-                    <td>PEL9012</td>
-                    <td>8899112-MX</td>
-                    <td>Urgencias</td>
-                    <td>555-123-4403</td>
-                    <td style="color: orange; font-weight: bold;">Guardia</td>
-                </tr>
-                <tr>
-                    <td>DOC-004</td>
-                    <td>Dra. Ana Torres</td>
-                    <td>Neumología</td>
-                    <td>Broncoscopia</td>
-                    <td>TOA0567</td>
-                    <td>5566778-MX</td>
-                    <td>302-A</td>
-                    <td>555-123-4404</td>
-                    <td style="color: green; font-weight: bold;">Activo</td>
-                </tr>
-                <tr>
-                    <td>DOC-005</td>
-                    <td>Dra. Elena Ruiz</td>
-                    <td>Ginecología</td>
-                    <td>Obstetricia</td>
-                    <td>RUE9588</td>
-                    <td>4433221-MX</td>
-                    <td>105-C</td>
-                    <td>555-123-4405</td>
-                    <td style="color: green; font-weight: bold;">Activo</td>
-                </tr>
-                <tr>
-                    <td>DOC-006</td>
-                    <td>Dr. Manuel Silva</td>
-                    <td>Medicina General</td>
-                    <td>Salud Pública</td>
-                    <td>SIM8844</td>
-                    <td>9900112-MX</td>
-                    <td>106-B</td>
-                    <td>555-123-4406</td>
-                    <td style="color: green; font-weight: bold;">Activo</td>
-                </tr>
-                <tr>
-                    <td>DOC-007</td>
-                    <td>Dra. Patricia León</td>
-                    <td>Neurología</td>
-                    <td>Epileptología</td>
-                    <td>LEP8421</td>
-                    <td>2211443-MX</td>
-                    <td>208-A</td>
-                    <td>555-123-4407</td>
-                    <td style="color: blue; font-weight: bold;">Vacaciones</td>
-                </tr>
-                <tr>
-                    <td>DOC-008</td>
-                    <td>Dr. José Vargas</td>
-                    <td>Reumatología</td>
-                    <td>Inmunología</td>
-                    <td>VAJ7733</td>
-                    <td>6655443-MX</td>
-                    <td>304-B</td>
-                    <td>555-123-4408</td>
-                    <td style="color: green; font-weight: bold;">Activo</td>
-                </tr>
-                <tr>
-                    <td>DOC-009</td>
-                    <td>Dra. Claudia Ramos</td>
-                    <td>Endocrinología</td>
-                    <td>Tiroides</td>
-                    <td>RAC9100</td>
-                    <td>7788990-MX</td>
-                    <td>102-A</td>
-                    <td>555-123-4409</td>
-                    <td style="color: green; font-weight: bold;">Activo</td>
-                </tr>
-                <tr>
-                    <td>DOC-010</td>
-                    <td>Dr. Andrés Molina</td>
-                    <td>Cirugía General</td>
-                    <td>Laparoscopia</td>
-                    <td>MOA8111</td>
-                    <td>3344556-MX</td>
-                    <td>Quirófano</td>
-                    <td>555-123-4410</td>
-                    <td style="color: orange; font-weight: bold;">Guardia</td>
-                </tr>
-            </tbody>
+            <tbody id="tabla-doctores-body">
+                </tbody>
         </table>
     </div>
-
     <a href="?" class="boton-regresar btn-back">← Regresar al Menú Principal</a>
 </div>
 
 <div class="cuadro-blanco" id="seccion-inventario">
-
     <h2>Inventario de Medicamentos e Insumos</h2>
-
     <div class="formulario">
         <h3>Registrar Medicamento</h3>
-
         <form id="form-inventario" class="mi-formulario">
-
             <div class="grupo-formulario campo-form">
                 <label>ID Med</label>
                 <input type="text" id="inv_id_med" required>
             </div>
-
             <div class="grupo-formulario campo-form">
                 <label>Medicamento</label>
                 <input type="text" id="inv_medicamento" required>
             </div>
-
             <div class="grupo-formulario campo-form">
-                <label>Presentación</label>
-                <input type="text" id="inv_presentacion" required>
+                <label>Cantidad disponible</label>
+                <input type="number" id="inv_cantidad" required>
             </div>
-
-            <div class="grupo-formulario campo-form">
-                <label>Stock Inicial</label>
-                <input type="number" id="inv_stock_inicial" required>
-            </div>
-
-            <div class="grupo-formulario campo-form">
-                <label>Cantidad Usada</label>
-                <input type="number" id="inv_cantidad_usada" required>
-            </div>
-
-            <div class="grupo-formulario campo-form">
-                <label>Precio Unitario</label>
-                <input type="text" id="inv_precio_unitario" required>
-            </div>
-
-            <div class="grupo-formulario campo-form">
-                <label>Caducidad</label>
-                <input type="month" id="inv_caducidad" required>
-            </div>
-
-            <button type="submit" class="btn-submit btn-guardar">
-                Guardar Medicamento
-            </button>
-
+            <button type="submit" class="btn-submit btn-guardar">Guardar en Inventario</button>
         </form>
     </div>
 
     <div class="contenedor-tabla">
         <table>
-        <thead>
-            <tr>
-                <th>ID Med</th>
-                <th>Medicamento</th>
-                <th>Presentación</th>
-                <th>Stock Inicial</th>
-                <th>Cantidad Usada</th>
-                <th>Precio Unitario</th>
-                <th>Caducidad</th>
-                <th>Acciones</th> 
-            </tr>
-        </thead>
-        <tbody id="tabla-inventario-body">
-            </tbody>
-    </table>
+            <thead>
                 <tr>
-                    <td>MED-002</td>
-                    <td>Metformina</td>
-                    <td>Caja c/30 tabs</td>
-                    <td>150</td>
-                    <td>30</td>
-                    <td>$180</td>
-                    <td>05/2028</td>
+                    <th>ID Med</th>
+                    <th>Medicamento</th>
+                    <th>Cantidad disponible</th>
                 </tr>
-                <tr>
-                    <td>MED-003</td>
-                    <td>Enoxaparina</td>
-                    <td>Jeringa prellenada</td>
-                    <td>80</td>
-                    <td>20</td>
-                    <td>$420</td>
-                    <td>09/2026</td>
-                </tr>
-                <tr>
-                    <td>MED-004</td>
-                    <td>Salbutamol</td>
-                    <td>Inhalador 200 dosis</td>
-                    <td>40</td>
-                    <td>5</td>
-                    <td>$310</td>
-                    <td>01/2027</td>
-                </tr>
-                <tr>
-                    <td>MED-005</td>
-                    <td>Ketorolaco</td>
-                    <td>Ampolleta 30mg</td>
-                    <td>250</td>
-                    <td>50</td>
-                    <td>$45</td>
-                    <td>03/2028</td>
-                </tr>
-                <tr>
-                    <td>MED-006</td>
-                    <td>Ceftriaxona</td>
-                    <td>Frasco ámpula 1g</td>
-                    <td>100</td>
-                    <td>15</td>
-                    <td>$215</td>
-                    <td>11/2026</td>
-                </tr>
-                <tr>
-                    <td>MED-007</td>
-                    <td>Omeprazol</td>
-                    <td>Caja c/28 cáps</td>
-                    <td>200</td>
-                    <td>50</td>
-                    <td>$95</td>
-                    <td>08/2027</td>
-                </tr>
-                <tr>
-                    <td>MED-008</td>
-                    <td>Paracetamol</td>
-                    <td>Caja c/20 tabs</td>
-                    <td>400</td>
-                    <td>100</td>
-                    <td>$65</td>
-                    <td>02/2029</td>
-                </tr>
-                <tr>
-                    <td>MED-009</td>
-                    <td>Losartán</td>
-                    <td>Caja c/30 tabs</td>
-                    <td>100</td>
-                    <td>10</td>
-                    <td>$140</td>
-                    <td>06/2027</td>
-                </tr>
-                <tr>
-                    <td>MED-010</td>
-                    <td>Solución Salina</td>
-                    <td>Bolsa 500ml</td>
-                    <td>600</td>
-                    <td>100</td>
-                    <td>$110</td>
-                    <td>10/2028</td>
-                </tr>
-            </tbody>
+            </thead>
+            <tbody id="tabla-inventario-body">
+                </tbody>
         </table>
     </div>
-
     <a href="?" class="boton-regresar btn-back">← Regresar al Menú Principal</a>
 </div>
 <div class="cuadro-blanco" id="inicio">
@@ -1927,5 +1403,6 @@
         }
     }
 </script>
+    
 </body>
 </html>
