@@ -462,61 +462,51 @@
     <h2>Control de Ingresos</h2>
 
     <div class="formulario">
-        <h3>Registrar Acceso de Paciente</h3>
+        <h3>Registrar Ingreso de Paciente</h3>
 
         <form id="form-acceso" class="mi-formulario">
             <div class="grupo-formulario campo-form">
                 <label>ID Paciente</label>
-                <input type="number" id="acceso_id_paciente" required>
+                <input type="text" id="acceso_id_paciente" required>
             </div>
 
             <div class="grupo-formulario campo-form">
-                <label>Nombre</label>
+                <label>Nombre Completo</label>
                 <input type="text" id="acceso_nombre" required>
             </div>
 
             <div class="grupo-formulario campo-form">
-                <label>CURP</label>
-                <input type="text" id="acceso_curp" required>
+                <label>Fecha de Ingreso</label>
+                <input type="date" id="acceso_fecha_ingreso" required>
             </div>
 
             <div class="grupo-formulario campo-form">
-                <label>Fecha Nacimiento</label>
-                <input type="text" id="acceso_fecha_nacimiento" required>
+                <label>Tipo de Atención</label>
+                <input type="text" id="acceso_tipo_atencion" required>
             </div>
 
             <div class="grupo-formulario campo-form">
-                <label>Sexo</label>
-                <input type="text" id="acceso_sexo" required>
+                <label>Motivo de Ingreso</label>
+                <input type="text" id="acceso_motivo" required>
             </div>
 
             <div class="grupo-formulario campo-form">
-                <label>Tipo de Sangre</label>
-                <input type="text" id="acceso_tipo_sangre" required>
+                <label>Diagnóstico Preliminar</label>
+                <input type="text" id="acceso_diagnostico" required>
             </div>
 
             <div class="grupo-formulario campo-form">
-                <label>Teléfono</label>
-                <input type="number" id="acceso_telefono" required>
+                <label>Fecha Estimada de Alta</label>
+                <input type="date" id="acceso_fecha_alta">
             </div>
 
             <div class="grupo-formulario campo-form">
-                <label>Correo Electrónico</label>
-                <input type="email" id="acceso_correo" required>
-            </div>
-
-            <div class="grupo-formulario campo-form">
-                <label>Dirección</label>
-                <input type="text" id="acceso_direccion" required>
-            </div>
-
-            <div class="grupo-formulario campo-form">
-                <label>Edad</label>
-                <input type="number" id="acceso_edad" required>
+                <label>Observaciones</label>
+                <input type="text" id="acceso_observaciones">
             </div>
 
             <button type="submit" class="btn-submit btn-guardar">
-                Registrar Acceso
+                Registrar Ingreso
             </button>
         </form>
 
@@ -526,18 +516,16 @@
                     <tr>
                         <th>ID Paciente</th>
                         <th>Nombre</th>
-                        <th>CURP</th>
-                        <th>Fecha Nacimiento</th>
-                        <th>Sexo</th>
-                        <th>Tipo de Sangre</th>
-                        <th>Teléfono</th>
-                        <th>Correo Electrónico</th>
-                        <th>Dirección</th>
-                        <th>Edad</th>
+                        <th>Fecha Ingreso</th>
+                        <th>Tipo Atención</th>
+                        <th>Motivo</th>
+                        <th>Diagnóstico</th>
+                        <th>Fecha Alta</th>
+                        <th>Observaciones</th>
                     </tr>
                 </thead>
                 <tbody id="tabla-accesos-body">
-                    </tbody>
+                </tbody>
             </table>
         </div>
     </div>
@@ -1351,7 +1339,7 @@
             });
         }
 
-        const formAccesos = document.getElementById('form-acceso'); 
+       const formAccesos = document.getElementById('form-acceso'); 
         if (formAccesos) {
             formAccesos.addEventListener('submit', async (e) => {
                 e.preventDefault();
@@ -1359,8 +1347,8 @@
                     id_paciente: document.getElementById('acceso_id_paciente').value,
                     nombre: document.getElementById('acceso_nombre').value,
                     fecha_ingreso: document.getElementById('acceso_fecha_ingreso').value,
-                    motivo: document.getElementById('acceso_motivo').value,
                     tipo_atencion: document.getElementById('acceso_tipo_atencion').value,
+                    motivo: document.getElementById('acceso_motivo').value,
                     diagnostico: document.getElementById('acceso_diagnostico').value,
                     fecha_alta: document.getElementById('acceso_fecha_alta').value,
                     observaciones: document.getElementById('acceso_observaciones').value
