@@ -1599,10 +1599,14 @@
     <p><strong>Especialidad:</strong> Programación</p>
 </footer>
 
- <script>
+<script>
     const BASE_API_URL = 'http://127.0.0.1:5000'; 
 
     document.addEventListener('DOMContentLoaded', () => {
+        
+        // ==========================================
+        // 1. REGISTRO DE PACIENTES
+        // ==========================================
         const formPacientes = document.getElementById('form-paciente');
         if (formPacientes) {
             formPacientes.addEventListener('submit', async (e) => {
@@ -1631,6 +1635,9 @@
             });
         }
 
+        // ==========================================
+        // 2. INFORMACIÓN COMPLEMENTARIA
+        // ==========================================
         const formInformacion = document.getElementById('form-informacion');
         if (formInformacion) {
             formInformacion.addEventListener('submit', async (e) => {
@@ -1659,29 +1666,40 @@
             });
         }
 
-        const formAccesos = document.getElementById('form-accesos');
+        // ==========================================
+        // 3. CONTROL DE INGRESOS
+        // ==========================================
+        const formAccesos = document.getElementById('form-acceso'); 
         if (formAccesos) {
             formAccesos.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const datosAccesos = {
-                    usuario: document.getElementById('acceso_usuario').value,
-                    rol_acceso: document.getElementById('acceso_rol').value,
-                    fecha_intervencion: new Date().toISOString()
+                    id_paciente: document.getElementById('acceso_id_paciente').value,
+                    nombre: document.getElementById('acceso_nombre').value,
+                    fecha_ingreso: document.getElementById('acceso_fecha_ingreso').value,
+                    tipo_atencion: document.getElementById('acceso_tipo_atencion').value,
+                    motivo: document.getElementById('acceso_motivo').value,
+                    diagnostico: document.getElementById('acceso_diagnostico').value,
+                    fecha_alta: document.getElementById('acceso_fecha_alta').value,
+                    observaciones: document.getElementById('acceso_observaciones').value
                 };
                 try {
-                    const response = await fetch(`${BASE_API_URL}/api/control-accesos`, {
+                    const response = await fetch(`${BASE_API_URL}/api/control-ingresos`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(datosAccesos)
                     });
                     if (response.ok) {
-                        alert('¡Conexión exitosa! Control de acceso registrado.');
+                        alert('¡Conexión exitosa! Ingreso de paciente registrado.');
                         formAccesos.reset();
-                    } else { alert('Error al registrar acceso.'); }
+                    } else { alert('Error al registrar el ingreso.'); }
                 } catch (error) { alert('No se pudo conectar con el servidor.'); }
             });
         }
 
+        // ==========================================
+        // 4. HISTORIAL CLÍNICO (Corregido Endpoint /api/historial)
+        // ==========================================
         const formHistorial = document.getElementById('form-historial');
         if (formHistorial) {
             formHistorial.addEventListener('submit', async (e) => {
@@ -1697,7 +1715,8 @@
                     estado_actual: document.getElementById('historial_estado').value
                 };
                 try {
-                    const response = await fetch(`${BASE_API_URL}/api/historiales`, {
+                    // Corregido de /api/facturas a /api/historial
+                    const response = await fetch(`${BASE_API_URL}/api/historial`, { 
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(datosHistorial)
@@ -1710,6 +1729,9 @@
             });
         }
 
+        // ==========================================
+        // 5. FACTURACIÓN
+        // ==========================================
         const formFactura = document.getElementById('form-factura');
         if (formFactura) {
             formFactura.addEventListener('submit', async (e) => {
@@ -1739,7 +1761,41 @@
             });
         }
 
-        const formDoctor = document.getElementById('form-doctor');
+        // ==========================================
+        // 6. INVENTARIO DE MEDICAMENTOS
+        // ==========================================
+        const formInventario = document.getElementById('form-inventario');
+        if (formInventario) {
+            formInventario.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const datosInventario = {
+                    id_med: document.getElementById('inv_id_med').value,
+                    medicamento: document.getElementById('inv_medicamento').value,
+                    presentacion: document.getElementById('inv_presentacion').value,
+                    stock_inicial: document.getElementById('inv_stock_inicial').value,
+                    cantidad_usada: document.getElementById('inv_cantidad_usada').value,
+                    precio_unitario: document.getElementById('inv_precio_unitario').value,
+                    caducidad: document.getElementById('inv_caducidad').value
+                };
+                try {
+                    const response = await fetch(`${BASE_API_URL}/api/inventario`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(datosInventario)
+                    });
+                    if (response.ok) {
+                        alert('¡Conexión exitosa! Medicamento guardado.');
+                        cargarInventario(); 
+                        formInventario.reset();
+                    } else { alert('Error al actualizar inventario.'); }
+                } catch (error) { alert('No se pudo conectar con el servidor.'); }
+            });
+        }
+
+        // ==========================================
+        // 7. REGISTRO DE DOCTORES
+        // ==========================================
+        const formDoctor = document.getElementById('form-doctor'); 
         if (formDoctor) {
             formDoctor.addEventListener('submit', async (e) => {
                 e.preventDefault();
@@ -1761,107 +1817,115 @@
                         body: JSON.stringify(datosDoctor)
                     });
                     if (response.ok) {
-                        alert('¡Conexión exitosa! Médico registrado con éxito.');
+                        alert('¡Conexión exitosa! Doctor guardado.');
+                        cargarDoctores(); 
                         formDoctor.reset();
                     } else { alert('Error al registrar al médico.'); }
                 } catch (error) { alert('No se pudo conectar con el servidor.'); }
             });
         }
 
-        const formInventario = document.getElementById('form-inventario');
-        const tablaBody = document.getElementById('tabla-inventario-body');
-
-        function agregarFilaTabla(doc) {
-            const fila = document.createElement('tr');
-            fila.setAttribute('id', `fila-${doc._id}`);
-            fila.innerHTML = `
-                <td>${doc.id_med}</td>
-                <td>${doc.medicamento}</td>
-                <td>${doc.presentacion}</td>
-                <td>${doc.stock_inicial}</td>
-                <td>${doc.cantidad_usada}</td>
-                <td>$${doc.precio_unitario}</td>
-                <td>${doc.caducidad}</td>
-                <td>
-                    <button onclick="eliminarRegistro('${doc._id}')" style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px;">
-                        Eliminar
-                    </button>
-                </td>
-            `;
-            tablaBody.appendChild(fila);
-        }
-
-        async function cargarInventario() {
-    try {
-        const response = await fetch(`${BASE_API_URL}/api/inventario`);
-        if (response.ok) {
-            const respuesta = await response.json();
-            tablaBody.innerHTML = ''; 
-            const medicamentos = Array.isArray(respuesta) ? respuesta : respuesta.data;
-
-            if (medicamentos && medicamentos.length > 0) {
-                medicamentos.forEach(med => agregarFilaTabla(med));
-            } else {
-                tablaBody.innerHTML = '<tr><td colspan="8" style="text-align:center;">No hay medicamentos registrados.</td></tr>';
-            }
-        } else {
-            console.error('Error al traer datos del servidor:', response.status);
-        }
-    } catch (error) {
-        console.error('Error de conexión con la API:', error);
-    }
-}
-
+        // Llamar funciones de carga inicial al abrir el sistema
         cargarInventario();
+        cargarDoctores();
+    });
 
-        if (formInventario) {
-            formInventario.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const datosInventario = {
-                    id_med: document.getElementById('inv_id_med').value,
-                    medicamento: document.getElementById('inv_medicamento').value,
-                    presentacion: document.getElementById('inv_presentacion').value,
-                    stock_inicial: document.getElementById('inv_stock_inicial').value,
-                    cantidad_usada: document.getElementById('inv_cantidad_usada').value,
-                    precio_unitario: document.getElementById('inv_precio_unitario').value,
-                    caducidad: document.getElementById('inv_caducidad').value
-                };
-                try {
-                    const response = await fetch(`${BASE_API_URL}/api/inventario`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(datosInventario)
-                    });
-                    if (response.ok) {
-                        const respuestaServidor = await response.json();
-                        alert('¡Conexión exitosa! Medicamento guardado.');
-                        agregarFilaTabla(respuestaServidor.data); 
-                        formInventario.reset();
-                    } else { alert('Error al actualizar inventario.'); }
-                } catch (error) { alert('No se pudo conectar con el servidor.'); }
-            });
-        }
+    // ==========================================
+    // FUNCIONES GLOBALES DE CARGA Y ELIMINACIÓN
+    // ==========================================
+    async function cargarInventario() {
+        const tablaBody = document.getElementById('tabla-inventario-body');
+        try {
+            const response = await fetch(`${BASE_API_URL}/api/inventario`);
+            if (response.ok) {
+                const respuesta = await response.json();
+                if (tablaBody) tablaBody.innerHTML = ''; 
+                const medicamentos = Array.isArray(respuesta) ? respuesta : respuesta.data;
 
-        window.eliminarRegistro = async function(id) {
-            if (confirm('¿Estás seguro de que deseas eliminar este medicamento de la base de datos?')) {
-                try {
-                    const response = await fetch(`${BASE_API_URL}/api/inventario/${id}`, {
-                        method: 'DELETE'
+                if (medicamentos && medicamentos.length > 0) {
+                    medicamentos.forEach(med => {
+                        const fila = document.createElement('tr');
+                        fila.setAttribute('id', `fila-${med._id}`);
+                        fila.innerHTML = `
+                            <td>${med.id_med || ''}</td>
+                            <td>${med.medicamento || ''}</td>
+                            <td>${med.presentacion || ''}</td>
+                            <td>${med.stock_inicial || ''}</td>
+                            <td>${med.cantidad_usada || ''}</td>
+                            <td>$${med.precio_unitario || ''}</td>
+                            <td>${med.caducidad || ''}</td>
+                            <td>
+                                <button onclick="eliminarRegistro('${med._id}')" style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px;">Eliminar</button>
+                            </td>
+                        `;
+                        tablaBody.appendChild(fila);
                     });
-                    if (response.ok) {
-                        alert('Registro eliminado correctamente.');
-                        const filaAEliminar = document.getElementById(`fila-${id}`);
-                        if (filaAEliminar) filaAEliminar.remove();
-                    } else {
-                        alert('Error al intentar eliminar el registro en el servidor.');
-                    }
-                } catch (error) {
-                    alert('No se pudo conectar con el servidor para eliminar.');
+                } else if (tablaBody) {
+                    tablaBody.innerHTML = '<tr><td colspan="8" style="text-align:center;">No hay medicamentos registrados.</td></tr>';
                 }
             }
+        } catch (error) { console.error(error); }
+    }
+
+    async function cargarDoctores() {
+        const tablaDoctoresBody = document.getElementById('tabla-doctores-body');
+        try {
+            const response = await fetch(`${BASE_API_URL}/api/doctores`);
+            if (response.ok) {
+                const respuesta = await response.json();
+                if (tablaDoctoresBody) tablaDoctoresBody.innerHTML = '';
+                const doctores = Array.isArray(respuesta) ? respuesta : (respuesta.data || []);
+
+                if (doctores.length > 0) {
+                    doctores.forEach(doc => {
+                        const fila = document.createElement('tr');
+                        fila.setAttribute('id', `fila-${doc._id}`); 
+                        fila.innerHTML = `
+                            <td>${doc.id_doctor || ''}</td>
+                            <td>${doc.nombre || ''}</td>
+                            <td>${doc.especialidad || ''}</td>
+                            <td>${doc.subespecialidad || ''}</td>
+                            <td>${doc.curp || ''}</td>
+                            <td>${doc.cedula_profesional || ''}</td>
+                            <td>${doc.consultorio || ''}</td>
+                            <td>${doc.telefono || ''}</td>
+                            <td style="font-weight: bold;">${doc.estatus || ''}</td>
+                            <td>
+                                <button onclick="window.eliminarDoctor('${doc._id}')" style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px;">Eliminar</button>
+                            </td>
+                        `;
+                        tablaDoctoresBody.appendChild(fila);
+                    });
+                } else if (tablaDoctoresBody) {
+                    tablaDoctoresBody.innerHTML = '<tr><td colspan="10" style="text-align:center;">No hay doctores registrados.</td></tr>';
+                }
+            }
+        } catch (error) { console.error(error); }
+    }
+
+    window.eliminarRegistro = async function(id) {
+        if (confirm('¿Estás seguro de que deseas eliminar este medicamento de la base de datos?')) {
+            try {
+                const response = await fetch(`${BASE_API_URL}/api/inventario/${id}`, { method: 'DELETE' });
+                if (response.ok) {
+                    alert('Registro eliminado correctamente.');
+                    document.getElementById(`fila-${id}`)?.remove();
+                } else { alert('Error al intentar eliminar el registro.'); }
+            } catch (error) { alert('No se pudo conectar con el servidor para eliminar.'); }
         }
-    });
+    }
+
+    window.eliminarDoctor = async function(id) {
+        if (confirm('¿Estás seguro de que deseas eliminar a este doctor de la base de datos?')) {
+            try {
+                const response = await fetch(`${BASE_API_URL}/api/doctores/${id}`, { method: 'DELETE' });
+                if (response.ok) {
+                    alert('¡Conexión exitosa! Doctor eliminado de MongoDB.');
+                    document.getElementById(`fila-${id}`)?.remove();
+                } else { alert('Error al intentar eliminar el registro.'); }
+            } catch (error) { alert('No se pudo conectar con el servidor para eliminar.'); }
+        }
+    }
 </script>
-    
 </body>
 </html>
