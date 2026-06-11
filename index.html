@@ -916,19 +916,20 @@
         <div class="contenedor-tabla">
 
             <table>
-
-                <thead>
-                    <tr>
-                        <th>ID Paciente</th>
-                        <th>Nombre</th>
-                        <th>No. Seguro Social</th>
-                        <th>Tipo de Seguro</th>
-                        <th>Hospital Asignado</th>
-                        <th>Contacto Emergencia</th>
-                        <th>Parentesco</th>
-                        <th>Teléfono Emergencia</th>
-                    </tr>
-                </thead>
+    <thead>
+        <tr>
+            <th>ID Doctor</th>
+            <th>Nombre</th>
+            <th>Especialidad</th>
+            <th>Subespecialidad</th>
+            <th>CURP</th>
+            <th>Cédula Profesional</th>
+            <th>Consultorio</th>
+            <th>Teléfono</th>
+            <th>Estatus</th>
+            <th>Acciones</th> </tr>
+    </thead>
+    <tbody id="tabla-doctores-body"> </tbody>
 
                 <tbody>
 
@@ -1862,7 +1863,7 @@
         }
     });
 
-    const formDoctor = document.getElementById('form-doctores'); 
+    const formDoctor = document.getElementById('form-doctor'); 
 const tablaDoctoresBody = document.getElementById('tabla-doctores-body');
 
 function agregarFilaDoctor(doc) {
@@ -1914,15 +1915,15 @@ if (formDoctor) {
     formDoctor.addEventListener('submit', async (e) => {
         e.preventDefault();
         const datosDoctor = {
-            id_doctor: document.getElementById('doc_id_doctor').value,
-            nombre: document.getElementById('doc_nombre').value,
-            especialidad: document.getElementById('doc_especialidad').value,
-            subespecialidad: document.getElementById('doc_subespecialidad').value,
-            curp: document.getElementById('doc_curp').value,
-            cedula_profesional: document.getElementById('doc_cedula_profesional').value,
-            consultorio: document.getElementById('doc_consultorio').value,
-            telefono: document.getElementById('doc_telefono').value,
-            estatus: document.getElementById('doc_estatus').value
+            id_doctor: document.getElementById('doctor_id').value,
+            nombre: document.getElementById('doctor_nombre').value,
+            especialidad: document.getElementById('doctor_especialidad').value,
+            subespecialidad: document.getElementById('doctor_subespecialidad').value,
+            curp: document.getElementById('doctor_curp').value,
+            cedula_profesional: document.getElementById('doctor_cedula').value,
+            consultorio: document.getElementById('doctor_consultorio').value,
+            telefono: document.getElementById('doctor_telefono').value,
+            estatus: document.getElementById('doctor_estatus').value
         };
         try {
             const response = await fetch(`${BASE_API_URL}/api/doctores`, {
