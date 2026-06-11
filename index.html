@@ -1295,7 +1295,6 @@
 
     document.addEventListener('DOMContentLoaded', () => {
         
-
         const formPacientes = document.getElementById('form-paciente');
         if (formPacientes) {
             formPacientes.addEventListener('submit', async (e) => {
@@ -1324,7 +1323,6 @@
             });
         }
 
-       
         const formInformacion = document.getElementById('form-informacion');
         if (formInformacion) {
             formInformacion.addEventListener('submit', async (e) => {
@@ -1353,7 +1351,6 @@
             });
         }
 
-    
         const formAccesos = document.getElementById('form-acceso'); 
         if (formAccesos) {
             formAccesos.addEventListener('submit', async (e) => {
@@ -1369,21 +1366,19 @@
                     observaciones: document.getElementById('acceso_observaciones').value
                 };
                 try {
-                    const response = await fetch(`${BASE_API_URL}/api/control-accesos`, {
+                    const response = await fetch(`${BASE_API_URL}/api/control-ingresos`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(datosAccesos)
                     });
                     if (response.ok) {
                         alert('¡Conexión exitosa! Ingreso de paciente registrado.');
-                        cargarAccesos(); 
                         formAccesos.reset();
                     } else { alert('Error al registrar el ingreso.'); }
                 } catch (error) { alert('No se pudo conectar con el servidor.'); }
             });
         }
 
-      
         const formHistorial = document.getElementById('form-historial');
         if (formHistorial) {
             formHistorial.addEventListener('submit', async (e) => {
@@ -1412,7 +1407,6 @@
             });
         }
 
-    
         const formFactura = document.getElementById('form-factura');
         if (formFactura) {
             formFactura.addEventListener('submit', async (e) => {
@@ -1442,7 +1436,6 @@
             });
         }
 
-        
         const formInventario = document.getElementById('form-inventario');
         if (formInventario) {
             formInventario.addEventListener('submit', async (e) => {
@@ -1471,7 +1464,7 @@
                 } catch (error) { alert('No se pudo conectar con el servidor.'); }
             });
         }
-        
+
         const formDoctor = document.getElementById('form-doctor'); 
         if (formDoctor) {
             formDoctor.addEventListener('submit', async (e) => {
@@ -1504,9 +1497,8 @@
 
         cargarInventario();
         cargarDoctores();
-        cargarAccesos();
     });
-     
+
     async function cargarInventario() {
         const tablaBody = document.getElementById('tabla-inventario-body');
         try {
@@ -1538,7 +1530,7 @@
                     tablaBody.innerHTML = '<tr><td colspan="8" style="text-align:center;">No hay medicamentos registrados.</td></tr>';
                 }
             }
-        } catch (error) { console.error('Error de conexión con la API Inventario:', error); }
+        } catch (error) { console.error(error); }
     }
 
     async function cargarDoctores() {
@@ -1574,39 +1566,7 @@
                     tablaDoctoresBody.innerHTML = '<tr><td colspan="10" style="text-align:center;">No hay doctores registrados.</td></tr>';
                 }
             }
-        } catch (error) { console.error('Error de conexión con la API Doctores:', error); }
-    }
-
-    async function cargarAccesos() {
-        const tablaBody = document.getElementById('tabla-accesos-body');
-        if (!tablaBody) return;
-        try {
-            const response = await fetch(`${BASE_API_URL}/api/control-accesos`);
-            if (response.ok) {
-                const respuesta = await response.json();
-                tablaBody.innerHTML = '';
-                const accesos = Array.isArray(respuesta) ? respuesta : (respuesta.data || []);
-
-                if (accesos.length > 0) {
-                    accesos.forEach(acc => {
-                        const fila = document.createElement('tr');
-                        fila.innerHTML = `
-                            <td>${acc.id_paciente || ''}</td>
-                            <td>${acc.nombre || ''}</td>
-                            <td>${acc.fecha_ingreso || ''}</td>
-                            <td>${acc.motivo || ''}</td>
-                            <td>${acc.tipo_atencion || ''}</td>
-                            <td>${acc.diagnostico || ''}</td>
-                            <td>${acc.fecha_alta || ''}</td>
-                            <td>${acc.observaciones || ''}</td>
-                        `;
-                        tablaBody.appendChild(fila);
-                    });
-                } else {
-                    tablaBody.innerHTML = '<tr><td colspan="8" style="text-align:center;">No hay ingresos registrados.</td></tr>';
-                }
-            }
-        } catch (error) { console.error('Error al cargar la tabla de accesos:', error); }
+        } catch (error) { console.error(error); }
     }
 
     window.eliminarRegistro = async function(id) {
