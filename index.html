@@ -1321,109 +1321,11 @@
                     <th>Consultorio</th>
                     <th>Teléfono</th>
                     <th>Estatus</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>DOC-002</td>
-                    <td>Dr. Ricardo Gómez</td>
-                    <td>Cardiología</td>
-                    <td>Ecocardiografía</td>
-                    <td>GOR8234</td>
-                    <td>1234567-MX</td>
-                    <td>205-B</td>
-                    <td>555-123-4402</td>
-                    <td style="color: green; font-weight: bold;">Activo</td>
-                </tr>
-                <tr>
-                    <td>DOC-003</td>
-                    <td>Dra. Laura Pérez</td>
-                    <td>Traumatología</td>
-                    <td>Ortopedia</td>
-                    <td>PEL9012</td>
-                    <td>8899112-MX</td>
-                    <td>Urgencias</td>
-                    <td>555-123-4403</td>
-                    <td style="color: orange; font-weight: bold;">Guardia</td>
-                </tr>
-                <tr>
-                    <td>DOC-004</td>
-                    <td>Dra. Ana Torres</td>
-                    <td>Neumología</td>
-                    <td>Broncoscopia</td>
-                    <td>TOA0567</td>
-                    <td>5566778-MX</td>
-                    <td>302-A</td>
-                    <td>555-123-4404</td>
-                    <td style="color: green; font-weight: bold;">Activo</td>
-                </tr>
-                <tr>
-                    <td>DOC-005</td>
-                    <td>Dra. Elena Ruiz</td>
-                    <td>Ginecología</td>
-                    <td>Obstetricia</td>
-                    <td>RUE9588</td>
-                    <td>4433221-MX</td>
-                    <td>105-C</td>
-                    <td>555-123-4405</td>
-                    <td style="color: green; font-weight: bold;">Activo</td>
-                </tr>
-                <tr>
-                    <td>DOC-006</td>
-                    <td>Dr. Manuel Silva</td>
-                    <td>Medicina General</td>
-                    <td>Salud Pública</td>
-                    <td>SIM8844</td>
-                    <td>9900112-MX</td>
-                    <td>106-B</td>
-                    <td>555-123-4406</td>
-                    <td style="color: green; font-weight: bold;">Activo</td>
-                </tr>
-                <tr>
-                    <td>DOC-007</td>
-                    <td>Dra. Patricia León</td>
-                    <td>Neurología</td>
-                    <td>Epileptología</td>
-                    <td>LEP8421</td>
-                    <td>2211443-MX</td>
-                    <td>208-A</td>
-                    <td>555-123-4407</td>
-                    <td style="color: blue; font-weight: bold;">Vacaciones</td>
-                </tr>
-                <tr>
-                    <td>DOC-008</td>
-                    <td>Dr. José Vargas</td>
-                    <td>Reumatología</td>
-                    <td>Inmunología</td>
-                    <td>VAJ7733</td>
-                    <td>6655443-MX</td>
-                    <td>304-B</td>
-                    <td>555-123-4408</td>
-                    <td style="color: green; font-weight: bold;">Activo</td>
-                </tr>
-                <tr>
-                    <td>DOC-009</td>
-                    <td>Dra. Claudia Ramos</td>
-                    <td>Endocrinología</td>
-                    <td>Tiroides</td>
-                    <td>RAC9100</td>
-                    <td>7788990-MX</td>
-                    <td>102-A</td>
-                    <td>555-123-4409</td>
-                    <td style="color: green; font-weight: bold;">Activo</td>
-                </tr>
-                <tr>
-                    <td>DOC-010</td>
-                    <td>Dr. Andrés Molina</td>
-                    <td>Cirugía General</td>
-                    <td>Laparoscopia</td>
-                    <td>MOA8111</td>
-                    <td>3344556-MX</td>
-                    <td>Quirófano</td>
-                    <td>555-123-4410</td>
-                    <td style="color: orange; font-weight: bold;">Guardia</td>
-                </tr>
-            </tbody>
+            <tbody id="tabla-doctores-body">
+                </tbody>
         </table>
     </div>
 
@@ -1483,103 +1385,20 @@
 
     <div class="contenedor-tabla">
         <table>
-        <thead>
-            <tr>
-                <th>ID Med</th>
-                <th>Medicamento</th>
-                <th>Presentación</th>
-                <th>Stock Inicial</th>
-                <th>Cantidad Usada</th>
-                <th>Precio Unitario</th>
-                <th>Caducidad</th>
-                <th>Acciones</th> 
-            </tr>
-        </thead>
-        <tbody id="tabla-inventario-body">
-            </tbody>
-    </table>
+            <thead>
                 <tr>
-                    <td>MED-002</td>
-                    <td>Metformina</td>
-                    <td>Caja c/30 tabs</td>
-                    <td>150</td>
-                    <td>30</td>
-                    <td>$180</td>
-                    <td>05/2028</td>
+                    <th>ID Med</th>
+                    <th>Medicamento</th>
+                    <th>Presentación</th>
+                    <th>Stock Inicial</th>
+                    <th>Cantidad Usada</th>
+                    <th>Precio Unitario</th>
+                    <th>Caducidad</th>
+                    <th>Acciones</th> 
                 </tr>
-                <tr>
-                    <td>MED-003</td>
-                    <td>Enoxaparina</td>
-                    <td>Jeringa prellenada</td>
-                    <td>80</td>
-                    <td>20</td>
-                    <td>$420</td>
-                    <td>09/2026</td>
-                </tr>
-                <tr>
-                    <td>MED-004</td>
-                    <td>Salbutamol</td>
-                    <td>Inhalador 200 dosis</td>
-                    <td>40</td>
-                    <td>5</td>
-                    <td>$310</td>
-                    <td>01/2027</td>
-                </tr>
-                <tr>
-                    <td>MED-005</td>
-                    <td>Ketorolaco</td>
-                    <td>Ampolleta 30mg</td>
-                    <td>250</td>
-                    <td>50</td>
-                    <td>$45</td>
-                    <td>03/2028</td>
-                </tr>
-                <tr>
-                    <td>MED-006</td>
-                    <td>Ceftriaxona</td>
-                    <td>Frasco ámpula 1g</td>
-                    <td>100</td>
-                    <td>15</td>
-                    <td>$215</td>
-                    <td>11/2026</td>
-                </tr>
-                <tr>
-                    <td>MED-007</td>
-                    <td>Omeprazol</td>
-                    <td>Caja c/28 cáps</td>
-                    <td>200</td>
-                    <td>50</td>
-                    <td>$95</td>
-                    <td>08/2027</td>
-                </tr>
-                <tr>
-                    <td>MED-008</td>
-                    <td>Paracetamol</td>
-                    <td>Caja c/20 tabs</td>
-                    <td>400</td>
-                    <td>100</td>
-                    <td>$65</td>
-                    <td>02/2029</td>
-                </tr>
-                <tr>
-                    <td>MED-009</td>
-                    <td>Losartán</td>
-                    <td>Caja c/30 tabs</td>
-                    <td>100</td>
-                    <td>10</td>
-                    <td>$140</td>
-                    <td>06/2027</td>
-                </tr>
-                <tr>
-                    <td>MED-010</td>
-                    <td>Solución Salina</td>
-                    <td>Bolsa 500ml</td>
-                    <td>600</td>
-                    <td>100</td>
-                    <td>$110</td>
-                    <td>10/2028</td>
-                </tr>
-            </tbody>
+            </thead>
+            <tbody id="tabla-inventario-body">
+                </tbody>
         </table>
     </div>
 
