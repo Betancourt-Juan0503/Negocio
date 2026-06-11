@@ -1862,31 +1862,99 @@
         }
     });
 
-     const tablaDoctores = document.getElementById('tabla-doctores-contenedor'); 
-        if (tablaDoctores) {
-            tablaDoctores.addEventListener('click', async (e) => {
-                if (e.target.classList.contains('btn-eliminar-doctor')) {
-                    const idDoctor = e.target.getAttribute('data-id');
-                    
-                    if (confirm(`¿Estás seguro de que deseas eliminar al doctor con ID: ${idDoctor}?`)) {
-                        try {
-                        
-                            const response = await fetch(`${BASE_API_URL}/api/doctores/${idDoctor}`, {
-                                method: 'DELETE'
-                            });
-                            
-                            if (response.ok) {
-                                alert('¡Conexión exitosa! Doctor eliminado de MongoDB.');
-                                location.reload();
-                            } else {
-                                alert('Error en el servidor al intentar eliminar al doctor.');
-                            }
-                        } catch (error) {
-                            alert('No se pudo conectar con el servidor para eliminar al doctor.');
-                        }
+    const formDoctor = document.getElementById('form-doctores'); 
+        const tablaDoctoresBody = document.getElementById('tabla-doctores-body');
+
+        function agregarFilaDoctor(doc) {
+            const fila = document.createElement('tr');
+            fila.setAttribute('id', `fila-${doc._id}`); 
+            fila.innerHTML = `
+                <td>${doc.id_doctor}</td>
+                <td>${doc.nombre}</td>
+                <td>${doc.especialidad}</td>
+                <td>${doc.subespecialidad}</td>
+                <td>${doc.curp}</td>
+                <td>${doc.cedula_profesional}</td>
+                <td>${doc.consultorio}</td>
+                <td>${doc.telefono}</td>
+                <td style="font-weight: bold;">${doc.estatus}</td>
+                <td>
+                    <button onclick="eliminarDoctor('${doc._id}')" style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px;">
+                        Eliminar
+                    </button>
+                </td>
+            `;
+            if (tablaDoctoresBody) tablaDoctoresBody.appendChild(fila);
+        }
+
+        async function cargarDoctores() {
+            try {
+                const response = await fetch(`${BASE_API_URL}/api/doctores`);
+                if (response.ok) {
+                    const respuesta = await response.json();
+                    if (tablaDoctoresBody) tablaDoctoresBody.innerHTML = '';
+                    const doctores = Array.isArray(respuesta) ? respuesta : respuesta.data;
+
+                    if (doctores && doctores.length > 0) {
+                        doctores.forEach(doc => agregarFilaDoctor(doc));
+                    } else if (tablaDoctoresBody) {
+                        tablaDoctoresBody.innerHTML = '<tr><td colspan="10" style="text-align:center;">No hay doctores registrados.</td></tr>';
                     }
                 }
+            } catch (error) {
+                console.error('Error de conexión con la API:', error);
+            }
+        }
+
+        cargarDoctores();
+
+        if (formDoctor) {
+            formDoctor.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const datosDoctor = {
+                    id_doctor: document.getElementById('doc_id_doctor').value,
+                    nombre: document.getElementById('doc_nombre').value,
+                    especialidad: document.getElementById('doc_especialidad').value,
+                    subespecialidad: document.getElementById('doc_subespecialidad').value,
+                    curp: document.getElementById('doc_curp').value,
+                    cedula_profesional: document.getElementById('doc_cedula_profesional').value,
+                    consultorio: document.getElementById('doc_consultorio').value,
+                    telefono: document.getElementById('doc_telefono').value,
+                    estatus: document.getElementById('doc_estatus').value
+                };
+                try {
+                    const response = await fetch(`${BASE_API_URL}/api/doctores`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(datosDoctor)
+                    });
+                    if (response.ok) {
+                        const respuestaServidor = await response.json();
+                        alert('¡Conexión exitosa! Doctor guardado.');
+                        agregarFilaDoctor(respuestaServidor.data); 
+                        formDoctor.reset();
+                    } else { alert('Error al registrar al médico.'); }
+                } catch (error) { alert('No se pudo conectar con el servidor.'); }
             });
+        }
+
+        window.eliminarDoctor = async function(id) {
+            if (confirm('¿Estás seguro de que deseas eliminar a este doctor de la base de datos?')) {
+                try {
+                    const response = await fetch(`${BASE_API_URL}/api/doctores/${id}`, {
+                        method: 'DELETE'
+                    });
+                    if (response.ok) {
+                        alert('¡Conexión exitosa! Doctor eliminado de MongoDB.');
+                        const filaAEliminar = document.getElementById(`fila-${id}`);
+                        if (filaAEliminar) filaAEliminar.remove();
+                    } else {
+                        alert('Error al intentar eliminar el registro en el servidor.');
+                    }
+                } catch (error) {
+                    alert('No se pudo conectar con el servidor para eliminar.');
+                }
+            }
         }
 </script>
     
