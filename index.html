@@ -1637,9 +1637,12 @@
         const tablaDoctoresBody = document.getElementById('tabla-doctores-body');
 
         function agregarFilaDoctor(doc) {
+            const tablaDoctoresBody = document.getElementById('tabla-doctores-body');
             if (!doc || !tablaDoctoresBody) return;
+            
             const fila = document.createElement('tr');
             fila.setAttribute('id', `fila-${doc._id}`); 
+            
             fila.innerHTML = `
                 <td>${doc.id_doctor || ''}</td>
                 <td>${doc.nombre || ''}</td>
@@ -1651,7 +1654,7 @@
                 <td>${doc.telefono || ''}</td>
                 <td style="font-weight: bold;">${doc.estatus || ''}</td>
                 <td>
-                    <button onclick="eliminarDoctor('${doc._id}')" style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px;">
+                    <button onclick="window.eliminarDoctor('${doc._id}')" style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px;">
                         Eliminar
                     </button>
                 </td>
