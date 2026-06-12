@@ -1236,11 +1236,12 @@
 
     async function cargarFacturas() {
         const tbody = document.getElementById("tabla-facturas-body");
+        if (!tbody) return;
         try {
             const respuesta = await fetch(API_FACTURAS_URL);
             if (respuesta.ok) {
                 const facturas = await respuesta.json();
-                if (tbody) tbody.innerHTML = "";
+                tbody.innerHTML = "";
 
                 if (facturas.length > 0) {
                     facturas.forEach(factura => {
@@ -1249,19 +1250,19 @@
                         fila.id = `fila-factura-${idFacturaReal}`;
                         
                         let colorEstatus = "black";
-                        const estatusTexto = factura.estatus_pago || "";
+                        const estatusTexto = factura.estatus_pago || factura.estatus || "";
                         if (estatusTexto.toLowerCase() === "liquidado") colorEstatus = "green";
                         else if (estatusTexto.toLowerCase() === "en proceso") colorEstatus = "orange";
                         else if (estatusTexto.toLowerCase() === "en revisión") colorEstatus = "blue";
 
                         fila.innerHTML = `
-                            <td>${factura.id_factura || ''}</td>
+                            <td>${factura.id_factura || factura.factura_id || ''}</td>
                             <td>${factura.id_paciente || ''}</td>
                             <td>${factura.dias_estancia || ''}</td>
                             <td>$${factura.costo_dia || ''}</td>
-                            <td>$${factura.insumos_medicos || ''}</td>
-                            <td>$${factura.honorarios_servicios || ''}</td>
-                            <td><strong>$${factura.total_pagar || ''}</strong></td>
+                            <td>$${factura.insumos_medicos || factura.insumos || ''}</td>
+                            <td>$${factura.honorarios_servicios || factura.honorarios || ''}</td>
+                            <td><strong>$${factura.total_pagar || factura.total || ''}</strong></td>
                             <td>${factura.metodo_pago || ''}</td>
                             <td style="color: ${colorEstatus}; font-weight: bold;">${estatusTexto}</td>
                             <td>
@@ -1273,7 +1274,7 @@
                         `;
                         tbody.appendChild(fila);
                     });
-                } else if (tbody) {
+                } else {
                     tbody.innerHTML = '<tr><td colspan="10" style="text-align:center;">No hay facturas registradas.</td></tr>';
                 }
             }
