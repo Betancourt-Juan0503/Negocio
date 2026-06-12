@@ -767,169 +767,76 @@
     <a href="?" class="boton-regresar">← Regresar al Menú Principal</a>
 </div>
 
-<div class="cuadro-blanco" id="seccion-facturas">
-    <h2>Control de Facturas e Importes</h2>
+<div class="cuadro-blanco" id="seccion-doctores">
+    <h2>Control de Personal Médico (Doctores)</h2>
+    
     <div class="formulario">
-        <h3>Registrar Factura</h3>
-        <form id="form-factura" class="mi-formulario">
-            <div class="grupo-formulario campo-form">
-                <label>ID Factura</label>
-                <input type="text" id="factura_id" required>
+        <h3>Registrar Nuevo Doctor</h3>
+        <form id="form-doctor">
+            <div class="grupo-formulario">
+                <label>ID Doctor</label>
+                <input type="text" id="doctor_id" placeholder="Ej. DOC-001" required>
             </div>
-            <div class="grupo-formulario campo-form">
-                <label>ID Paciente</label>
-                <input type="number" id="factura_id_paciente" required>
+            <div class="grupo-formulario">
+                <label>Nombre Completo</label>
+                <input type="text" id="doctor_nombre" required>
             </div>
-            <div class="grupo-formulario campo-form">
-                <label>Días Estancia</label>
-                <input type="number" id="factura_dias_estancia" required>
+            <div class="grupo-formulario">
+                <label>Especialidad</label>
+                <input type="text" id="doctor_especialidad" required>
             </div>
-            <div class="grupo-formulario campo-form">
-                <label>Costo Día</label>
-                <input type="text" id="factura_costo_dia" required>
+            <div class="grupo-formulario">
+                <label>Subespecialidad</label>
+                <input type="text" id="doctor_subespecialidad">
             </div>
-            <div class="grupo-formulario campo-form">
-                <label>Insumos Médicos</label>
-                <input type="text" id="factura_insumos" required>
+            <div class="grupo-formulario">
+                <label>CURP</label>
+                <input type="text" id="doctor_curp" required>
             </div>
-            <div class="grupo-formulario campo-form">
-                <label>Honorarios Servicios</label>
-                <input type="text" id="factura_honorarios" required>
+            <div class="grupo-formulario">
+                <label>Cédula Profesional</label>
+                <input type="text" id="doctor_cedula" required>
             </div>
-            <div class="grupo-formulario campo-form">
-                <label>Total a Pagar</label>
-                <input type="text" id="factura_total" required>
+            <div class="grupo-formulario">
+                <label>Consultorio</label>
+                <input type="text" id="doctor_consultorio" required>
             </div>
-            <div class="grupo-formulario campo-form">
-                <label>Método de Pago</label>
-                <input type="text" id="factura_metodo" required>
+            <div class="grupo-formulario">
+                <label>Teléfono</label>
+                <input type="text" id="doctor_telefono" required>
             </div>
-            <div class="grupo-formulario campo-form">
-                <label>Estatus de Pago</label>
-                <input type="text" id="factura_estatus" required>
+            <div class="grupo-formulario">
+                <label>Estatus</label>
+                <input type="text" id="doctor_estatus" placeholder="Activo / Guardia / Vacaciones" required>
             </div>
-            <button type="submit" class="btn-submit btn-guardar">Guardar Factura</button>
+            <button type="submit" class="btn-submit">Guardar Doctor</button>
         </form>
+    </div>
 
-        <div class="contenedor-tabla">
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID Factura</th>
-                        <th>ID Paciente</th>
-                        <th>Días Estancia</th>
-                        <th>Costo Día</th>
-                        <th>Insumos Médicos</th>
-                        <th>Honorarios Servicios</th>
-                        <th>Total a Pagar</th>
-                        <th>Método de Pago</th>
-                        <th>Estatus de Pago</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Fac-002</td>
-                        <td>002</td>
-                        <td>3</td>
-                        <td>$1,200</td>
-                        <td>$1,800</td>
-                        <td>$2,800</td>
-                        <td><strong>$8,200</strong></td>
-                        <td>Seguro ISSSTE</td>
-                        <td style="color: orange; font-weight: bold;">En proceso</td>
-                    </tr>
-                    <tr>
-                        <td>Fac-003</td>
-                        <td>003</td>
-                        <td>1</td>
-                        <td>$1,200</td>
-                        <td>$5,400</td>
-                        <td>$4,500</td>
-                        <td><strong>$11,100</strong></td>
-                        <td>Efectivo</td>
-                        <td style="color: green; font-weight: bold;">Liquidado</td>
-                    </tr>
-                    <tr>
-                        <td>Fac-004</td>
-                        <td>004</td>
-                        <td>4</td>
-                        <td>$1,200</td>
-                        <td>$3,200</td>
-                        <td>$3,000</td>
-                        <td><strong>$11,000</strong></td>
-                        <td>Seguro Popular</td>
-                        <td style="color: blue; font-weight: bold;">En Revisión</td>
-                    </tr>
-                    <tr>
-                        <td>Fac-005</td>
-                        <td>005</td>
-                        <td>0</td>
-                        <td>$0</td>
-                        <td>$400</td>
-                        <td>$1,200</td>
-                        <td><strong>$1,600</strong></td>
-                        <td>Tarjeta de Crédito</td>
-                        <td style="color: green; font-weight: bold;">Liquidado</td>
-                    </tr>
-                    <tr>
-                        <td>Fac-006</td>
-                        <td>006</td>
-                        <td>0</td>
-                        <td>$0</td>
-                        <td>$200</td>
-                        <td>$800</td>
-                        <td><strong>$1,000</strong></td>
-                        <td>IMSS</td>
-                        <td style="color: green; font-weight: bold;">Liquidado</td>
-                    </tr>
-                    <tr>
-                        <td>Fac-007</td>
-                        <td>007</td>
-                        <td>2</td>
-                        <td>$1,200</td>
-                        <td>$1,500</td>
-                        <td>$2,500</td>
-                        <td><strong>$6,400</strong></td>
-                        <td>ISSSTE</td>
-                        <td style="color: blue; font-weight: bold;">En Revisión</td>
-                    </tr>
-                    <tr>
-                        <td>Fac-008</td>
-                        <td>008</td>
-                        <td>6</td>
-                        <td>$1,200</td>
-                        <td>$4,500</td>
-                        <td>$5,000</td>
-                        <td><strong>$16,700</strong></td>
-                        <td>IMSS</td>
-                        <td style="color: orange; font-weight: bold;">En proceso</td>
-                    </tr>
-                    <tr>
-                        <td>Fac-009</td>
-                        <td>009</td>
-                        <td>0</td>
-                        <td>$0</td>
-                        <td>$600</td>
-                        <td>$950</td>
-                        <td><strong>$1,550</strong></td>
-                        <td>IMSS</td>
-                        <td style="color: green; font-weight: bold;">Liquidado</td>
-                    </tr>
-                    <tr>
-                        <td>Fac-010</td>
-                        <td>010</td>
-                        <td>1</td>
-                        <td>$1,200</td>
-                        <td>$2,200</td>
-                        <td>$3,800</td>
-                        <td><strong>$7,200</strong></td>
-                        <td>Seguro Privado</td>
-                        <td style="color: green; font-weight: bold;">Liquidado</td>
-                    </tr>
-              </tbody>
-            </table>
-        </div> </div> <a href="?" class="boton-regresar btn-back">← Regresar al Menú Principal</a>
-</div> <div class="cuadro-blanco" id="seccion-doctores"
+    <div class="contenedor-tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Doctor</th>
+                    <th>Nombre</th>
+                    <th>Especialidad</th>
+                    <th>Subespecialidad</th>
+                    <th>CURP</th>
+                    <th>Cédula Profesional</th>
+                    <th>Consultorio</th>
+                    <th>Teléfono</th>
+                    <th>Estatus</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-doctores-body">
+                </tbody>
+        </table>
+    </div>
+    <a href="?" class="boton-regresar">← Regresar al Menú Principal</a>
+</div>
+    
+    <div class="cuadro-blanco" id="seccion-doctores"
     <h2>Control de Personal Médico (Doctores)</h2>
     
     <div class="formulario">
@@ -1112,6 +1019,8 @@
                     <td style="color: green; font-weight: bold;">Activo</td>
                     <td><button style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Eliminar</button></td>
                 </tr>
+                <tbody id="tabla-doctores-body">
+                    </tbody>
             </tbody>
         </table>
     </div>
