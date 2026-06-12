@@ -1191,7 +1191,6 @@
                     estado_actual: document.getElementById('historial_estado').value
                 };
                 try {
-                    // Corregido de /api/facturas a /api/historial
                     const response = await fetch(`${BASE_API_URL}/api/historial`, { 
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
