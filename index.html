@@ -958,194 +958,71 @@
 </div>
 
 <div class="cuadro-blanco" id="seccion-doctores">
-    <h2>Control de Personal Médico (Doctores)</h2>
-    
+    <h2>Plantilla de Médicos Especialistas</h2>
     <div class="formulario">
-        <h3>Registrar Nuevo Doctor</h3>
-        <form id="form-doctor">
-            <div class="grupo-formulario">
+        <h3>Registrar Doctor</h3>
+        <form id="form-doctor" class="mi-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>ID Doctor</label>
-                <input type="text" id="doctor_id" placeholder="Ej. DOC-001" required>
+                <input type="text" id="doctor_id" required>
             </div>
-            <div class="grupo-formulario">
-                <label>Nombre Completo</label>
+            <div class="grupo-formulario campo-form">
+                <label>Nombre</label>
                 <input type="text" id="doctor_nombre" required>
             </div>
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Especialidad</label>
                 <input type="text" id="doctor_especialidad" required>
             </div>
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Subespecialidad</label>
-                <input type="text" id="doctor_subespecialidad">
+                <input type="text" id="doctor_subespecialidad" required>
             </div>
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>CURP</label>
                 <input type="text" id="doctor_curp" required>
             </div>
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Cédula Profesional</label>
                 <input type="text" id="doctor_cedula" required>
             </div>
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Consultorio</label>
                 <input type="text" id="doctor_consultorio" required>
             </div>
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Teléfono</label>
                 <input type="text" id="doctor_telefono" required>
             </div>
-            <div class="grupo-formulario">
+            <div class="grupo-formulario campo-form">
                 <label>Estatus</label>
-                <input type="text" id="doctor_estatus" placeholder="Activo / Guardia / Vacaciones" required>
+                <input type="text" id="doctor_estatus" required>
             </div>
-            <button type="submit" class="btn-submit">Guardar Doctor</button>
+            <button type="submit" class="btn-submit btn-guardar">Guardar Doctor</button>
         </form>
     </div>
 
     <div class="contenedor-tabla">
-        <table>
-            <thead>
-                <tr>
-                    <th>ID Doctor</th>
-                    <th>Nombre</th>
-                    <th>Especialidad</th>
-                    <th>Subespecialidad</th>
-                    <th>CURP</th>
-                    <th>Cédula Profesional</th>
-                    <th>Consultorio</th>
-                    <th>Teléfono</th>
-                    <th>Estatus</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>DOC-001</td>
-                    <td>Dr. Alejandro Sanz</td>
-                    <td>Medicina General</td>
-                    <td>Familiar</td>
-                    <td>SAA9211</td>
-                    <td>9944321-MX</td>
-                    <td>101-A</td>
-                    <td>555-123-4401</td>
-                    <td style="color: green; font-weight: bold;">Activo</td>
-                    <td><button style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Eliminar</button></td>
-                </tr>
-                <tr>
-                    <td>DOC-002</td>
-                    <td>Dr. Ricardo Gómez</td>
-                    <td>Cardiología</td>
-                    <td>Ecocardiografía</td>
-                    <td>GOR8234</td>
-                    <td>1234567-MX</td>
-                    <td>205-B</td>
-                    <td>555-123-4402</td>
-                    <td style="color: green; font-weight: bold;">Activo</td>
-                    <td><button style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Eliminar</button></td>
-                </tr>
-                <tr>
-                    <td>DOC-003</td>
-                    <td>Dra. Laura Pérez</td>
-                    <td>Traumatología</td>
-                    <td>Ortopedia</td>
-                    <td>PEL9012</td>
-                    <td>8899112-MX</td>
-                    <td>Urgencias</td>
-                    <td>555-123-4403</td>
-                    <td style="color: orange; font-weight: bold;">Guardia</td>
-                    <td><button style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Eliminar</button></td>
-                </tr>
-                <tr>
-                    <td>DOC-004</td>
-                    <td>Dra. Ana Torres</td>
-                    <td>Neumología</td>
-                    <td>Pediatría Pulmonar</td>
-                    <td>TOA8845</td>
-                    <td>4556112-MX</td>
-                    <td>301-C</td>
-                    <td>555-123-4404</td>
-                    <td style="color: green; font-weight: bold;">Activo</td>
-                    <td><button style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Eliminar</button></td>
-                </tr>
-                <tr>
-                    <td>DOC-005</td>
-                    <td>Dra. Elena Ruiz</td>
-                    <td>Ginecología</td>
-                    <td>Obstetricia</td>
-                    <td>RUE8510</td>
-                    <td>7734119-MX</td>
-                    <td>104-B</td>
-                    <td>555-123-4405</td>
-                    <td style="color: green; font-weight: bold;">Activo</td>
-                    <td><button style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Eliminar</button></td>
-                </tr>
-                <tr>
-                    <td>DOC-006</td>
-                    <td>Dr. Manuel Silva</td>
-                    <td>Medicina Interna</td>
-                    <td>Infectología</td>
-                    <td>SIM7903</td>
-                    <td>6612984-MX</td>
-                    <td>202-A</td>
-                    <td>555-123-4406</td>
-                    <td style="color: orange; font-weight: bold;">Guardia</td>
-                    <td><button style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Eliminar</button></td>
-                </tr>
-                <tr>
-                    <td>DOC-007</td>
-                    <td>Dra. Patricia León</td>
-                    <td>Neurología</td>
-                    <td>Neurofisiología</td>
-                    <td>LEP8712</td>
-                    <td>3345891-MX</td>
-                    <td>305-B</td>
-                    <td>555-123-4407</td>
-                    <td style="color: green; font-weight: bold;">Activo</td>
-                    <td><button style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Eliminar</button></td>
-                </tr>
-                <tr>
-                    <td>DOC-008</td>
-                    <td>Dr. Jose Vargas</td>
-                    <td>Cardiología</td>
-                    <td>Arritmias</td>
-                    <td>VAJ7502</td>
-                    <td>1122345-MX</td>
-                    <td>206-B</td>
-                    <td>555-123-4408</td>
-                    <td style="color: red; font-weight: bold;">Vacaciones</td>
-                    <td><button style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Eliminar</button></td>
-                </tr>
-                <tr>
-                    <td>DOC-009</td>
-                    <td>Dra. Claudia Ramos</td>
-                    <td>Hematología</td>
-                    <td>Oncohematología</td>
-                    <td>RAC9106</td>
-                    <td>5544772-MX</td>
-                    <td>108-C</td>
-                    <td>555-123-4409</td>
-                    <td style="color: green; font-weight: bold;">Activo</td>
-                    <td><button style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Eliminar</button></td>
-                </tr>
-                <tr>
-                    <td>DOC-010</td>
-                    <td>Dr. Andres Molina</td>
-                    <td>Gastroenterología</td>
-                    <td>Endoscopía</td>
-                    <td>MOA8309</td>
-                    <td>2288443-MX</td>
-                    <td>201-D</td>
-                    <td>555-123-4410</td>
-                    <td style="color: green; font-weight: bold;">Activo</td>
-                    <td><button style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Eliminar</button></td>
-                </tr>
-            </tbody>
-        </table>
+            <h3>📋 Tabla de Control de Médicos</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID Doctor</th>
+                        <th>Nombre</th>
+                        <th>Especialidad</th>
+                        <th>Subespecialidad</th>
+                        <th>CURP</th>
+                        <th>Cédula Profesional</th>
+                        <th>Consultorio</th>
+                        <th>Teléfono</th>
+                        <th>Estatus</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-doctores-body">
+                    </tbody>
+            </table>
     </div>
-    
-    <a href="?" class="boton-regresar">← Regresar al Menú Principal</a>
-</div>
+    <a href="?" class="boton-regresar btn-back">← Regresar al Menú Principal</a>
 
 <div class="cuadro-blanco" id="seccion-inventario">
     <h2>Inventario de Medicamentos e Insumos</h2>
