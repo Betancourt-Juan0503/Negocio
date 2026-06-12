@@ -1164,40 +1164,95 @@
         cargarFacturas();
     });
 
-    async function cargarInventario() {
-        const tablaBody = document.getElementById('tabla-inventario-body');
-        try {
-            const response = await fetch(`${BASE_API_URL}/api/inventario`);
-            if (response.ok) {
-                const respuesta = await response.json();
-                if (tablaBody) tablaBody.innerHTML = ''; 
-                const medicamentos = Array.isArray(respuesta) ? respuesta : respuesta.data;
+   async function cargarInventario() {
+    const tablaBody = document.getElementById('tabla-inventario-body');
+    try {
+        const response = await fetch(`${BASE_API_URL}/api/inventario`);
+        if (response.ok) {
+            const respuesta = await response.json();
+            if (tablaBody) tablaBody.innerHTML = ''; 
+            const medicamentos = Array.isArray(respuesta) ? respuesta : respuesta.data;
 
-                if (medicamentos && medicamentos.length > 0) {
-                    medicamentos.forEach(med => {
-                        const fila = document.createElement('tr');
-                        fila.setAttribute('id', `fila-${med._id}`);
-                        fila.innerHTML = `
-                            <td>${med.id_med || ''}</td>
-                            <td>${med.medicamento || ''}</td>
-                            <td>${med.presentacion || ''}</td>
-                            <td>${med.stock_inicial || ''}</td>
-                            <td>${med.cantidad_usada || ''}</td>
-                            <td>$${med.precio_unitario || ''}</td>
-                            <td>${med.caducidad || ''}</td>
-                            <td>
-                                <button onclick="eliminarRegistro('${med._id}')" style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px;">Eliminar</button>
-                            </td>
-                        `;
-                        tablaBody.appendChild(fila);
-                    });
-                } else if (tablaBody) {
-                    tablaBody.innerHTML = '<tr><td colspan="8" style="text-align:center;">No hay medicamentos registrados.</td></tr>';
-                }
+            if (medicamentos && medicamentos.length > 0) {
+                medicamentos.forEach(med => {
+                    const fila = document.createElement('tr');
+                    fila.setAttribute('id', `fila-${med._id}`);
+                    
+                    fila.innerHTML = `
+                        <td class="celda-id_med">${med.id_med || ''}</td>
+                        <td class="celda-medicamento">${med.medicamento || ''}</td>
+                        <td class="celda-presentacion">${med.presentacion || ''}</td>
+                        <td class="celda-stock_inicial">${med.stock_inicial || ''}</td>
+                        <td class="celda-cantidad_usada">${med.cantidad_usada || ''}</td>
+                        <td class="celda-precio_unitario">$${med.precio_unitario || ''}</td>
+                        <td class="celda-caducidad">${med.caducidad || ''}</td>
+                        <td>
+                            <button onclick="editarFila('${med._id}')" style="background-color: #ffcc00; color: black; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px; margin-right: 5px;">Editar</button>
+                            <button onclick="eliminarRegistro('${med._id}')" style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px;">Eliminar</button>
+                        </td>
+                    `;
+                    tablaBody.appendChild(fila);
+                });
+            } else if (tablaBody) {
+                tablaBody.innerHTML = '<tr><td colspan="8" style="text-align:center;">No hay medicamentos registrados.</td></tr>';
             }
-        } catch (error) { console.error(error); }
-    }
+        }
+    } catch (error) { console.error(error); }
+}
 
+window.editarFila = function(id) {
+    const fila = document.getElementById(`fila-${id}`);
+    if (!fila) return;
+
+    const campos = ['id_med', 'medicamento', 'presentacion', 'stock_inicial', 'cantidad_usada', 'precio_unitario', 'caducidad'];
+    
+    campos.forEach(campo => {
+        const celda = fila.querySelector(`.celda-${campo}`);
+        let valor = celda.innerText;
+        if (campo === 'precio_unitario') valor = valor.replace('$', ''); 
+        
+        celda.innerHTML = `<input type="text" value="${valor}" style="width: 90%; padding: 3px; box-sizing: border-box;">`;
+    });
+
+    const celdaAcciones = fila.cells[fila.cells.length - 1];
+    celdaAcciones.innerHTML = `
+        <button onclick="guardarCambios('${id}')" style="background-color: #28a745; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px; margin-right: 5px;">Guardar</button>
+        <button onclick="cargarInventario()" style="background-color: #6c757d; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px;">Cancelar</button>
+    `;
+}
+
+window.guardarCambios = async function(id) {
+    const fila = document.getElementById(`fila-${id}`);
+    if (!fila) return;
+
+    const datosEditados = {
+        id_med: fila.querySelector('.celda-id_med input').value,
+        medicamento: fila.querySelector('.celda-medicamento input').value,
+        presentacion: fila.querySelector('.celda-presentacion input').value,
+        stock_inicial: fila.querySelector('.celda-stock_inicial input').value,
+        cantidad_usada: fila.querySelector('.celda-cantidad_usada input').value,
+        precio_unitario: fila.querySelector('.celda-precio_unitario input').value,
+        caducidad: fila.querySelector('.celda-caducidad input').value
+    };
+
+    try {
+        const response = await fetch(`${BASE_API_URL}/api/inventario/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(datosEditados)
+        });
+
+        if (response.ok) {
+            alert('¡Conexión exitosa! Medicamento actualizado con éxito.');
+            cargarInventario();
+        } else {
+            alert('Error al intentar guardar los cambios.');
+        }
+    } catch (error) {
+        alert('No se pudo conectar con el servidor.');
+        console.error(error);
+    }
+}
     async function cargarDoctores() {
         const tablaDoctoresBody = document.getElementById('tabla-doctores-body');
         try {
