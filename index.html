@@ -1002,31 +1002,28 @@
         </form>
     </div>
 
-    <div style="display: block !important; visibility: visible !important; opacity: 1 !important; position: relative !important; z-index: 99999 !important; margin-top: 20px; padding: 15px; background: #ffffff; border: 3px dashed #ff4d4d;">
-    
-    <h3 style="color: #333; margin-bottom: 10px;">📋 Tabla de Control de Médicos</h3>
-    
-    <table style="width: 100% !important; border-collapse: collapse !important; display: table !important;">
-        <thead>
-            <tr style="background-color: #2c3e50 !important; color: white !important;">
-                <th style="padding: 10px; border: 1px solid #ddd;">ID Doctor</th>
-                <th style="padding: 10px; border: 1px solid #ddd;">Nombre</th>
-                <th style="padding: 10px; border: 1px solid #ddd;">Especialidad</th>
-                <th style="padding: 10px; border: 1px solid #ddd;">Subespecialidad</th>
-                <th style="padding: 10px; border: 1px solid #ddd;">CURP</th>
-                <th style="padding: 10px; border: 1px solid #ddd;">Cédula Profesional</th>
-                <th style="padding: 10px; border: 1px solid #ddd;">Consultorio</th>
-                <th style="padding: 10px; border: 1px solid #ddd;">Teléfono</th>
-                <th style="padding: 10px; border: 1px solid #ddd;">Estatus</th>
-            </tr>
-        </thead>
-        <tbody id="tabla-doctores-body">
-            </tbody>
-    </table>
-    
-</div>
+    <div class="contenedor-tabla">
+            <h3>📋 Tabla de Control de Médicos</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID Doctor</th>
+                        <th>Nombre</th>
+                        <th>Especialidad</th>
+                        <th>Subespecialidad</th>
+                        <th>CURP</th>
+                        <th>Cédula Profesional</th>
+                        <th>Consultorio</th>
+                        <th>Teléfono</th>
+                        <th>Estatus</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-doctores-body">
+                    </tbody>
+            </table>
+    </div>
+    <a href="?" class="boton-regresar btn-back">← Regresar al Menú Principal</a>
 
-<a href="?" class="boton-regresar btn-back" style="display: inline-block; margin-top: 15px;">← Regresar al Menú Principal</a>
 <div class="cuadro-blanco" id="seccion-inventario">
     <h2>Inventario de Medicamentos e Insumos</h2>
     <div class="formulario">
