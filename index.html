@@ -1080,9 +1080,7 @@
 
     document.addEventListener('DOMContentLoaded', () => {
         
-        // ==========================================
-        // 1. REGISTRO DE PACIENTES
-        // ==========================================
+    
         const formPacientes = document.getElementById('form-paciente');
         if (formPacientes) {
             formPacientes.addEventListener('submit', async (e) => {
@@ -1111,9 +1109,6 @@
             });
         }
 
-        // ==========================================
-        // 2. INFORMACIÓN COMPLEMENTARIA
-        // ==========================================
         const formInformacion = document.getElementById('form-informacion');
         if (formInformacion) {
             formInformacion.addEventListener('submit', async (e) => {
@@ -1142,9 +1137,7 @@
             });
         }
 
-        // ==========================================
-        // 3. CONTROL DE INGRESOS
-        // ==========================================
+     
         const formAccesos = document.getElementById('form-acceso'); 
         if (formAccesos) {
             formAccesos.addEventListener('submit', async (e) => {
@@ -1173,9 +1166,7 @@
             });
         }
 
-        // ==========================================
-        // 4. HISTORIAL CLÍNICO (Corregido Endpoint /api/historial)
-        // ==========================================
+    
         const formHistorial = document.getElementById('form-historial');
         if (formHistorial) {
             formHistorial.addEventListener('submit', async (e) => {
@@ -1204,9 +1195,7 @@
             });
         }
 
-        // ==========================================
-        // 5. FACTURACIÓN
-        // ==========================================
+       
         const formFactura = document.getElementById('form-factura');
         if (formFactura) {
             formFactura.addEventListener('submit', async (e) => {
@@ -1236,9 +1225,7 @@
             });
         }
 
-        // ==========================================
-        // 6. INVENTARIO DE MEDICAMENTOS
-        // ==========================================
+        
         const formInventario = document.getElementById('form-inventario');
         if (formInventario) {
             formInventario.addEventListener('submit', async (e) => {
@@ -1267,9 +1254,7 @@
             });
         }
 
-        // ==========================================
-        // 7. REGISTRO DE DOCTORES
-        // ==========================================
+       
         const formDoctor = document.getElementById('form-doctor'); 
         if (formDoctor) {
             formDoctor.addEventListener('submit', async (e) => {
@@ -1300,14 +1285,12 @@
             });
         }
 
-        // Llamar funciones de carga inicial al abrir el sistema
+       
         cargarInventario();
         cargarDoctores();
     });
 
-    // ==========================================
-    // FUNCIONES GLOBALES DE CARGA Y ELIMINACIÓN
-    // ==========================================
+    
     async function cargarInventario() {
         const tablaBody = document.getElementById('tabla-inventario-body');
         try {
