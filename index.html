@@ -1262,6 +1262,107 @@
             } catch (error) { alert('No se pudo conectar con el servidor para eliminar.'); }
         }
     }
+
+    const API_FACTURAS_URL = `${BASE_API_URL}/api/facturas`;
+
+async function cargarFacturas() {
+    try {
+        const respuesta = await fetch(API_FACTURAS_URL);
+        if (!respuesta.ok) throw new Error("Error al obtener las facturas");
+        
+        const facturas = await respuesta.json();
+        const tbody = document.getElementById("tabla-facturas-body");
+        
+        tbody.innerHTML = "";
+
+        facturas.forEach(factura => {
+            const fila = document.createElement("tr");
+            const idFactura = factura.factura_id || factura.id;
+            fila.id = `fila-factura-${idFactura}`;
+            
+            let colorEstatus = "black";
+            if (factura.estatus?.toLowerCase() === "liquidado") colorEstatus = "green";
+            else if (factura.estatus?.toLowerCase() === "en proceso") colorEstatus = "orange";
+            else if (factura.estatus?.toLowerCase() === "en revisión") colorEstatus = "blue";
+
+            fila.innerHTML = `
+                <td>${idFactura}</td>
+                <td>${factura.id_paciente}</td>
+                <td>${factura.dias_estancia}</td>
+                <td>$${factura.costo_dia}</td>
+                <td>$${factura.insumos}</td>
+                <td>$${factura.honorarios}</td>
+                <td><strong>$${factura.total}</strong></td>
+                <td>${factura.metodo_pago}</td>
+                <td style="color: ${colorEstatus}; font-weight: bold;">${factura.estatus}</td>
+                <td>
+                    <button onclick="eliminarFactura('${idFactura}')" 
+                            style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">
+                        Eliminar
+                    </button>
+                </td>
+            `;
+            tbody.appendChild(fila);
+        });
+    } catch (error) {
+        console.error("Error al cargar facturas:", error);
+    }
+}
+
+document.getElementById("form-factura")?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const nuevaFactura = {
+        factura_id: document.getElementById("factura_id").value,
+        id_paciente: parseInt(document.getElementById("factura_id_paciente").value),
+        dias_estancia: parseInt(document.getElementById("factura_dias_estancia").value),
+        costo_dia: document.getElementById("factura_costo_dia").value,
+        insumos: document.getElementById("factura_insumos").value,
+        honorarios: document.getElementById("factura_honorarios").value,
+        total: document.getElementById("factura_total").value,
+        metodo_pago: document.getElementById("factura_metodo").value,
+        estatus: document.getElementById("factura_estatus").value
+    };
+
+    try {
+        const respuesta = await fetch(API_FACTURAS_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(nuevaFactura)
+        });
+
+        if (respuesta.ok) {
+            alert("¡Conexión exitosa! Factura guardada en MongoDB.");
+            document.getElementById("form-factura").reset();
+            cargarFacturas();
+        } else {
+            alert("Error al registrar la factura.");
+        }
+    } catch (error) {
+        alert("No se pudo conectar con el servidor.");
+        console.error(error);
+    }
+});
+
+window.eliminarFactura = async function(id) {
+    if (confirm('¿Estás seguro de que deseas eliminar esta factura de la base de datos?')) {
+        try {
+            const response = await fetch(`${API_FACTURAS_URL}/${id}`, { method: 'DELETE' });
+            if (response.ok) {
+                alert('¡Conexión exitosa! Factura eliminada de MongoDB.');
+                document.getElementById(`fila-factura-${id}`)?.remove();
+            } else { 
+                alert('Error al intentar eliminar el registro.'); 
+            }
+        } catch (error) { 
+            alert('No se pudo conectar con el servidor para eliminar.'); 
+        }
+    }
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+    cargarFacturas();
+});
 </script>
     
 </body>
