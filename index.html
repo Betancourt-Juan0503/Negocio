@@ -1254,40 +1254,95 @@ window.guardarCambios = async function(id) {
     }
 }
     async function cargarDoctores() {
-        const tablaDoctoresBody = document.getElementById('tabla-doctores-body');
-        try {
-            const response = await fetch(`${BASE_API_URL}/api/doctores`);
-            if (response.ok) {
-                const respuesta = await response.json();
-                if (tablaDoctoresBody) tablaDoctoresBody.innerHTML = '';
-                const doctores = Array.isArray(respuesta) ? respuesta : (respuesta.data || []);
+    const tablaDoctoresBody = document.getElementById('tabla-doctores-body');
+    try {
+        const response = await fetch(`${BASE_API_URL}/api/doctores`);
+        if (response.ok) {
+            const respuesta = await response.json();
+            if (tablaDoctoresBody) tablaDoctoresBody.innerHTML = '';
+            const doctores = Array.isArray(respuesta) ? respuesta : (respuesta.data || []);
 
-                if (doctores.length > 0) {
-                    doctores.forEach(doc => {
-                        const fila = document.createElement('tr');
-                        fila.setAttribute('id', `fila-${doc._id}`); 
-                        fila.innerHTML = `
-                            <td>${doc.id_doctor || ''}</td>
-                            <td>${doc.nombre || ''}</td>
-                            <td>${doc.especialidad || ''}</td>
-                            <td>${doc.subespecialidad || ''}</td>
-                            <td>${doc.curp || ''}</td>
-                            <td>${doc.cedula_profesional || ''}</td>
-                            <td>${doc.consultorio || ''}</td>
-                            <td>${doc.telefono || ''}</td>
-                            <td style="font-weight: bold;">${doc.estatus || ''}</td>
-                            <td>
-                                <button onclick="window.eliminarDoctor('${doc._id}')" style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px;">Eliminar</button>
-                            </td>
-                        `;
-                        tablaDoctoresBody.appendChild(fila);
-                    });
-                } else if (tablaDoctoresBody) {
-                    tablaDoctoresBody.innerHTML = '<tr><td colspan="10" style="text-align:center;">No hay doctores registrados.</td></tr>';
-                }
+            if (doctores.length > 0) {
+                doctores.forEach(doc => {
+                    const fila = document.createElement('tr');
+                    fila.setAttribute('id', `fila-doc-${doc._id}`); 
+                    fila.innerHTML = `
+                        <td class="celda-id_doctor">${doc.id_doctor || ''}</td>
+                        <td class="celda-nombre">${doc.nombre || ''}</td>
+                        <td class="celda-especialidad">${doc.especialidad || ''}</td>
+                        <td class="celda-subespecialidad">${doc.subespecialidad || ''}</td>
+                        <td class="celda-curp">${doc.curp || ''}</td>
+                        <td class="celda-cedula_profesional">${doc.cedula_profesional || ''}</td>
+                        <td class="celda-consultorio">${doc.consultorio || ''}</td>
+                        <td class="celda-telefono">${doc.telefono || ''}</td>
+                        <td class="celda-estatus" style="font-weight: bold;">${doc.estatus || ''}</td>
+                        <td>
+                            <button onclick="editarFilaDoctor('${doc._id}')" style="background-color: #ffcc00; color: black; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px; margin-right: 5px;">Editar</button>
+                            <button onclick="window.eliminarDoctor('${doc._id}')" style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px;">Eliminar</button>
+                        </td>
+                    `;
+                    tablaDoctoresBody.appendChild(fila);
+                });
+            } else if (tablaDoctoresBody) {
+                tablaDoctoresBody.innerHTML = '<tr><td colspan="10" style="text-align:center;">No hay doctores registrados.</td></tr>';
             }
-        } catch (error) { console.error(error); }
+        }
+    } catch (error) { console.error(error); }
+}
+
+window.editarFilaDoctor = function(id) {
+    const fila = document.getElementById(`fila-doc-${id}`);
+    if (!fila) return;
+
+    const campos = ['id_doctor', 'nombre', 'especialidad', 'subespecialidad', 'curp', 'cedula_profesional', 'consultorio', 'telefono', 'estatus'];
+    
+    campos.forEach(campo => {
+        const celda = fila.querySelector(`.celda-${campo}`);
+        let valor = celda.innerText;
+        celda.innerHTML = `<input type="text" value="${valor}" style="width: 90%; padding: 3px; box-sizing: border-box;">`;
+    });
+
+    const celdaAcciones = fila.cells[fila.cells.length - 1];
+    celdaAcciones.innerHTML = `
+        <button onclick="guardarCambiosDoctor('${id}')" style="background-color: #28a745; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px; margin-right: 5px;">Guardar</button>
+        <button onclick="cargarDoctores()" style="background-color: #6c757d; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px;">Cancelar</button>
+    `;
+}
+
+window.guardarCambiosDoctor = async function(id) {
+    const fila = document.getElementById(`fila-doc-${id}`);
+    if (!fila) return;
+
+    const datosEditados = {
+        id_doctor: fila.querySelector('.celda-id_doctor input').value,
+        nombre: fila.querySelector('.celda-nombre input').value,
+        especialidad: fila.querySelector('.celda-especialidad input').value,
+        subespecialidad: fila.querySelector('.celda-subespecialidad input').value,
+        curp: fila.querySelector('.celda-curp input').value,
+        cedula_profesional: fila.querySelector('.celda-cedula_profesional input').value,
+        consultorio: fila.querySelector('.celda-consultorio input').value,
+        telefono: fila.querySelector('.celda-telefono input').value,
+        estatus: fila.querySelector('.celda-estatus input').value
+    };
+
+    try {
+        const response = await fetch(`${BASE_API_URL}/api/doctores/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(datosEditados)
+        });
+
+        if (response.ok) {
+            alert('¡Conexión exitosa! Datos del doctor actualizados.');
+            cargarDoctores();
+        } else {
+            alert('Error al intentar guardar los cambios.');
+        }
+    } catch (error) {
+        alert('No se pudo conectar con el servidor.');
+        console.error(error);
     }
+}
 
     async function cargarFacturas() {
         const tbody = document.getElementById("tabla-facturas-body");
